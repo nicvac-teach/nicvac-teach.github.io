@@ -590,6 +590,10 @@
                     <input type="checkbox" id="showCompresenze" checked>
                     <label for="showCompresenze">👥 Mostra compresenze</label>
                 </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="showDoveDocente">
+                    <label for="showDoveDocente">📍 Mostra posizione</label>
+                </div>
             </div>
             
             <div class="options-container" id="optionsClasse" style="display: none;">
@@ -600,6 +604,10 @@
                 <div class="checkbox-option">
                     <input type="checkbox" id="showLabClasse" checked>
                     <label for="showLabClasse">🔬 Mostra laboratori</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="showDoveClasse">
+                    <label for="showDoveClasse">📍 Mostra posizione laboratori</label>
                 </div>
             </div>
             
@@ -653,6 +661,35 @@
             4: 'Giovedì',
             5: 'Venerdì'
         };
+
+        // --- Mappa posizioni classi/laboratori ---
+        let classLocations = {};
+        let labLocations = {};
+
+        // URL CSV posizioni
+        const CLASS_LOC_URL = 'https://raw.githubusercontent.com/nicvac-teach/nicvac-teach.github.io/refs/heads/main/time_table/dove_aule.csv';
+        const LAB_LOC_URL = 'https://raw.githubusercontent.com/nicvac-teach/nicvac-teach.github.io/refs/heads/main/time_table/dove_laboratori.csv';
+
+        // Carica posizioni classi/laboratori
+        function loadLocations() {
+            fetch(CLASS_LOC_URL)
+                .then(r => r.text())
+                .then(text => {
+                    const res = Papa.parse(text, {header: true, skipEmptyLines: true});
+                    res.data.forEach(row => {
+                        if (row.Classe) classLocations[row.Classe.trim()] = row.dove ? row.dove.trim() : '-';
+                    });
+                });
+            fetch(LAB_LOC_URL)
+                .then(r => r.text())
+                .then(text => {
+                    const res = Papa.parse(text, {header: true, skipEmptyLines: true});
+                    res.data.forEach(row => {
+                        if (row.Laboratorio) labLocations[row.Laboratorio.trim()] = row.dove ? row.dove.trim() : '-';
+                    });
+                });
+        }
+        window.addEventListener('DOMContentLoaded', loadLocations);
 
         // Funzione per cambiare vista (deve essere globale per onclick)
         window.switchView = function(view) {
@@ -1284,72 +1321,56 @@
             });
         }
 
-        // Funzione per aggiornare la tabella per docente
+        // CORREZIONE: AGGIORNA POSIZIONE CELLE DOCENTE SOLO SE CHECKBOX ATTIVA
         function updateScheduleTableDocente(schedule, hours, days) {
             const tbody = document.getElementById('scheduleBody');
             tbody.innerHTML = '';
-
-            // Ottieni lo stato dei checkbox
             const showLab = document.getElementById('showLab').checked;
             const showCompresenze = document.getElementById('showCompresenze').checked;
-
+            const showDove = document.getElementById('showDoveDocente') ? document.getElementById('showDoveDocente').checked : false;
             hours.forEach(hour => {
                 const row = document.createElement('tr');
-                
-                // Colonna ora
                 const timeCell = document.createElement('td');
                 timeCell.className = 'time-slot';
                 timeCell.textContent = hour;
                 row.appendChild(timeCell);
-
-                // Colonne giorni
                 days.forEach(day => {
                     const cell = document.createElement('td');
                     const lesson = schedule[hour][day];
-                    
                     if (lesson && lesson.classe) {
                         const classType = lesson.isLabSession ? 'class-info lab-session' : 'class-info';
-                        let cellContent = `
-                            <div class="${classType}">
-                                <span class="class-name">${lesson.classe}</span>
-                                ${lesson.materia ? `<span class="subject-name">${lesson.materia}</span>` : ''}
-                        `;
-                        
-                        // Mostra laboratorio se checkbox attivo
+                        let cellContent = `<div class="${classType}">
+                            <span class="class-name">${lesson.classe}</span>`;
+                        if (showDove) {
+                            cellContent += `<span class="lab-info">📍 ${classLocations[lesson.classe] || '-'}</span>`;
+                        }
+                        cellContent += lesson.materia ? `<span class="subject-name">${lesson.materia}</span>` : '';
                         if (showLab && lesson.laboratorio) {
                             cellContent += `<span class="lab-info">🔬 ${lesson.laboratorio}</span>`;
+                            if (showDove) {
+                                cellContent += `<span class="lab-info">📍 ${labLocations[lesson.laboratorio] || '-'}</span>`;
+                            }
                         }
-                        
-                        // Mostra compresenza se checkbox attivo
                         if (showCompresenze && lesson.compresenza) {
                             cellContent += `<span class="compresenza-info">👥 con ${lesson.compresenza}</span>`;
                         }
-                        
                         cellContent += '</div>';
                         cell.innerHTML = cellContent;
-                        
-                        // Aggiungi data attributes per identificare il contenuto
                         cell.setAttribute('data-classe', lesson.classe);
                         if (lesson.materia) {
                             cell.setAttribute('data-materia', lesson.materia);
                         }
-                        
-                        // Aggiungi event listener per evidenziare celle con stesso contenuto
                         cell.addEventListener('click', function(e) {
                             e.stopPropagation();
                             clearHighlights();
                             highlightCells('classe', lesson.classe);
                         });
-                        
-                        // Aggiungi cursor pointer per indicare che è cliccabile
                         cell.style.cursor = 'pointer';
                     } else {
                         cell.innerHTML = '<span class="empty-slot">-</span>';
                     }
-                    
                     row.appendChild(cell);
                 });
-
                 tbody.appendChild(row);
             });
         }
@@ -1386,7 +1407,7 @@
 
             // Mostra info classe
             document.getElementById('teacherInfo').innerHTML = `
-                <h2>📚 Classe ${className}</h2>
+                <h2>📚 Classe ${className} 📍 ${classLocations[className] || '-'}</h2>
                 <div class="stats">
                     <span class="stat-item">📊 Ore settimanali: ${oreUniche.size}</span>
                     <span class="stat-item">👨‍🏫 Docenti: ${docentiUniche.size}</span>
@@ -1437,41 +1458,29 @@
             });
         }
 
-        // Funzione per aggiornare la tabella per classe
+        // CORREZIONE: AGGIORNA POSIZIONE CELLE CLASSE SOLO SE CHECKBOX ATTIVA
         function updateScheduleTableClasse(schedule, hours, days) {
             const tbody = document.getElementById('scheduleBody');
             tbody.innerHTML = '';
-
-            // Ottieni lo stato dei checkbox
             const showDocente = document.getElementById('showDocenteClasse').checked;
             const showLab = document.getElementById('showLabClasse').checked;
-
+            const showDove = document.getElementById('showDoveClasse') ? document.getElementById('showDoveClasse').checked : false;
             hours.forEach(hour => {
                 const row = document.createElement('tr');
-                
-                // Colonna ora
                 const timeCell = document.createElement('td');
                 timeCell.className = 'time-slot';
                 timeCell.textContent = hour;
                 row.appendChild(timeCell);
-
-                // Colonne giorni
                 days.forEach(day => {
                     const cell = document.createElement('td');
                     const lessons = schedule[hour][day];
-                    
                     if (lessons && lessons.length > 0) {
                         let cellContent = '<div class="class-info">';
-                        
-                        // Raggruppa per materia
                         const materiaMap = {};
                         lessons.forEach(lesson => {
                             const key = lesson.materia || 'Senza materia';
                             if (!materiaMap[key]) {
-                                materiaMap[key] = {
-                                    docenti: [],
-                                    laboratori: []
-                                };
+                                materiaMap[key] = {docenti: [], laboratori: []};
                             }
                             if (lesson.docente) materiaMap[key].docenti.push(lesson.docente);
                             if (lesson.docenteLab && lesson.docenteLab !== lesson.docente) {
@@ -1479,51 +1488,39 @@
                             }
                             if (lesson.laboratorio) materiaMap[key].laboratori.push(lesson.laboratorio);
                         });
-                        
-                        // Visualizza ogni materia
                         for (const [materia, info] of Object.entries(materiaMap)) {
                             cellContent += `<span class="class-name">${materia}</span>`;
-                            
-                            // Mostra docenti se checkbox attivo
                             if (showDocente && info.docenti.length > 0) {
                                 const docentiUnique = [...new Set(info.docenti)];
                                 docentiUnique.forEach(doc => {
                                     cellContent += `<span class="docente-info">👨‍🏫 ${doc}</span>`;
                                 });
                             }
-                            
-                            // Mostra laboratorio se checkbox attivo
                             if (showLab && info.laboratori.length > 0) {
                                 const labUnique = [...new Set(info.laboratori)];
                                 labUnique.forEach(lab => {
                                     cellContent += `<span class="lab-info">🔬 ${lab}</span>`;
+                                    if (showDove) {
+                                        cellContent += `<span class="lab-info">📍 ${labLocations[lab] || '-'}</span>`;
+                                    }
                                 });
                             }
                         }
-                        
                         cellContent += '</div>';
                         cell.innerHTML = cellContent;
-                        
-                        // Aggiungi data attributes per identificare le materie
                         const materie = Object.keys(materiaMap);
                         cell.setAttribute('data-materia', materie.join(','));
-                        
-                        // Aggiungi event listener per evidenziare celle con stesse materie
                         cell.addEventListener('click', function(e) {
                             e.stopPropagation();
                             clearHighlights();
                             highlightCells('materia', materie);
                         });
-                        
-                        // Aggiungi cursor pointer per indicare che è cliccabile
                         cell.style.cursor = 'pointer';
                     } else {
                         cell.innerHTML = '<span class="empty-slot">-</span>';
                     }
-                    
                     row.appendChild(cell);
                 });
-
                 tbody.appendChild(row);
             });
         }
@@ -1559,7 +1556,7 @@
 
             // Mostra info laboratorio
             document.getElementById('teacherInfo').innerHTML = `
-                <h2>🔬 ${labName}</h2>
+                <h2>🔬 ${labName} 📍 ${labLocations[labName] || '-'}</h2>
                 <div class="stats">
                     <span class="stat-item">📊 Ore di utilizzo: ${oreUniche.size}</span>
                     <span class="stat-item">📚 Classi: ${classiUniche.size}</span>
@@ -1624,65 +1621,45 @@
             });
         }
 
-        // Funzione per aggiornare la tabella per laboratorio
+        // AGGIUNTA VISUALIZZAZIONE POSIZIONE NELLA TABELLA LABORATORIO
         function updateScheduleTableLaboratorio(schedule, hours, days) {
             const tbody = document.getElementById('scheduleBody');
             tbody.innerHTML = '';
-
-            // Ottieni lo stato dei checkbox
             const showCompresenze = document.getElementById('showCompresenzeLab').checked;
-
             hours.forEach(hour => {
                 const row = document.createElement('tr');
-                
-                // Colonna ora
                 const timeCell = document.createElement('td');
                 timeCell.className = 'time-slot';
                 timeCell.textContent = hour;
                 row.appendChild(timeCell);
-
-                // Colonne giorni
                 days.forEach(day => {
                     const cell = document.createElement('td');
                     const lesson = schedule[hour][day];
-                    
                     if (lesson && lesson.classe) {
-                        let cellContent = `
-                            <div class="class-info lab-session">
-                                <span class="class-name">${lesson.classe}</span>
-                                ${lesson.materia ? `<span class="subject-name">${lesson.materia}</span>` : ''}
-                                ${lesson.docenteLab ? `<span class="docente-lab-info">🔬 ${lesson.docenteLab}</span>` : ''}
+                        let cellContent = `<div class="class-info lab-session">
+                            <span class="class-name">${lesson.classe}</span>
+                            ${lesson.materia ? `<span class="subject-name">${lesson.materia}</span>` : ''}
+                            ${lesson.docenteLab ? `<span class="docente-lab-info">🔬 ${lesson.docenteLab}</span>` : ''}
                         `;
-                        
-                        // Mostra compresenze se checkbox attivo
                         if (showCompresenze && lesson.compresenze && lesson.compresenze.length > 0) {
                             lesson.compresenze.forEach(doc => {
                                 cellContent += `<span class="compresenza-info">👥 con ${doc}</span>`;
                             });
                         }
-                        
                         cellContent += '</div>';
                         cell.innerHTML = cellContent;
-                        
-                        // Aggiungi data attributes per identificare il contenuto
                         cell.setAttribute('data-classe', lesson.classe);
-                        
-                        // Aggiungi event listener per evidenziare celle con stessa classe
                         cell.addEventListener('click', function(e) {
                             e.stopPropagation();
                             clearHighlights();
                             highlightCells('classe', lesson.classe);
                         });
-                        
-                        // Aggiungi cursor pointer per indicare che è cliccabile
                         cell.style.cursor = 'pointer';
                     } else {
                         cell.innerHTML = '<span class="empty-slot">-</span>';
                     }
-                    
                     row.appendChild(cell);
                 });
-
                 tbody.appendChild(row);
             });
         }
@@ -1692,10 +1669,12 @@
             // Checkbox per vista docente
             const showLabCheckbox = document.getElementById('showLab');
             const showCompresenzeCheckbox = document.getElementById('showCompresenze');
+            const showDoveDocenteCheckbox = document.getElementById('showDoveDocente');
             
             // Checkbox per vista classe
             const showDocenteClasseCheckbox = document.getElementById('showDocenteClasse');
             const showLabClasseCheckbox = document.getElementById('showLabClasse');
+            const showDoveClasseCheckbox = document.getElementById('showDoveClasse');
             
             // Checkbox per vista laboratorio
             const showCompresenzeLabCheckbox = document.getElementById('showCompresenzeLab');
@@ -1721,8 +1700,10 @@
             // Aggiungi listener a tutti i checkbox
             if (showLabCheckbox) showLabCheckbox.addEventListener('change', updateDisplay);
             if (showCompresenzeCheckbox) showCompresenzeCheckbox.addEventListener('change', updateDisplay);
+            if (showDoveDocenteCheckbox) showDoveDocenteCheckbox.addEventListener('change', updateDisplay);
             if (showDocenteClasseCheckbox) showDocenteClasseCheckbox.addEventListener('change', updateDisplay);
             if (showLabClasseCheckbox) showLabClasseCheckbox.addEventListener('change', updateDisplay);
+            if (showDoveClasseCheckbox) showDoveClasseCheckbox.addEventListener('change', updateDisplay);
             if (showCompresenzeLabCheckbox) showCompresenzeLabCheckbox.addEventListener('change', updateDisplay);
             
             // Aggiungi listener globale per rimuovere evidenziazioni cliccando fuori dalla tabella
