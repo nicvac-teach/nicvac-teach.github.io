@@ -280,6 +280,20 @@
             font-size: 0.95em;
         }
 
+        .info-tip {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: #e3f2fd;
+            border-radius: 8px;
+            font-size: 0.9em;
+            color: #1565c0;
+            display: inline-block;
+        }
+
+        .info-tip::before {
+            content: "💡 ";
+        }
+
         .schedule-table {
             width: 100%;
             border-collapse: separate;
@@ -312,6 +326,8 @@
             position: relative;
             min-height: 60px;
             vertical-align: top;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         .schedule-table tbody tr:hover {
@@ -326,10 +342,70 @@
             border-bottom: none;
         }
 
-        .time-slot {
+        .schedule-table td.highlighted {
+            background: #fff3cd !important;
+            box-shadow: inset 0 0 0 2px #ffc107;
+            animation: pulse 0.5s ease-out;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .class-info.highlighted-content {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 193, 7, 0.3);
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe4a1 100%) !important;
+        }
+
+        .class-info.highlighted-content .class-name,
+        .class-info.highlighted-content .subject-name {
+            font-weight: 700;
+        }
+
+        .schedule-table td:not(.time-slot):hover {
+            background: #f0f7ff !important;
+            box-shadow: inset 0 0 0 1px #667eea;
+        }
+
+        /* Stili per celle cliccabili */
+        .schedule-table td[data-classe]:not(.time-slot),
+        .schedule-table td[data-materia]:not(.time-slot) {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .schedule-table td[data-classe]:not(.time-slot):hover::before,
+        .schedule-table td[data-materia]:not(.time-slot):hover::before {
+            content: '👆 Clicca per evidenziare';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            white-space: nowrap;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .schedule-table td.time-slot {
             font-weight: 600;
             color: #667eea;
             background: #f5f7fa;
+            cursor: default;
         }
 
         .class-info {
@@ -1038,6 +1114,57 @@
             }, 5000);
         }
 
+        // Funzione unificata per evidenziare celle (GLOBALE)
+        function highlightCells(type, value) {
+            // Prima rimuovi evidenziazioni precedenti
+            clearHighlights();
+            
+            console.log(`Evidenziando per ${type}:`, value);
+            
+            const cells = document.querySelectorAll('#scheduleBody td');
+            
+            if (type === 'classe') {
+                // Evidenzia tutte le celle con la stessa classe
+                cells.forEach(cell => {
+                    if (cell.getAttribute('data-classe') === value) {
+                        cell.classList.add('highlighted');
+                        const content = cell.querySelector('.class-info');
+                        if (content) content.classList.add('highlighted-content');
+                    }
+                });
+            } else if (type === 'materia') {
+                // value è un array di materie
+                const materieArray = Array.isArray(value) ? value : [value];
+                
+                cells.forEach(cell => {
+                    const cellMaterie = cell.getAttribute('data-materia');
+                    if (cellMaterie) {
+                        const cellMaterieArray = cellMaterie.split(',');
+                        // Controlla se c'è almeno una materia in comune
+                        const hasCommon = materieArray.some(m => cellMaterieArray.includes(m));
+                        if (hasCommon) {
+                            cell.classList.add('highlighted');
+                            const content = cell.querySelector('.class-info');
+                            if (content) content.classList.add('highlighted-content');
+                        }
+                    }
+                });
+            }
+        }
+        
+        // Funzione per rimuovere tutte le evidenziazioni (GLOBALE)
+        function clearHighlights() {
+            const highlightedCells = document.querySelectorAll('.highlighted');
+            highlightedCells.forEach(cell => {
+                cell.classList.remove('highlighted');
+            });
+            
+            const highlightedContent = document.querySelectorAll('.highlighted-content');
+            highlightedContent.forEach(content => {
+                content.classList.remove('highlighted-content');
+            });
+        }
+
         // Mostra l'orario del docente
         function displayScheduleDocente(teacherName) {
             // Filtra i dati per il docente selezionato
@@ -1080,6 +1207,7 @@
                     <span class="stat-item">📖 Materie: ${materiUniche.size}</span>
                     ${labUniche.size > 0 ? `<span class="stat-item">🔬 Laboratori: ${labUniche.size}</span>` : ''}
                 </div>
+                <div class="info-tip">Clicca su una classe per evidenziarla nell'orario</div>
             `;
 
             // Organizza i dati per giorno e ora
@@ -1199,6 +1327,22 @@
                         
                         cellContent += '</div>';
                         cell.innerHTML = cellContent;
+                        
+                        // Aggiungi data attributes per identificare il contenuto
+                        cell.setAttribute('data-classe', lesson.classe);
+                        if (lesson.materia) {
+                            cell.setAttribute('data-materia', lesson.materia);
+                        }
+                        
+                        // Aggiungi event listener per evidenziare celle con stesso contenuto
+                        cell.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            clearHighlights();
+                            highlightCells('classe', lesson.classe);
+                        });
+                        
+                        // Aggiungi cursor pointer per indicare che è cliccabile
+                        cell.style.cursor = 'pointer';
                     } else {
                         cell.innerHTML = '<span class="empty-slot">-</span>';
                     }
@@ -1249,6 +1393,7 @@
                     <span class="stat-item">📖 Materie: ${materiUniche.size}</span>
                     ${labUniche.size > 0 ? `<span class="stat-item">🔬 Laboratori: ${labUniche.size}</span>` : ''}
                 </div>
+                <div class="info-tip">Clicca su una materia per evidenziarla nell'orario</div>
             `;
 
             // Organizza i dati per giorno e ora
@@ -1358,6 +1503,20 @@
                         
                         cellContent += '</div>';
                         cell.innerHTML = cellContent;
+                        
+                        // Aggiungi data attributes per identificare le materie
+                        const materie = Object.keys(materiaMap);
+                        cell.setAttribute('data-materia', materie.join(','));
+                        
+                        // Aggiungi event listener per evidenziare celle con stesse materie
+                        cell.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            clearHighlights();
+                            highlightCells('materia', materie);
+                        });
+                        
+                        // Aggiungi cursor pointer per indicare che è cliccabile
+                        cell.style.cursor = 'pointer';
                     } else {
                         cell.innerHTML = '<span class="empty-slot">-</span>';
                     }
@@ -1407,6 +1566,7 @@
                     <span class="stat-item">👨‍🏫 Docenti: ${docentiUniche.size}</span>
                     <span class="stat-item">📖 Materie: ${materiUniche.size}</span>
                 </div>
+                <div class="info-tip">Clicca su una classe per evidenziarla nell'orario</div>
             `;
 
             // Organizza i dati per giorno e ora
@@ -1503,6 +1663,19 @@
                         
                         cellContent += '</div>';
                         cell.innerHTML = cellContent;
+                        
+                        // Aggiungi data attributes per identificare il contenuto
+                        cell.setAttribute('data-classe', lesson.classe);
+                        
+                        // Aggiungi event listener per evidenziare celle con stessa classe
+                        cell.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            clearHighlights();
+                            highlightCells('classe', lesson.classe);
+                        });
+                        
+                        // Aggiungi cursor pointer per indicare che è cliccabile
+                        cell.style.cursor = 'pointer';
                     } else {
                         cell.innerHTML = '<span class="empty-slot">-</span>';
                     }
@@ -1514,7 +1687,7 @@
             });
         }
 
-        // Aggiungi listener per i checkbox
+        // Inizializza event listener per i checkbox
         document.addEventListener('DOMContentLoaded', function() {
             // Checkbox per vista docente
             const showLabCheckbox = document.getElementById('showLab');
@@ -1551,6 +1724,14 @@
             if (showDocenteClasseCheckbox) showDocenteClasseCheckbox.addEventListener('change', updateDisplay);
             if (showLabClasseCheckbox) showLabClasseCheckbox.addEventListener('change', updateDisplay);
             if (showCompresenzeLabCheckbox) showCompresenzeLabCheckbox.addEventListener('change', updateDisplay);
+            
+            // Aggiungi listener globale per rimuovere evidenziazioni cliccando fuori dalla tabella
+            document.addEventListener('click', function(e) {
+                // Se il click è fuori dalla tabella, rimuovi evidenziazioni
+                if (!e.target.closest('#scheduleTable')) {
+                    clearHighlights();
+                }
+            });
         });
 
         // Gestione enter sulla ricerca
