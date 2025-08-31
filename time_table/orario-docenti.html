@@ -545,8 +545,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>📚 Orario Docenti</h1>
-            <p>Visualizza l'orario di ogni docente</p>
+            <h1>📚 Orario IISS Marconi - Hack</h1>
         </div>
 
         <div class="status-section">
@@ -643,7 +642,8 @@
         let currentSchedule = {};
 
         // URL diretto del file CSV su GitHub Raw
-        const CSV_URL = 'https://raw.githubusercontent.com/nicvac-teach/Filebox/main/orario_mat_labs.csv';
+        const CSV_URL = 'https://raw.githubusercontent.com/nicvac-teach/nicvac-teach.github.io/refs/heads/main/time_table/orario_mat_labs.csv';
+        
 
         // Mappatura giorni (numero -> nome) - Sabato rimosso
         const dayMapping = {
@@ -1317,7 +1317,7 @@
                         
                         // Mostra laboratorio se checkbox attivo
                         if (showLab && lesson.laboratorio) {
-                            cellContent += `<span class="lab-info">📍 ${lesson.laboratorio}</span>`;
+                            cellContent += `<span class="lab-info">🔬 ${lesson.laboratorio}</span>`;
                         }
                         
                         // Mostra compresenza se checkbox attivo
@@ -1496,7 +1496,7 @@
                             if (showLab && info.laboratori.length > 0) {
                                 const labUnique = [...new Set(info.laboratori)];
                                 labUnique.forEach(lab => {
-                                    cellContent += `<span class="lab-info">📍 ${lab}</span>`;
+                                    cellContent += `<span class="lab-info">🔬 ${lab}</span>`;
                                 });
                             }
                         }
