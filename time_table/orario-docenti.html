@@ -348,6 +348,38 @@
             animation: pulse 0.5s ease-out;
         }
 
+        .schedule-table td.current-time {
+            background: #d4edda !important;
+            box-shadow: inset 0 0 0 3px #28a745;
+            animation: currentTimePulse 2s ease-in-out infinite;
+            position: relative;
+        }
+
+        .schedule-table td.current-time::after {
+            content: '🕐 ORA CORRENTE';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #28a745;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: bold;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        @keyframes currentTimePulse {
+            0%, 100% {
+                box-shadow: inset 0 0 0 3px #28a745, 0 0 0 0 rgba(40, 167, 69, 0.7);
+            }
+            50% {
+                box-shadow: inset 0 0 0 3px #28a745, 0 0 0 10px rgba(40, 167, 69, 0);
+            }
+        }
+
         @keyframes pulse {
             0% {
                 transform: scale(1);
@@ -648,9 +680,11 @@
         let laboratories = new Set();
         let currentView = 'docente';
         let currentSchedule = {};
+        let scheduleData = []; // Dati della scansione oraria
 
         // URL diretto del file CSV su GitHub Raw
         const CSV_URL = 'https://raw.githubusercontent.com/nicvac-teach/nicvac-teach.github.io/refs/heads/main/time_table/orario_mat_labs.csv';
+        const SCHEDULE_URL = 'https://raw.githubusercontent.com/nicvac-teach/nicvac-teach.github.io/refs/heads/main/time_table/scansione_oraria.csv';
         
 
         // Mappatura giorni (numero -> nome) - Sabato rimosso
@@ -751,6 +785,7 @@
             
             // Tenta il caricamento
             loadCSVFromURL();
+            loadScheduleData();
         });
 
         // Carica il CSV dall'URL
@@ -1076,6 +1111,164 @@
             console.log(`Popolato select con ${sortedLabs.length} laboratori`);
         }
 
+        // Carica la scansione oraria dall'URL
+        function loadScheduleData() {
+            console.log('Caricamento scansione oraria da:', SCHEDULE_URL);
+            
+            fetch(SCHEDULE_URL)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(text => {
+                    console.log('Scansione oraria caricata con successo');
+                    parseScheduleData(text);
+                    startCurrentTimeHighlighting();
+                })
+                .catch(error => {
+                    console.error('Errore nel caricamento della scansione oraria:', error);
+                    // Carica dati di esempio se il caricamento fallisce
+                    loadSampleScheduleData();
+                });
+        }
+
+        // Parse della scansione oraria
+        function parseScheduleData(text) {
+            const results = Papa.parse(text, {
+                header: true,
+                dynamicTyping: false,
+                skipEmptyLines: true,
+                delimiter: ','
+            });
+
+            scheduleData = results.data.map(row => ({
+                from: row.from.trim(),
+                to: row.to.trim(), 
+                ora: parseInt(row.ora)
+            })).filter(item => item.from && item.to && !isNaN(item.ora));
+
+            console.log('Scansione oraria caricata:', scheduleData.length, 'intervalli');
+        }
+
+        // Carica dati di esempio per la scansione oraria
+        function loadSampleScheduleData() {
+            const sampleSchedule = `from,to,ora
+7:55,8:50,1
+8:51,9:45,2
+9:46,10:40,3
+10:41,11:35,4
+11:36,12:30,5
+12:31,13:25,6
+13:26,14:20,7
+14:55,15:50,1
+15:51,16:45,2
+16:46,17:40,3
+17:41,18:35,4
+18:36,19:30,5
+19:31,20:25,6
+20:26,21:20,7`;
+            
+            console.log('Caricamento scansione oraria di esempio...');
+            parseScheduleData(sampleSchedule);
+            startCurrentTimeHighlighting();
+        }
+
+        // Ottiene l'ora corrente in formato "HH:mm"
+        function getCurrentTime() {
+            const now = new Date();
+            return now.getHours().toString().padStart(2, '0') + ':' + 
+                   now.getMinutes().toString().padStart(2, '0');
+        }
+
+        // Ottiene il giorno corrente (1-5 per Lunedì-Venerdì)
+        function getCurrentDay() {
+            const now = new Date();
+            const day = now.getDay(); // 0=Domenica, 1=Lunedì, ..., 6=Sabato
+            return day >= 1 && day <= 5 ? day : null; // Ritorna null per weekend
+            //return 3
+        }
+
+        // Converte "HH:mm" in minuti dall'inizio del giorno
+        function timeToMinutes(timeStr) {
+            const [hours, minutes] = timeStr.split(':').map(Number);
+            return hours * 60 + minutes;
+        }
+
+        // Trova l'ora della lezione in base all'ora corrente
+        function getCurrentLesson(currentTime) {
+            const currentMinutes = timeToMinutes(currentTime);
+            
+            for (let schedule of scheduleData) {
+                const fromMinutes = timeToMinutes(schedule.from);
+                const toMinutes = timeToMinutes(schedule.to);
+                
+                if (currentMinutes >= fromMinutes && currentMinutes <= toMinutes) {
+                    return schedule.ora;
+                }
+            }
+            return null;
+        }
+
+        // Evidenzia la cella dell'ora corrente
+        function highlightCurrentTime() {
+            // Rimuovi evidenziazioni precedenti
+            document.querySelectorAll('.current-time').forEach(cell => {
+                cell.classList.remove('current-time');
+            });
+
+            const currentTime = getCurrentTime();
+            const currentDay = getCurrentDay();
+            const currentLesson = getCurrentLesson(currentTime);
+
+            // Solo per debug durante lo sviluppo
+            if (currentDay === 3) { // Solo quando è mercoledì (debug)
+                console.log(`Ora corrente: ${currentTime}, Giorno: ${currentDay}, Lezione: ${currentLesson}`);
+            }
+
+            // Se non è un giorno lavorativo o non c'è lezione, non evidenziare nulla
+            if (!currentDay || !currentLesson) {
+                return;
+            }
+
+            // Trova la cella corrispondente nella tabella
+            const dayNames = ['', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì'];
+            const dayName = dayNames[currentDay];
+            const hourName = `${currentLesson}ª ora`;
+
+            // Trova tutte le righe della tabella
+            const tbody = document.getElementById('scheduleBody');
+            if (!tbody) return;
+
+            const rows = tbody.querySelectorAll('tr');
+            rows.forEach(row => {
+                const timeCell = row.querySelector('.time-slot');
+                if (timeCell && timeCell.textContent === hourName) {
+                    // Trova la colonna corrispondente al giorno
+                    const cells = row.querySelectorAll('td');
+                    const headers = document.querySelectorAll('#scheduleTable thead th');
+                    
+                    for (let i = 1; i < headers.length; i++) {
+                        if (headers[i].textContent === dayName && cells[i]) {
+                            cells[i].classList.add('current-time');
+                            console.log(`Evidenziata cella: ${hourName} - ${dayName}`);
+                            break;
+                        }
+                    }
+                }
+            });
+        }
+
+        // Avvia l'evidenziazione dell'ora corrente con aggiornamento periodico
+        function startCurrentTimeHighlighting() {
+            // Evidenzia immediatamente
+            setTimeout(highlightCurrentTime, 1000); // Ritardo di 1 secondo per assicurarsi che la tabella sia pronta
+            
+            // Aggiorna ogni minuto
+            setInterval(highlightCurrentTime, 60000);
+        }
+
         // Ricerca in tempo reale
         document.getElementById('searchInput').addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
@@ -1373,6 +1566,9 @@
                 });
                 tbody.appendChild(row);
             });
+            
+            // Evidenzia l'ora corrente dopo aver aggiornato la tabella
+            setTimeout(highlightCurrentTime, 100);
         }
 
         // Mostra l'orario della classe
@@ -1523,6 +1719,9 @@
                 });
                 tbody.appendChild(row);
             });
+            
+            // Evidenzia l'ora corrente dopo aver aggiornato la tabella
+            setTimeout(highlightCurrentTime, 100);
         }
 
         // Mostra l'orario del laboratorio
@@ -1662,6 +1861,9 @@
                 });
                 tbody.appendChild(row);
             });
+            
+            // Evidenzia l'ora corrente dopo aver aggiornato la tabella
+            setTimeout(highlightCurrentTime, 100);
         }
 
         // Inizializza event listener per i checkbox
