@@ -738,32 +738,23 @@
             const sampleCSV = `Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 3IC,1,1,Rossi M.,Matematica,,,
 3IC,1,2,Rossi M.,Matematica,,,
-3IC,1,3,Vacca N.,Informatica,Lab Info 2,Vacca N.,Informatica
-3IC,1,3,Bianchi L.,Informatica,,,
-3IC,1,4,Verdi G.,Fisica,Lab Fisica,Verdi G.,Fisica
-3IC,1,4,Rossi M.,Fisica,,,
+3IC,1,3,Bianchi L.,Informatica,Lab Info 2,Vacca N.,Informatica
+3IC,1,4,Rossi M.,Fisica,Lab Fisica,Verdi G.,Fisica
 3IC,2,1,Bianchi L.,Italiano,,,
 3IC,2,2,Bianchi L.,Italiano,,,
 3IC,2,3,Vacca N.,Informatica,Lab Info 2,Neri P.,Informatica
-3IC,2,4,Vacca N.,Sistemi,Lab Info 1,Vacca N.,Sistemi
-3IC,2,4,Gialli S.,Sistemi,,,
+3IC,2,4,Gialli S.,Sistemi,Lab Info 1,Vacca N.,Sistemi
 2AB,1,1,Rossi M.,Matematica,,,
-2AB,1,2,Verdi G.,Scienze,Lab Chimica,Verdi G.,Scienze
-2AB,1,2,Blu T.,Scienze,,,
-2AB,2,3,Rossi M.,Matematica,Lab Info 1,Rossi M.,Matematica
-2AB,2,3,Verdi G.,Matematica,,,
+2AB,1,2,Blu T.,Scienze,Lab Chimica,Verdi G.,Scienze
+2AB,2,3,Verdi G.,Matematica,Lab Info 1,Rossi M.,Matematica
 2AB,3,1,Vacca N.,Informatica,,,
-2AB,3,2,Vacca N.,Informatica,Lab Info 1,Vacca N.,Informatica
-2AB,3,2,Gialli S.,Informatica,,,
+2AB,3,2,Gialli S.,Informatica,Lab Info 1,Vacca N.,Informatica
 4DE,3,1,Bianchi L.,Italiano,,,
 4DE,3,2,Bianchi L.,Italiano,,,
-4DE,4,3,Vacca N.,Sistemi,Lab Info 1,Vacca N.,Sistemi
-4DE,4,3,Blu T.,Sistemi,,,
-1CD,4,4,Verdi G.,Scienze,Lab Chimica,Verdi G.,Scienze
-1CD,4,4,Rossi M.,Scienze,,,
+4DE,4,3,Blu T.,Sistemi,Lab Info 1,Vacca N.,Sistemi
+1CD,4,4,Rossi M.,Scienze,Lab Chimica,Verdi G.,Scienze
 5EF,5,2,Verdi G.,Scienze,,,
-5EF,5,3,Neri P.,Informatica,Lab Info 2,Neri P.,Informatica
-5EF,5,3,Vacca N.,Informatica,,,`;
+5EF,5,3,Vacca N.,Informatica,Lab Info 2,Neri P.,Informatica`;
 
             console.log('Caricamento dati di esempio...');
             parseCSV(sampleCSV);
@@ -1062,11 +1053,11 @@
                 return;
             }
 
-            // Calcola statistiche
+            // Calcola statistiche - conta ore uniche
             const classiUniche = new Set();
             const materiUniche = new Set();
             const labUniche = new Set();
-            let oreSettimanali = 0;
+            const oreUniche = new Set();
 
             teacherData.forEach(row => {
                 if (row.Classe) classiUniche.add(row.Classe);
@@ -1074,14 +1065,17 @@
                     materiUniche.add(row.Materia || row.DocenteLabMateria);
                 }
                 if (row.Laboratorio) labUniche.add(row.Laboratorio);
-                oreSettimanali++;
+                // Conta ore uniche per evitare duplicati in caso di compresenze
+                if (row.Giorno && row.Ora && row.Classe) {
+                    oreUniche.add(`${row.Giorno}-${row.Ora}-${row.Classe}`);
+                }
             });
 
             // Mostra info docente con statistiche
             document.getElementById('teacherInfo').innerHTML = `
                 <h2>👨‍🏫 ${teacherName}</h2>
                 <div class="stats">
-                    <span class="stat-item">📊 Ore settimanali: ${oreSettimanali}</span>
+                    <span class="stat-item">📊 Ore settimanali: ${oreUniche.size}</span>
                     <span class="stat-item">📚 Classi: ${classiUniche.size}</span>
                     <span class="stat-item">📖 Materie: ${materiUniche.size}</span>
                     ${labUniche.size > 0 ? `<span class="stat-item">🔬 Laboratori: ${labUniche.size}</span>` : ''}
@@ -1090,7 +1084,7 @@
 
             // Organizza i dati per giorno e ora
             const schedule = {};
-            const hours = ['1ª ora', '2ª ora', '3ª ora', '4ª ora', '5ª ora', '6ª ora', '7ª ora', '8ª ora'];
+            const hours = ['1ª ora', '2ª ora', '3ª ora', '4ª ora', '5ª ora', '6ª ora', '7ª ora'];
             const days = ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì'];
 
             // Inizializza la struttura
@@ -1228,11 +1222,11 @@
                 return;
             }
 
-            // Calcola statistiche
+            // Calcola statistiche - conta ore uniche (non righe duplicate per compresenze)
             const docentiUniche = new Set();
             const materiUniche = new Set();
             const labUniche = new Set();
-            let oreSettimanali = classData.length;
+            const oreUniche = new Set();
 
             classData.forEach(row => {
                 if (row.Docente) docentiUniche.add(row.Docente);
@@ -1240,13 +1234,17 @@
                 if (row.Materia) materiUniche.add(row.Materia);
                 if (row.DocenteLabMateria) materiUniche.add(row.DocenteLabMateria);
                 if (row.Laboratorio) labUniche.add(row.Laboratorio);
+                // Conta ore uniche (giorno-ora)
+                if (row.Giorno && row.Ora) {
+                    oreUniche.add(`${row.Giorno}-${row.Ora}`);
+                }
             });
 
             // Mostra info classe
             document.getElementById('teacherInfo').innerHTML = `
                 <h2>📚 Classe ${className}</h2>
                 <div class="stats">
-                    <span class="stat-item">📊 Ore settimanali: ${oreSettimanali}</span>
+                    <span class="stat-item">📊 Ore settimanali: ${oreUniche.size}</span>
                     <span class="stat-item">👨‍🏫 Docenti: ${docentiUniche.size}</span>
                     <span class="stat-item">📖 Materie: ${materiUniche.size}</span>
                     ${labUniche.size > 0 ? `<span class="stat-item">🔬 Laboratori: ${labUniche.size}</span>` : ''}
@@ -1255,7 +1253,7 @@
 
             // Organizza i dati per giorno e ora
             const schedule = {};
-            const hours = ['1ª ora', '2ª ora', '3ª ora', '4ª ora', '5ª ora', '6ª ora', '7ª ora', '8ª ora'];
+            const hours = ['1ª ora', '2ª ora', '3ª ora', '4ª ora', '5ª ora', '6ª ora', '7ª ora'];
             const days = ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì'];
 
             // Inizializza la struttura
@@ -1383,24 +1381,28 @@
                 return;
             }
 
-            // Calcola statistiche
+            // Calcola statistiche - conta ore uniche (non righe duplicate per compresenze)
             const classiUniche = new Set();
             const docentiUniche = new Set();
             const materiUniche = new Set();
-            let oreSettimanali = labData.length;
+            const oreUniche = new Set();
 
             labData.forEach(row => {
                 if (row.Classe) classiUniche.add(row.Classe);
                 if (row.DocenteLab) docentiUniche.add(row.DocenteLab);
                 if (row.Docente) docentiUniche.add(row.Docente);
                 if (row.DocenteLabMateria) materiUniche.add(row.DocenteLabMateria);
+                // Conta ore uniche di utilizzo (giorno-ora)
+                if (row.Giorno && row.Ora) {
+                    oreUniche.add(`${row.Giorno}-${row.Ora}`);
+                }
             });
 
             // Mostra info laboratorio
             document.getElementById('teacherInfo').innerHTML = `
                 <h2>🔬 ${labName}</h2>
                 <div class="stats">
-                    <span class="stat-item">📊 Ore di utilizzo: ${oreSettimanali}</span>
+                    <span class="stat-item">📊 Ore di utilizzo: ${oreUniche.size}</span>
                     <span class="stat-item">📚 Classi: ${classiUniche.size}</span>
                     <span class="stat-item">👨‍🏫 Docenti: ${docentiUniche.size}</span>
                     <span class="stat-item">📖 Materie: ${materiUniche.size}</span>
@@ -1409,7 +1411,7 @@
 
             // Organizza i dati per giorno e ora
             const schedule = {};
-            const hours = ['1ª ora', '2ª ora', '3ª ora', '4ª ora', '5ª ora', '6ª ora', '7ª ora', '8ª ora'];
+            const hours = ['1ª ora', '2ª ora', '3ª ora', '4ª ora', '5ª ora', '6ª ora', '7ª ora'];
             const days = ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì'];
 
             // Inizializza la struttura
@@ -1426,20 +1428,25 @@
                 const ora = row.Ora ? `${row.Ora}ª ora` : null;
                 
                 if (giorno && ora && schedule[ora]) {
-                    // Trova eventuali compresenze (altri docenti nella stessa classe/ora)
-                    const compresenze = csvData.filter(r => 
-                        r.Classe === row.Classe &&
+                    // Per trovare le compresenze nel laboratorio:
+                    // La compresenza è il Docente quando Docente != DocenteLab
+                    // per stesso laboratorio, giorno, ora
+                    const compresenze = labData.filter(r => 
                         r.Giorno === row.Giorno &&
                         r.Ora === row.Ora &&
-                        r.Docente !== row.DocenteLab &&
-                        r.Laboratorio !== row.Laboratorio
+                        r.Docente && // deve avere un docente
+                        r.DocenteLab && // deve avere un docente lab
+                        r.Docente !== r.DocenteLab // e devono essere diversi
                     ).map(r => r.Docente);
+                    
+                    // Rimuovi duplicati
+                    const compresenzeUniche = [...new Set(compresenze)];
                     
                     schedule[ora][giorno] = {
                         classe: row.Classe || '',
                         materia: row.DocenteLabMateria || row.Materia || '',
                         docenteLab: row.DocenteLab || '',
-                        compresenze: [...new Set(compresenze)]
+                        compresenze: compresenzeUniche
                     };
                 }
             });
