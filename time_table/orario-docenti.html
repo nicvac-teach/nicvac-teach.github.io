@@ -1328,7 +1328,7 @@
                 const fromMinutes = timeToMinutes(schedule.from);
                 const toMinutes = timeToMinutes(schedule.to);
                 
-                if (currentMinutes >= fromMinutes && currentMinutes <= toMinutes) {
+                if (currentMinutes >= fromMinutes && currentMinutes < toMinutes) {
                     return {
                         ora: schedule.ora,
                         label: schedule.label
@@ -1347,7 +1347,7 @@
                 const fromMinutes = timeToMinutes(schedule.from);
                 const toMinutes = timeToMinutes(schedule.to);
                 
-                if (currentMinutes >= fromMinutes && currentMinutes <= toMinutes) {
+                if (currentMinutes >= fromMinutes && currentMinutes < toMinutes) {
                     return {
                         ora: schedule.ora,
                         label: schedule.label
@@ -1366,7 +1366,7 @@
                 const fromMinutes = timeToMinutes(schedule.from);
                 const toMinutes = timeToMinutes(schedule.to);
                 
-                if (currentMinutes >= fromMinutes && currentMinutes <= toMinutes) {
+                if (currentMinutes >= fromMinutes && currentMinutes < toMinutes) {
                     activeHours.set(schedule.ora, schedule.label);
                 }
             }
