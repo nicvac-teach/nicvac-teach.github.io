@@ -1428,14 +1428,40 @@
             const dayNames = ['', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì'];
             const dayName = dayNames[currentDay];
 
-            // Determina se aggiungere la label (solo se ci sono più celle da evidenziare)
-            const shouldShowLabel = currentLessons.length > 1;
-            const labelText = shouldShowLabel && currentLessons[0] && currentLessons[0].label ? ` (${currentLessons[0].label})` : '';
+            // Raggruppa le lezioni per ora
+            const lessonsByHour = {};
+            currentLessons.forEach(lesson => {
+                if (!lessonsByHour[lesson.ora]) {
+                    lessonsByHour[lesson.ora] = [];
+                }
+                lessonsByHour[lesson.ora].push(lesson);
+            });
+
+            // Verifica se ci sono più ore diverse
+            const hoursCount = Object.keys(lessonsByHour).length;
 
             // Evidenzia tutte le ore attive
-            currentLessons.forEach((lesson, index) => {
-                const lessonNumber = lesson.ora;
-                const hourName = `${lessonNumber}ª ora`;
+            Object.keys(lessonsByHour).forEach(hourNumber => {
+                const lessonsInHour = lessonsByHour[hourNumber];
+                const uniqueLabelsInHour = new Set(lessonsInHour.map(lesson => lesson.label).filter(label => label));
+                
+                // Determina la label da mostrare per questa ora specifica
+                let labelForThisHour = '';
+                
+                if (hoursCount > 1) {
+                    // Caso 1: Più ore diverse -> mostra la label specifica per ciascuna ora
+                    if (lessonsInHour[0] && lessonsInHour[0].label) {
+                        labelForThisHour = ` (${lessonsInHour[0].label})`;
+                    }
+                } else if (uniqueLabelsInHour.size > 1) {
+                    // Caso 2: Stessa ora ma label diverse -> nessuna label (conflitto)
+                    labelForThisHour = '';
+                } else {
+                    // Caso 3: Una sola tupla o stessa ora con stessa label -> nessuna label
+                    labelForThisHour = '';
+                }
+                
+                const hourName = `${hourNumber}ª ora`;
                 
                 const rows = tbody.querySelectorAll('tr');
                 rows.forEach(row => {
@@ -1448,13 +1474,8 @@
                         for (let i = 1; i < headers.length; i++) {
                             if (headers[i].textContent === dayName && cells[i]) {
                                 cells[i].classList.add('current-time');
-                                
-                                // Aggiungi attributo per la label personalizzata solo alla prima cella
-                                if (index === 0) {
-                                    cells[i].setAttribute('data-current-time-label', labelText);
-                                }
-                                
-                                console.log(`Evidenziata cella: ${hourName} - ${dayName} (Vista: ${currentView})`);
+                                cells[i].setAttribute('data-current-time-label', labelForThisHour);
+                                console.log(`Evidenziata cella: ${hourName} - ${dayName} (Vista: ${currentView}) - Label: ${labelForThisHour}`);
                                 break;
                             }
                         }
