@@ -1219,6 +1219,7 @@
             });
 
             scheduleData = results.data.map(row => ({
+                classe_re: row.classe_re ? row.classe_re.trim() : '',
                 from: row.from.trim(),
                 to: row.to.trim(), 
                 ora: parseInt(row.ora)
@@ -1227,23 +1228,68 @@
             console.log('Scansione oraria caricata:', scheduleData.length, 'intervalli');
         }
 
+        // Filtra la scansione oraria per classe usando regex
+        function getScheduleForClass(className) {
+            if (!className) {
+                console.warn('getScheduleForClass: nome classe non fornito');
+                return scheduleData;
+            }
+            
+            for (let schedule of scheduleData) {
+                if (schedule.classe_re) {
+                    try {
+                        const regex = new RegExp(schedule.classe_re);
+                        if (regex.test(className)) {
+                            const filtered = scheduleData.filter(s => s.classe_re === schedule.classe_re);
+                            console.log(`Scansione oraria filtrata per classe ${className} con regex ${schedule.classe_re}: ${filtered.length} intervalli`);
+                            return filtered;
+                        }
+                    } catch (e) {
+                        console.warn(`Regex non valida: ${schedule.classe_re}`, e);
+                    }
+                }
+            }
+            
+            console.warn(`Nessuna scansione oraria trovata per classe: ${className}`);
+            return [];
+        }
+
+        // Trova la prima classe di un giorno specifico per un docente o laboratorio
+        function getFirstClassForDay(filteredData, dayName, entityName, viewType) {
+            const dayRows = filteredData.filter(row => {
+                const rowDayName = dayMapping[row.Giorno];
+                
+                if (viewType === 'docente') {
+                    return rowDayName === dayName && 
+                           (row.Docente === entityName || row.DocenteLab === entityName);
+                } else if (viewType === 'laboratorio') {
+                    return rowDayName === dayName && row.Laboratorio === entityName;
+                }
+                return false;
+            });
+            
+            // Ordina per ora e prendi la prima classe
+            dayRows.sort((a, b) => a.Ora - b.Ora);
+            return dayRows.length > 0 ? dayRows[0].Classe : null;
+        }
+
         // Carica dati di esempio per la scansione oraria
         function loadSampleScheduleData() {
-            const sampleSchedule = `from,to,ora
-7:55,8:50,1
-8:51,9:45,2
-9:46,10:40,3
-10:41,11:35,4
-11:36,12:30,5
-12:31,13:25,6
-13:26,14:20,7
-14:55,15:50,1
-15:51,16:45,2
-16:46,17:40,3
-17:41,18:35,4
-18:36,19:30,5
-19:31,20:25,6
-20:26,21:20,7`;
+            const sampleSchedule = `classe_re,from,to,ora
+[345][GI][A-Z],7:55,8:50,1
+[345][GI][A-Z],8:51,9:45,2
+[345][GI][A-Z],9:46,10:40,3
+[345][GI][A-Z],10:41,11:35,4
+[345][GI][A-Z],11:36,12:30,5
+[345][GI][A-Z],12:31,13:25,6
+[345][GI][A-Z],13:26,14:20,7
+(?:[1-5]S[A-Z]|[1-4]TrED|[12](?:G|IT|M)[A-Z]|[345][EMT][A-Z]),14:55,15:50,1
+(?:[1-5]S[A-Z]|[1-4]TrED|[12](?:G|IT|M)[A-Z]|[345][EMT][A-Z]),15:51,16:45,2
+(?:[1-5]S[A-Z]|[1-4]TrED|[12](?:G|IT|M)[A-Z]|[345][EMT][A-Z]),16:46,17:40,3
+(?:[1-5]S[A-Z]|[1-4]TrED|[12](?:G|IT|M)[A-Z]|[345][EMT][A-Z]),17:41,18:35,4
+(?:[1-5]S[A-Z]|[1-4]TrED|[12](?:G|IT|M)[A-Z]|[345][EMT][A-Z]),18:36,19:30,5
+(?:[1-5]S[A-Z]|[1-4]TrED|[12](?:G|IT|M)[A-Z]|[345][EMT][A-Z]),19:31,20:25,6
+(?:[1-5]S[A-Z]|[1-4]TrED|[12](?:G|IT|M)[A-Z]|[345][EMT][A-Z]),20:26,21:20,7`;
             
             console.log('Caricamento scansione oraria di esempio...');
             parseScheduleData(sampleSchedule);
@@ -2095,11 +2141,26 @@
                 const eventDate = new Date(monday);
                 eventDate.setDate(monday.getDate() + dayMap[dayName]);
                 
-                // Trova tutti gli intervalli orari per questa ora
-                const timeSlots = scheduleData.filter(slot => slot.ora == hourNumber);
+                // Determina quale classe usare per filtrare la scansione oraria
+                let classNameForSchedule = '';
+                switch (viewType) {
+                    case 'classe':
+                        // Vista classe: usa direttamente il nome della classe
+                        classNameForSchedule = entityName;
+                        break;
+                    case 'docente':
+                    case 'laboratorio':
+                        // Vista docente/laboratorio: usa la classe della riga corrente
+                        classNameForSchedule = row.Classe;
+                        break;
+                }
+                
+                // Filtra la scansione oraria per classe e poi per ora
+                const classSchedule = getScheduleForClass(classNameForSchedule);
+                const timeSlots = classSchedule.filter(slot => slot.ora == hourNumber);
                 
                 if (timeSlots.length === 0) {
-                    console.warn(`Nessuna scansione oraria trovata per ora: ${hourNumber}`);
+                    console.warn(`Nessuna scansione oraria trovata per classe ${classNameForSchedule}, ora: ${hourNumber}`);
                     return;
                 }
 
