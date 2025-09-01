@@ -756,6 +756,7 @@
         let currentView = 'docente';
         let currentSchedule = {};
         let scheduleData = []; // Dati della scansione oraria
+        let currentEntity = ''; // Entità attualmente visualizzata (docente/classe/laboratorio)
 
         // URL diretto del file CSV su GitHub Raw
         const CSV_URL = 'https://raw.githubusercontent.com/nicvac-teach/nicvac-teach.github.io/refs/heads/main/time_table/orario_mat_labs.csv';
@@ -846,6 +847,7 @@
             // Reset selezione e nascondi orario
             searchSelect.value = '';
             searchInput.value = '';
+            currentEntity = ''; // Reset entità corrente
             document.getElementById('scheduleSection').style.display = 'none';
         }
 
@@ -1332,6 +1334,39 @@
             return null;
         }
 
+        // Trova le ore della lezione per vista classe (filtra per classe specifica)
+        function getCurrentLessonForClass(currentTime, className) {
+            const currentMinutes = timeToMinutes(currentTime);
+            const classSchedule = getScheduleForClass(className);
+            
+            for (let schedule of classSchedule) {
+                const fromMinutes = timeToMinutes(schedule.from);
+                const toMinutes = timeToMinutes(schedule.to);
+                
+                if (currentMinutes >= fromMinutes && currentMinutes <= toMinutes) {
+                    return schedule.ora;
+                }
+            }
+            return null;
+        }
+
+        // Trova tutte le ore attive per vista docente/laboratorio (ignora classe_re)
+        function getCurrentLessonsForAll(currentTime) {
+            const currentMinutes = timeToMinutes(currentTime);
+            const activeHours = new Set();
+            
+            for (let schedule of scheduleData) {
+                const fromMinutes = timeToMinutes(schedule.from);
+                const toMinutes = timeToMinutes(schedule.to);
+                
+                if (currentMinutes >= fromMinutes && currentMinutes <= toMinutes) {
+                    activeHours.add(schedule.ora);
+                }
+            }
+            
+            return Array.from(activeHours);
+        }
+
         // Evidenzia la cella dell'ora corrente
         function highlightCurrentTime() {
             // Rimuovi evidenziazioni precedenti
@@ -1339,45 +1374,74 @@
                 cell.classList.remove('current-time');
             });
 
+            //const currentTime = "13:15"; //@@@ Test
             const currentTime = getCurrentTime();
             const currentDay = getCurrentDay();
-            const currentLesson = getCurrentLesson(currentTime);
 
             // Solo per debug durante lo sviluppo
             if (currentDay === 3) { // Solo quando è mercoledì (debug)
-                console.log(`Ora corrente: ${currentTime}, Giorno: ${currentDay}, Lezione: ${currentLesson}`);
+                console.log(`Ora corrente: ${currentTime}, Giorno: ${currentDay}, Vista: ${currentView}, Entità: ${currentEntity}`);
             }
 
-            // Se non è un giorno lavorativo o non c'è lezione, non evidenziare nulla
-            if (!currentDay || !currentLesson) {
+            // Se non è un giorno lavorativo, non evidenziare nulla
+            if (!currentDay) {
+                return;
+            }
+
+            // Se non c'è una tabella visibile o un'entità selezionata, non evidenziare
+            const tbody = document.getElementById('scheduleBody');
+            if (!tbody || !currentEntity) {
+                return;
+            }
+
+            let currentLessons = [];
+            
+            // Determina le ore da evidenziare in base alla vista
+            switch (currentView) {
+                case 'classe':
+                    // Vista classe: filtra per classe specifica
+                    const classLesson = getCurrentLessonForClass(currentTime, currentEntity);
+                    if (classLesson) {
+                        currentLessons = [classLesson];
+                    }
+                    break;
+                    
+                case 'docente':
+                case 'laboratorio':
+                    // Vista docente/laboratorio: trova tutte le ore attive
+                    currentLessons = getCurrentLessonsForAll(currentTime);
+                    break;
+            }
+
+            if (currentLessons.length === 0) {
                 return;
             }
 
             // Trova la cella corrispondente nella tabella
             const dayNames = ['', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì'];
             const dayName = dayNames[currentDay];
-            const hourName = `${currentLesson}ª ora`;
 
-            // Trova tutte le righe della tabella
-            const tbody = document.getElementById('scheduleBody');
-            if (!tbody) return;
-
-            const rows = tbody.querySelectorAll('tr');
-            rows.forEach(row => {
-                const timeCell = row.querySelector('.time-slot');
-                if (timeCell && timeCell.textContent === hourName) {
-                    // Trova la colonna corrispondente al giorno
-                    const cells = row.querySelectorAll('td');
-                    const headers = document.querySelectorAll('#scheduleTable thead th');
-                    
-                    for (let i = 1; i < headers.length; i++) {
-                        if (headers[i].textContent === dayName && cells[i]) {
-                            cells[i].classList.add('current-time');
-                            console.log(`Evidenziata cella: ${hourName} - ${dayName}`);
-                            break;
+            // Evidenzia tutte le ore attive
+            currentLessons.forEach(lessonNumber => {
+                const hourName = `${lessonNumber}ª ora`;
+                
+                const rows = tbody.querySelectorAll('tr');
+                rows.forEach(row => {
+                    const timeCell = row.querySelector('.time-slot');
+                    if (timeCell && timeCell.textContent === hourName) {
+                        // Trova la colonna corrispondente al giorno
+                        const cells = row.querySelectorAll('td');
+                        const headers = document.querySelectorAll('#scheduleTable thead th');
+                        
+                        for (let i = 1; i < headers.length; i++) {
+                            if (headers[i].textContent === dayName && cells[i]) {
+                                cells[i].classList.add('current-time');
+                                console.log(`Evidenziata cella: ${hourName} - ${dayName} (Vista: ${currentView})`);
+                                break;
+                            }
                         }
                     }
-                }
+                });
             });
         }
 
@@ -1518,6 +1582,9 @@
 
         // Mostra l'orario del docente
         function displayScheduleDocente(teacherName) {
+            // Imposta l'entità corrente per l'evidenziazione
+            currentEntity = teacherName;
+            
             // Filtra i dati per il docente selezionato
             // Cerca sia nella colonna Docente che DocenteLab
             const teacherData = csvData.filter(row => {
@@ -1697,6 +1764,9 @@
 
         // Mostra l'orario della classe
         function displayScheduleClasse(className) {
+            // Imposta l'entità corrente per l'evidenziazione
+            currentEntity = className;
+            
             // Filtra i dati per la classe selezionata
             const classData = csvData.filter(row => row.Classe === className);
 
@@ -1853,6 +1923,9 @@
 
         // Mostra l'orario del laboratorio
         function displayScheduleLaboratorio(labName) {
+            // Imposta l'entità corrente per l'evidenziazione
+            currentEntity = labName;
+            
             // Filtra i dati per il laboratorio selezionato
             const labData = csvData.filter(row => row.Laboratorio === labName);
 
