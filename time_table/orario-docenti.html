@@ -391,7 +391,7 @@
         }
 
         .schedule-table td.current-time::after {
-            content: '🕐 ORA CORRENTE';
+            content: '🕐 ORA CORRENTE' attr(data-current-time-label);
             position: absolute;
             top: -25px;
             left: 50%;
@@ -1221,6 +1221,7 @@
             });
 
             scheduleData = results.data.map(row => ({
+                label: row.label ? row.label.trim() : '',
                 classe_re: row.classe_re ? row.classe_re.trim() : '',
                 from: row.from.trim(),
                 to: row.to.trim(), 
@@ -1328,7 +1329,10 @@
                 const toMinutes = timeToMinutes(schedule.to);
                 
                 if (currentMinutes >= fromMinutes && currentMinutes <= toMinutes) {
-                    return schedule.ora;
+                    return {
+                        ora: schedule.ora,
+                        label: schedule.label
+                    };
                 }
             }
             return null;
@@ -1344,7 +1348,10 @@
                 const toMinutes = timeToMinutes(schedule.to);
                 
                 if (currentMinutes >= fromMinutes && currentMinutes <= toMinutes) {
-                    return schedule.ora;
+                    return {
+                        ora: schedule.ora,
+                        label: schedule.label
+                    };
                 }
             }
             return null;
@@ -1353,18 +1360,18 @@
         // Trova tutte le ore attive per vista docente/laboratorio (ignora classe_re)
         function getCurrentLessonsForAll(currentTime) {
             const currentMinutes = timeToMinutes(currentTime);
-            const activeHours = new Set();
+            const activeHours = new Map();
             
             for (let schedule of scheduleData) {
                 const fromMinutes = timeToMinutes(schedule.from);
                 const toMinutes = timeToMinutes(schedule.to);
                 
                 if (currentMinutes >= fromMinutes && currentMinutes <= toMinutes) {
-                    activeHours.add(schedule.ora);
+                    activeHours.set(schedule.ora, schedule.label);
                 }
             }
             
-            return Array.from(activeHours);
+            return Array.from(activeHours.entries()).map(([ora, label]) => ({ora, label}));
         }
 
         // Evidenzia la cella dell'ora corrente
@@ -1421,8 +1428,13 @@
             const dayNames = ['', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì'];
             const dayName = dayNames[currentDay];
 
+            // Determina se aggiungere la label (solo se ci sono più celle da evidenziare)
+            const shouldShowLabel = currentLessons.length > 1;
+            const labelText = shouldShowLabel && currentLessons[0] && currentLessons[0].label ? ` (${currentLessons[0].label})` : '';
+
             // Evidenzia tutte le ore attive
-            currentLessons.forEach(lessonNumber => {
+            currentLessons.forEach((lesson, index) => {
+                const lessonNumber = lesson.ora;
                 const hourName = `${lessonNumber}ª ora`;
                 
                 const rows = tbody.querySelectorAll('tr');
@@ -1436,6 +1448,12 @@
                         for (let i = 1; i < headers.length; i++) {
                             if (headers[i].textContent === dayName && cells[i]) {
                                 cells[i].classList.add('current-time');
+                                
+                                // Aggiungi attributo per la label personalizzata solo alla prima cella
+                                if (index === 0) {
+                                    cells[i].setAttribute('data-current-time-label', labelText);
+                                }
+                                
                                 console.log(`Evidenziata cella: ${hourName} - ${dayName} (Vista: ${currentView})`);
                                 break;
                             }
@@ -2316,6 +2334,11 @@
                             // Location: posizione del laboratorio
                             eventLocation = labLocationLab || entityName;
                             break;
+                    }
+
+                    // Aggiungi informazioni sulla scansione oraria alla descrizione
+                    if (slot.label) {
+                        eventDescription += `\nScansione oraria: ${slot.label}`;
                     }
 
                     // Aggiungi evento
