@@ -2089,6 +2089,7 @@
                     // Determina il titolo dell'evento basato sulla vista
                     let eventTitle = '';
                     let eventDescription = '';
+                    let eventLocation = '';
                     
                     switch (viewType) {
                         case 'docente':
@@ -2096,23 +2097,71 @@
                             const labIndicator = row.Laboratorio ? ' (L)' : '';
                             eventTitle = `${row.Classe || 'Lezione'}${materiaDocente ? ' - ' + materiaDocente : ''}${labIndicator}`;
                             eventDescription = `Materia: ${materiaDocente || '-'}\nDocente: ${entityName}`;
-                            if (row.Laboratorio) {
-                                eventDescription += `\nLaboratorio: ${row.Laboratorio}`;
+                            
+                            // Aggiungi docente in compresenza se presente
+                            if (row.Docente && row.DocenteLab && row.Docente !== entityName && row.DocenteLab !== entityName) {
+                                const altroDocente = row.Docente === entityName ? row.DocenteLab : row.Docente;
+                                eventDescription += `\nCompresenza: ${altroDocente}`;
                             }
+                            
+                            if (row.Laboratorio) {
+                                const labLocation = labLocations[row.Laboratorio] || '';
+                                eventDescription += `\nLaboratorio: ${row.Laboratorio}${labLocation ? ' (' + labLocation + ')' : ''}`;
+                            }
+                            
+                            // Location: posizione della classe (o laboratorio se presente)
+                            eventLocation = row.Laboratorio ? (labLocations[row.Laboratorio] || row.Laboratorio) : (classLocations[row.Classe] || '');
                             break;
+                            
                         case 'classe':
                             const materiaClasse = row.Materia || row.DocenteLabMateria || '';
                             const labIndicatorClasse = row.Laboratorio ? ' (L)' : '';
                             eventTitle = `${materiaClasse || 'Lezione'}${labIndicatorClasse}`;
                             eventDescription = `Classe: ${entityName}\nDocente: ${row.Docente || row.DocenteLab || '-'}`;
-                            if (row.Laboratorio) {
-                                eventDescription += `\nLaboratorio: ${row.Laboratorio}`;
+                            
+                            // Aggiungi docente in compresenza se presente
+                            if (row.Docente && row.DocenteLab) {
+                                const docentePrincipale = row.Docente || row.DocenteLab;
+                                const docenteSecondario = row.Docente ? row.DocenteLab : null;
+                                if (docenteSecondario && docenteSecondario !== docentePrincipale) {
+                                    eventDescription += `\nCompresenza: ${docenteSecondario}`;
+                                }
                             }
+                            
+                            if (row.Laboratorio) {
+                                const labLocation = labLocations[row.Laboratorio] || '';
+                                eventDescription += `\nLaboratorio: ${row.Laboratorio}${labLocation ? ' (' + labLocation + ')' : ''}`;
+                            }
+                            
+                            // Location: posizione della classe (o laboratorio se presente)
+                            eventLocation = row.Laboratorio ? (labLocations[row.Laboratorio] || row.Laboratorio) : (classLocations[entityName] || '');
                             break;
+                            
                         case 'laboratorio':
                             const materiaLab = row.DocenteLabMateria || '';
                             eventTitle = `${row.Classe || 'Utilizzo laboratorio'}${materiaLab ? ' - ' + materiaLab : ''} (L)`;
-                            eventDescription = `Laboratorio: ${entityName}\nClasse: ${row.Classe || '-'}\nDocente: ${row.DocenteLab || row.Docente || '-'}\nMateria: ${materiaLab || '-'}`;
+                            eventDescription = `Laboratorio: ${entityName}`;
+                            
+                            const labLocationLab = labLocations[entityName] || '';
+                            if (labLocationLab) {
+                                eventDescription += ` (${labLocationLab})`;
+                            }
+                            
+                            eventDescription += `\nClasse: ${row.Classe || '-'}\nDocente: ${row.DocenteLab || row.Docente || '-'}`;
+                            
+                            // Aggiungi docente in compresenza se presente
+                            if (row.Docente && row.DocenteLab && row.Docente !== row.DocenteLab) {
+                                const docentePrincipale = row.DocenteLab || row.Docente;
+                                const docenteSecondario = row.DocenteLab ? row.Docente : null;
+                                if (docenteSecondario) {
+                                    eventDescription += `\nCompresenza: ${docenteSecondario}`;
+                                }
+                            }
+                            
+                            eventDescription += `\nMateria: ${materiaLab || '-'}`;
+                            
+                            // Location: posizione del laboratorio
+                            eventLocation = labLocationLab || entityName;
                             break;
                     }
 
@@ -2122,7 +2171,7 @@
                         description: eventDescription,
                         start: startDate,
                         end: endDate,
-                        location: row.Laboratorio || ''
+                        location: eventLocation
                     };
                     
                     events.push(newEvent);
