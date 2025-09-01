@@ -2243,6 +2243,7 @@
                     `DTSTAMP:${timestamp}`,
                     `DTSTART:${startStr}`,
                     `DTEND:${endStr}`,
+                    `RRULE:FREQ=WEEKLY`,
                     `SUMMARY:${event.title.replace(/[,;\\]/g, '\\$&')}`,
                     `DESCRIPTION:${event.description.replace(/[\\,;]/g, '\\$&').replace(/\n/g, '<br/>')}`,
                     event.location ? `LOCATION:${event.location.replace(/[,;\\]/g, '\\$&')}` : '',
