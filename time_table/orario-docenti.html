@@ -250,6 +250,31 @@
             transform: none;
         }
 
+        .download-calendar-btn {
+            padding: 10px 20px;
+            font-size: 1em;
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            margin-left: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .download-calendar-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .download-calendar-btn:active {
+            transform: translateY(0);
+        }
+
         .schedule-section {
             padding: 30px;
             display: none;
@@ -1486,6 +1511,9 @@
                     <span class="stat-item">📚 Classi: ${classiUniche.size}</span>
                     <span class="stat-item">📖 Materie: ${materiUniche.size}</span>
                     ${labUniche.size > 0 ? `<span class="stat-item">🔬 Laboratori: ${labUniche.size}</span>` : ''}
+                    <button class="download-calendar-btn" onclick="downloadCalendar('docente', '${teacherName}')">
+                        📅 Scarica calendario
+                    </button>
                 </div>
                 <div class="info-tip">Clicca su una classe per evidenziarla nell'orario</div>
             `;
@@ -1659,6 +1687,9 @@
                     <span class="stat-item">👨‍🏫 Docenti: ${docentiUniche.size}</span>
                     <span class="stat-item">📖 Materie: ${materiUniche.size}</span>
                     ${labUniche.size > 0 ? `<span class="stat-item">🔬 Laboratori: ${labUniche.size}</span>` : ''}
+                    <button class="download-calendar-btn" onclick="downloadCalendar('classe', '${className}')">
+                        📅 Scarica calendario
+                    </button>
                 </div>
                 <div class="info-tip">Clicca su una materia per evidenziarla nell'orario</div>
             `;
@@ -1811,6 +1842,9 @@
                     <span class="stat-item">📚 Classi: ${classiUniche.size}</span>
                     <span class="stat-item">👨‍🏫 Docenti: ${docentiUniche.size}</span>
                     <span class="stat-item">📖 Materie: ${materiUniche.size}</span>
+                    <button class="download-calendar-btn" onclick="downloadCalendar('laboratorio', '${labName}')">
+                        📅 Scarica calendario
+                    </button>
                 </div>
                 <div class="info-tip">Clicca su una classe per evidenziarla nell'orario</div>
             `;
@@ -1973,6 +2007,189 @@
                 document.getElementById('searchBtn').click();
             }
         });
+
+        // Funzione per scaricare il calendario
+        function downloadCalendar(viewType, entityName) {
+            console.log(`Generazione calendario per ${viewType}: ${entityName}`);
+            
+            // Ottieni i dati filtrati per l'entità corrente
+            let filteredData = [];
+            switch (viewType) {
+                case 'docente':
+                    filteredData = csvData.filter(row => row.Docente === entityName || row.DocenteLab === entityName);
+                    break;
+                case 'classe':
+                    filteredData = csvData.filter(row => row.Classe === entityName);
+                    break;
+                case 'laboratorio':
+                    filteredData = csvData.filter(row => row.Laboratorio === entityName);
+                    break;
+            }
+
+            if (filteredData.length === 0) {
+                alert('Nessun dato disponibile per generare il calendario');
+                return;
+            }
+
+            // Genera gli eventi del calendario
+            const events = [];
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const currentMonth = now.getMonth(); // 0-11
+            
+            // Trova l'inizio della settimana corrente (lunedì)
+            const today = new Date(now);
+            const dayOfWeek = today.getDay(); // 0=domenica, 1=lunedì, ...
+            const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek; // Se domenica, torna indietro di 6 giorni
+            const monday = new Date(today);
+            monday.setDate(today.getDate() + mondayOffset);
+
+            // Mappa dei giorni
+            const dayMap = {
+                'Lunedì': 0,
+                'Martedì': 1,
+                'Mercoledì': 2,
+                'Giovedì': 3,
+                'Venerdì': 4
+            };
+
+            // Processa ogni riga di dati
+            filteredData.forEach(row => {
+                // Converti da numero a nome del giorno
+                const dayName = dayMapping[row.Giorno];
+                const hourNumber = row.Ora; // È già un numero
+                
+                if (!dayName || !hourNumber) {
+                    return;
+                }
+
+                // Calcola la data dell'evento
+                const eventDate = new Date(monday);
+                eventDate.setDate(monday.getDate() + dayMap[dayName]);
+                
+                // Trova tutti gli intervalli orari per questa ora
+                const timeSlots = scheduleData.filter(slot => slot.ora == hourNumber);
+                
+                if (timeSlots.length === 0) {
+                    console.warn(`Nessuna scansione oraria trovata per ora: ${hourNumber}`);
+                    return;
+                }
+
+                // Crea un evento per ogni intervallo orario
+                timeSlots.forEach(slot => {
+                    const startTime = slot.from.split(':');
+                    const endTime = slot.to.split(':');
+                    
+                    const startDate = new Date(eventDate);
+                    startDate.setHours(parseInt(startTime[0]), parseInt(startTime[1]), 0, 0);
+                    
+                    const endDate = new Date(eventDate);
+                    endDate.setHours(parseInt(endTime[0]), parseInt(endTime[1]), 0, 0);
+
+                    // Determina il titolo dell'evento basato sulla vista
+                    let eventTitle = '';
+                    let eventDescription = '';
+                    
+                    switch (viewType) {
+                        case 'docente':
+                            const materiaDocente = row.Materia || row.DocenteLabMateria || '';
+                            const labIndicator = row.Laboratorio ? ' (L)' : '';
+                            eventTitle = `${row.Classe || 'Lezione'}${materiaDocente ? ' - ' + materiaDocente : ''}${labIndicator}`;
+                            eventDescription = `Materia: ${materiaDocente || '-'}\nDocente: ${entityName}`;
+                            if (row.Laboratorio) {
+                                eventDescription += `\nLaboratorio: ${row.Laboratorio}`;
+                            }
+                            break;
+                        case 'classe':
+                            const materiaClasse = row.Materia || row.DocenteLabMateria || '';
+                            const labIndicatorClasse = row.Laboratorio ? ' (L)' : '';
+                            eventTitle = `${materiaClasse || 'Lezione'}${labIndicatorClasse}`;
+                            eventDescription = `Classe: ${entityName}\nDocente: ${row.Docente || row.DocenteLab || '-'}`;
+                            if (row.Laboratorio) {
+                                eventDescription += `\nLaboratorio: ${row.Laboratorio}`;
+                            }
+                            break;
+                        case 'laboratorio':
+                            const materiaLab = row.DocenteLabMateria || '';
+                            eventTitle = `${row.Classe || 'Utilizzo laboratorio'}${materiaLab ? ' - ' + materiaLab : ''} (L)`;
+                            eventDescription = `Laboratorio: ${entityName}\nClasse: ${row.Classe || '-'}\nDocente: ${row.DocenteLab || row.Docente || '-'}\nMateria: ${materiaLab || '-'}`;
+                            break;
+                    }
+
+                    // Aggiungi evento
+                    const newEvent = {
+                        title: eventTitle,
+                        description: eventDescription,
+                        start: startDate,
+                        end: endDate,
+                        location: row.Laboratorio || ''
+                    };
+                    
+                    events.push(newEvent);
+                });
+            });
+
+            if (events.length === 0) {
+                alert('Nessun evento trovato per il calendario');
+                return;
+            }
+
+            console.log(`Calendario generato con ${events.length} eventi`);
+            
+            // Genera il file iCal
+            const icalContent = generateICalendar(events, viewType, entityName);
+            
+            // Scarica il file
+            const blob = new Blob([icalContent], { type: 'text/calendar;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `orario_${viewType}_${entityName.replace(/[^a-zA-Z0-9]/g, '_')}.ics`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Funzione per generare il contenuto iCal
+        function generateICalendar(events, viewType, entityName) {
+            const now = new Date();
+            const timestamp = now.toISOString().replace(/[:-]/g, '').split('.')[0] + 'Z';
+            
+            let ical = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'PRODID:-//Orario Scolastico//IT',
+                'CALSCALE:GREGORIAN',
+                'METHOD:PUBLISH',
+                `X-WR-CALNAME:Orario ${viewType.charAt(0).toUpperCase() + viewType.slice(1)} - ${entityName}`,
+                'X-WR-TIMEZONE:Europe/Rome'
+            ].join('\r\n');
+
+            events.forEach((event, index) => {
+                const startStr = formatDateForICal(event.start);
+                const endStr = formatDateForICal(event.end);
+                const uid = `${timestamp}-${index}@orario-scolastico.local`;
+                
+                ical += '\r\n' + [
+                    'BEGIN:VEVENT',
+                    `UID:${uid}`,
+                    `DTSTAMP:${timestamp}`,
+                    `DTSTART:${startStr}`,
+                    `DTEND:${endStr}`,
+                    `SUMMARY:${event.title.replace(/[,;\\]/g, '\\$&')}`,
+                    `DESCRIPTION:${event.description.replace(/[\\,;]/g, '\\$&').replace(/\n/g, '<br/>')}`,
+                    event.location ? `LOCATION:${event.location.replace(/[,;\\]/g, '\\$&')}` : '',
+                    'END:VEVENT'
+                ].filter(line => line).join('\r\n');
+            });
+
+            ical += '\r\nEND:VCALENDAR';
+            return ical;
+        }
+
+        // Funzione per formattare una data per iCal
+        function formatDateForICal(date) {
+            return date.toISOString().replace(/[:-]/g, '').split('.')[0] + 'Z';
+        }
     </script>
 </body>
 </html>
