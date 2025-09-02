@@ -1684,29 +1684,19 @@
             });
 
             // Funzione per trovare compresenze
-            function findCompresenza(currentRow, teacherName) {
-                // Se Laboratorio != "" and DocenteLab != Docente then compresenza=DocenteLab
-                if (currentRow.Laboratorio && currentRow.DocenteLab && currentRow.DocenteLab !== teacherName) {
-                    return currentRow.DocenteLab;
-                }
+            function findCompresenze(currentRow, teacherName) {
+                // Per ogni classe C, giorno G, ora O in cui insegna docente X,
+                // compresenze = select distinct docente from orario where Classe = C and Giorno = G and Ora = O and Docente != X
+                const compresenze = csvData.filter(row => {
+                    return row.Classe === currentRow.Classe &&
+                           row.Giorno === currentRow.Giorno &&
+                           row.Ora === currentRow.Ora &&
+                           row.Docente && // deve avere un docente
+                           row.Docente !== teacherName; // diverso dal docente corrente
+                }).map(row => row.Docente);
                 
-                // Se Laboratorio != "" and DocenteLab == Docente then trova DocenteX
-                if (currentRow.Laboratorio && currentRow.DocenteLab === teacherName) {
-                    // Cerca un altro docente con stessa classe, giorno, ora
-                    const compresenzaRow = csvData.find(row => {
-                        return row.Classe === currentRow.Classe &&
-                               row.Giorno === currentRow.Giorno &&
-                               row.Ora === currentRow.Ora &&
-                               row.Docente !== teacherName &&
-                               row.Docente !== currentRow.DocenteLab;
-                    });
-                    
-                    if (compresenzaRow && compresenzaRow.Docente) {
-                        return compresenzaRow.Docente;
-                    }
-                }
-                
-                return null;
+                // Rimuovi duplicati
+                return [...new Set(compresenze)];
             }
 
             // Popola l'orario
@@ -1718,15 +1708,15 @@
                     // Determina se è una lezione normale o in laboratorio
                     const isLabSession = row.DocenteLab === teacherName;
                     
-                    // Trova la compresenza
-                    const compresenza = findCompresenza(row, teacherName);
+                    // Trova le compresenze
+                    const compresenze = findCompresenze(row, teacherName);
                     
                     schedule[ora][giorno] = {
                         classe: row.Classe || '',
                         materia: isLabSession ? (row.DocenteLabMateria || row.Materia || '') : (row.Materia || ''),
                         laboratorio: row.Laboratorio || '',
                         isLabSession: isLabSession,
-                        compresenza: compresenza
+                        compresenze: compresenze
                     };
                 }
             });
@@ -1774,8 +1764,10 @@
                                 cellContent += `<span class="lab-info">📍 ${labLocations[lesson.laboratorio] || '-'}</span>`;
                             }
                         }
-                        if (showCompresenze && lesson.compresenza) {
-                            cellContent += `<span class="compresenza-info">👥 con ${lesson.compresenza}</span>`;
+                        if (showCompresenze && lesson.compresenze && lesson.compresenze.length > 0) {
+                            lesson.compresenze.forEach(doc => {
+                                cellContent += `<span class="compresenza-info">👥 con ${doc}</span>`;
+                            });
                         }
                         cellContent += '</div>';
                         cell.innerHTML = cellContent;
@@ -1862,18 +1854,51 @@
                 });
             });
 
-            // Popola l'orario - può avere più docenti per ora
+            // Popola l'orario - raggruppa per giorno/ora e calcola compresenze
+            const processedSlots = new Set();
+            
             classData.forEach(row => {
                 const giorno = dayMapping[row.Giorno];
                 const ora = row.Ora ? `${row.Ora}ª ora` : null;
+                const slotKey = `${giorno}-${ora}`;
                 
-                if (giorno && ora && schedule[ora]) {
-                    schedule[ora][giorno].push({
-                        materia: row.Materia || row.DocenteLabMateria || '',
-                        docente: row.Docente || '',
-                        docenteLab: row.DocenteLab || '',
-                        laboratorio: row.Laboratorio || ''
+                if (giorno && ora && schedule[ora] && !processedSlots.has(slotKey)) {
+                    processedSlots.add(slotKey);
+                    
+                    // Per ogni Giorno G, Ora O assegnate alla classe C,
+                    // compresenza = select distinct docente from orario where Classe = C and Giorno = G and Ora = O
+                    const docentiBlocco = csvData.filter(r => 
+                        r.Classe === className &&
+                        r.Giorno === row.Giorno &&
+                        r.Ora === row.Ora &&
+                        r.Docente // deve avere un docente
+                    );
+                    
+                    // Raggruppa per materia
+                    const materieMap = {};
+                    docentiBlocco.forEach(r => {
+                        const materia = r.Materia || r.DocenteLabMateria || 'Senza materia';
+                        if (!materieMap[materia]) {
+                            materieMap[materia] = {
+                                docenti: [],
+                                laboratori: []
+                            };
+                        }
+                        if (r.Docente) materieMap[materia].docenti.push(r.Docente);
+                        if (r.DocenteLab && r.DocenteLab !== r.Docente) {
+                            materieMap[materia].docenti.push(r.DocenteLab);
+                        }
+                        if (r.Laboratorio) materieMap[materia].laboratori.push(r.Laboratorio);
                     });
+                    
+                    // Rimuovi duplicati e crea la struttura finale
+                    for (const [materia, info] of Object.entries(materieMap)) {
+                        schedule[ora][giorno].push({
+                            materia: materia,
+                            docenti: [...new Set(info.docenti)],
+                            laboratori: [...new Set(info.laboratori)]
+                        });
+                    }
                 }
             });
 
@@ -1908,39 +1933,30 @@
                     const lessons = schedule[hour][day];
                     if (lessons && lessons.length > 0) {
                         let cellContent = '<div class="class-info">';
-                        const materiaMap = {};
+                        
                         lessons.forEach(lesson => {
-                            const key = lesson.materia || 'Senza materia';
-                            if (!materiaMap[key]) {
-                                materiaMap[key] = {docenti: [], laboratori: []};
-                            }
-                            if (lesson.docente) materiaMap[key].docenti.push(lesson.docente);
-                            if (lesson.docenteLab && lesson.docenteLab !== lesson.docente) {
-                                materiaMap[key].docenti.push(lesson.docenteLab);
-                            }
-                            if (lesson.laboratorio) materiaMap[key].laboratori.push(lesson.laboratorio);
-                        });
-                        for (const [materia, info] of Object.entries(materiaMap)) {
-                            cellContent += `<span class="class-name">${materia}</span>`;
-                            if (showDocente && info.docenti.length > 0) {
-                                const docentiUnique = [...new Set(info.docenti)];
-                                docentiUnique.forEach(doc => {
+                            cellContent += `<span class="class-name">${lesson.materia}</span>`;
+                            
+                            if (showDocente && lesson.docenti && lesson.docenti.length > 0) {
+                                lesson.docenti.forEach(doc => {
                                     cellContent += `<span class="docente-info">👨‍🏫 ${doc}</span>`;
                                 });
                             }
-                            if (showLab && info.laboratori.length > 0) {
-                                const labUnique = [...new Set(info.laboratori)];
-                                labUnique.forEach(lab => {
+                            
+                            if (showLab && lesson.laboratori && lesson.laboratori.length > 0) {
+                                lesson.laboratori.forEach(lab => {
                                     cellContent += `<span class="lab-info">🔬 ${lab}</span>`;
                                     if (showDove) {
                                         cellContent += `<span class="lab-info">📍 ${labLocations[lab] || '-'}</span>`;
                                     }
                                 });
                             }
-                        }
+                        });
+                        
                         cellContent += '</div>';
                         cell.innerHTML = cellContent;
-                        const materie = Object.keys(materiaMap);
+                        
+                        const materie = lessons.map(l => l.materia);
                         cell.setAttribute('data-materia', materie.join(','));
                         cell.addEventListener('click', function(e) {
                             e.stopPropagation();
