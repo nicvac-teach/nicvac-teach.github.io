@@ -2431,20 +2431,26 @@
             const endDate = new Date(endYear, 5, 30, 23, 59, 59); // 30 giugno, 23:59:59
             const untilStr = formatDateForICal(endDate);
             
+            // Crea un nome calendario più specifico e pulito
+            const calendarName = createCalendarName(viewType, entityName, currentYear, endYear);
+            
             let ical = [
                 'BEGIN:VCALENDAR',
                 'VERSION:2.0',
-                'PRODID:-//Orario Scolastico//IT',
+                'PRODID:-//IISS Marconi-Hack//Orario Scolastico//IT',
                 'CALSCALE:GREGORIAN',
                 'METHOD:PUBLISH',
-                `X-WR-CALNAME:Orario ${viewType.charAt(0).toUpperCase() + viewType.slice(1)} - ${entityName}`,
-                'X-WR-TIMEZONE:Europe/Rome'
+                `X-WR-CALNAME:${calendarName}`,
+                `X-WR-CALDESC:Orario scolastico ${viewType} ${entityName} - Anno ${currentYear}/${endYear}`,
+                'X-WR-TIMEZONE:Europe/Rome',
+                'X-APPLE-CALENDAR-COLOR:#667eea',
+                'X-OUTLOOK-COLOR:#667eea'
             ].join('\r\n');
 
             events.forEach((event, index) => {
                 const startStr = formatDateForICal(event.start);
                 const endStr = formatDateForICal(event.end);
-                const uid = `${timestamp}-${index}@orario-scolastico.local`;
+                const uid = `${timestamp}-${index}@orario-marconi-hack.it`;
                 
                 ical += '\r\n' + [
                     'BEGIN:VEVENT',
@@ -2453,15 +2459,44 @@
                     `DTSTART:${startStr}`,
                     `DTEND:${endStr}`,
                     `RRULE:FREQ=WEEKLY;UNTIL=${untilStr}`,
-                    `SUMMARY:${event.title.replace(/[,;\\]/g, '\\$&')}`,
-                    `DESCRIPTION:${event.description.replace(/[\\,;]/g, '\\$&').replace(/\n/g, '<br/>')}`,
-                    event.location ? `LOCATION:${event.location.replace(/[,;\\]/g, '\\$&')}` : '',
+                    `SUMMARY:${escapeICalValue(event.title)}`,
+                    `DESCRIPTION:${escapeICalValue(event.description.replace(/\n/g, '<br/>'))}`,
+                    event.location ? `LOCATION:${escapeICalValue(event.location)}` : '',
+                    `CATEGORIES:IISS Marconi-Hack,${viewType.charAt(0).toUpperCase() + viewType.slice(1)}`,
                     'END:VEVENT'
                 ].filter(line => line).join('\r\n');
             });
 
             ical += '\r\nEND:VCALENDAR';
             return ical;
+        }
+
+        // Funzione per creare un nome calendario consistente
+        function createCalendarName(viewType, entityName, startYear, endYear) {
+            const typeLabels = {
+                'docente': 'Lez.',
+                'classe': 'Classe',
+                'laboratorio': 'Lab.'
+            };
+            
+            const typeLabel = typeLabels[viewType] || viewType;
+            const academicYear = `${startYear}/${endYear}`;
+            
+            // Pulisci il nome dell'entità da caratteri problematici
+            const cleanEntityName = entityName.replace(/[^\w\s.-]/g, '').trim();
+            
+            return `[MH] 📚 ${typeLabel} ${cleanEntityName} (${academicYear})`;
+        }
+
+        // Funzione per fare l'escape dei valori iCal
+        function escapeICalValue(value) {
+            if (!value) return '';
+            return value
+                .replace(/\\/g, '\\\\')  // Escape backslashes
+                .replace(/;/g, '\\;')    // Escape semicolons
+                .replace(/,/g, '\\,')    // Escape commas
+                .replace(/\n/g, '\\n')   // Escape newlines
+                .replace(/\r/g, '\\r');  // Escape carriage returns
         }
 
         // Funzione per formattare una data per iCal
