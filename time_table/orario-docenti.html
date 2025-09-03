@@ -2301,8 +2301,11 @@
                         switch (viewType) {
                             case 'docente':
                                 const materiaDocente = cellData.materia || '';
-                                const labIndicator = cellData.laboratorio ? ' (L)' : '';
-                                eventTitle = `${cellData.classe || 'Lezione'}${materiaDocente ? ' - ' + materiaDocente : ''}${labIndicator}`;
+                                label  = cellData.laboratorio ? 'L' : '';
+                                label += (cellData.compresenze && cellData.compresenze.length > 0) ? 'C':'';
+                                if (label != "") { label = ` (${label})` }
+
+                                eventTitle = `${cellData.classe || 'Lezione'}${materiaDocente ? ' ' + materiaDocente : ''}${label}`;
                                 eventDescription = `Materia: ${materiaDocente || '-'}\nDocente: ${entityName}`;
                                 
                                 // Aggiungi compresenze se presenti
@@ -2363,7 +2366,7 @@
                                 
                             case 'laboratorio':
                                 const materiaLab = cellData.materia || '';
-                                eventTitle = `${cellData.classe || 'Utilizzo laboratorio'}${materiaLab ? ' - ' + materiaLab : ''} (L)`;
+                                eventTitle = `${cellData.classe || 'Utilizzo laboratorio'}${materiaLab ? ' ' + materiaLab : ''}`;
                                 eventDescription = `Laboratorio: ${entityName}`;
                                 
                                 const labLocationLab = labLocations[entityName] || '';
@@ -2480,7 +2483,7 @@
                     `DTEND:${endStr}`,
                     `RRULE:FREQ=WEEKLY;UNTIL=${untilStr}`,
                     `SUMMARY:${escapeICalValue(event.title)}`,
-                    `DESCRIPTION:${escapeICalValue(event.description.replace(/\n/g, '<br/>'))}`,
+                    `DESCRIPTION:${escapeICalValue(event.description.replace(/\n/g, '\n'))}`,
                     event.location ? `LOCATION:${escapeICalValue(event.location)}` : '',
                     `CATEGORIES:IISS Marconi-Hack,${viewType.charAt(0).toUpperCase() + viewType.slice(1)}`,
                     'END:VEVENT'
