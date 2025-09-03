@@ -2416,6 +2416,21 @@
             const now = new Date();
             const timestamp = now.toISOString().replace(/[:-]/g, '').split('.')[0] + 'Z';
             
+            // Calcola la data di fine anno scolastico (30 giugno)
+            const currentYear = now.getFullYear();
+            const currentMonth = now.getMonth(); // 0-11 (gennaio = 0)
+            
+            // Se siamo dopo giugno, l'anno scolastico finisce il 30 giugno dell'anno successivo
+            // Se siamo prima di settembre, l'anno scolastico finisce il 30 giugno dell'anno corrente
+            // Se siamo tra settembre e dicembre, l'anno scolastico finisce il 30 giugno dell'anno successivo
+            let endYear = currentYear;
+            if (currentMonth >= 8) { // Settembre (8) o successivi
+                endYear = currentYear + 1;
+            }
+            
+            const endDate = new Date(endYear, 5, 30, 23, 59, 59); // 30 giugno, 23:59:59
+            const untilStr = formatDateForICal(endDate);
+            
             let ical = [
                 'BEGIN:VCALENDAR',
                 'VERSION:2.0',
@@ -2437,7 +2452,7 @@
                     `DTSTAMP:${timestamp}`,
                     `DTSTART:${startStr}`,
                     `DTEND:${endStr}`,
-                    `RRULE:FREQ=WEEKLY`,
+                    `RRULE:FREQ=WEEKLY;UNTIL=${untilStr}`,
                     `SUMMARY:${event.title.replace(/[,;\\]/g, '\\$&')}`,
                     `DESCRIPTION:${event.description.replace(/[\\,;]/g, '\\$&').replace(/\n/g, '<br/>')}`,
                     event.location ? `LOCATION:${event.location.replace(/[,;\\]/g, '\\$&')}` : '',
