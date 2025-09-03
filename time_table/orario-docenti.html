@@ -757,6 +757,7 @@
         let currentSchedule = {};
         let scheduleData = []; // Dati della scansione oraria
         let currentEntity = ''; // Entità attualmente visualizzata (docente/classe/laboratorio)
+        let currentScheduleData = {}; // Struttura dati dell'orario correntemente visualizzato
 
         // URL diretto del file CSV su GitHub Raw
         const CSV_URL = 'https://raw.githubusercontent.com/nicvac-teach/nicvac-teach.github.io/refs/heads/main/time_table/orario_mat_labs.csv';
@@ -1736,6 +1737,15 @@
 
         // CORREZIONE: AGGIORNA POSIZIONE CELLE DOCENTE SOLO SE CHECKBOX ATTIVA
         function updateScheduleTableDocente(schedule, hours, days) {
+            // Salva la struttura dati per l'export calendario
+            currentScheduleData = {
+                type: 'docente',
+                entity: currentEntity,
+                schedule: schedule,
+                hours: hours,
+                days: days
+            };
+            
             const tbody = document.getElementById('scheduleBody');
             tbody.innerHTML = '';
             const showLab = document.getElementById('showLab').checked;
@@ -1917,6 +1927,15 @@
 
         // CORREZIONE: AGGIORNA POSIZIONE CELLE CLASSE SOLO SE CHECKBOX ATTIVA
         function updateScheduleTableClasse(schedule, hours, days) {
+            // Salva la struttura dati per l'export calendario
+            currentScheduleData = {
+                type: 'classe',
+                entity: currentEntity,
+                schedule: schedule,
+                hours: hours,
+                days: days
+            };
+            
             const tbody = document.getElementById('scheduleBody');
             tbody.innerHTML = '';
             const showDocente = document.getElementById('showDocenteClasse').checked;
@@ -2080,6 +2099,15 @@
 
         // AGGIUNTA VISUALIZZAZIONE POSIZIONE NELLA TABELLA LABORATORIO
         function updateScheduleTableLaboratorio(schedule, hours, days) {
+            // Salva la struttura dati per l'export calendario
+            currentScheduleData = {
+                type: 'laboratorio',
+                entity: currentEntity,
+                schedule: schedule,
+                hours: hours,
+                days: days
+            };
+            
             const tbody = document.getElementById('scheduleBody');
             tbody.innerHTML = '';
             const showCompresenze = document.getElementById('showCompresenzeLab').checked;
@@ -2186,30 +2214,15 @@
         function downloadCalendar(viewType, entityName) {
             console.log(`Generazione calendario per ${viewType}: ${entityName}`);
             
-            // Ottieni i dati filtrati per l'entità corrente
-            let filteredData = [];
-            switch (viewType) {
-                case 'docente':
-                    filteredData = csvData.filter(row => row.Docente === entityName || row.DocenteLab === entityName);
-                    break;
-                case 'classe':
-                    filteredData = csvData.filter(row => row.Classe === entityName);
-                    break;
-                case 'laboratorio':
-                    filteredData = csvData.filter(row => row.Laboratorio === entityName);
-                    break;
-            }
-
-            if (filteredData.length === 0) {
-                alert('Nessun dato disponibile per generare il calendario');
+            // Verifica che abbiamo i dati della tabella correntemente visualizzata
+            if (!currentScheduleData.schedule || currentScheduleData.type !== viewType || currentScheduleData.entity !== entityName) {
+                alert('Errore: i dati della tabella non corrispondono alla vista richiesta. Ricarica l\'orario e riprova.');
                 return;
             }
 
-            // Genera gli eventi del calendario
+            // Genera gli eventi del calendario dalla struttura della tabella
             const events = [];
             const now = new Date();
-            const currentYear = now.getFullYear();
-            const currentMonth = now.getMonth(); // 0-11
             
             // Trova l'inizio della settimana corrente (lunedì)
             const today = new Date(now);
@@ -2227,167 +2240,174 @@
                 'Venerdì': 4
             };
 
-            // Raggruppa i dati per evitare duplicati
-            const groupedData = {};
-            filteredData.forEach(row => {
-                const dayName = dayMapping[row.Giorno];
-                const hourNumber = row.Ora;
-                const key = `${dayName}-${hourNumber}-${row.Classe}-${row.Materia || row.DocenteLabMateria}-${row.Laboratorio || ''}`;
-                
-                if (!groupedData[key]) {
-                    groupedData[key] = {
-                        ...row,
-                        allDocenti: [],
-                        dayName: dayName,
-                        hourNumber: hourNumber
-                    };
-                }
-                
-                // Aggiungi i docenti alla lista
-                if (row.Docente && !groupedData[key].allDocenti.includes(row.Docente)) {
-                    groupedData[key].allDocenti.push(row.Docente);
-                }
-                if (row.DocenteLab && !groupedData[key].allDocenti.includes(row.DocenteLab)) {
-                    groupedData[key].allDocenti.push(row.DocenteLab);
-                }
-                
-                // Mantieni i campi separati per compatibilità
-                if (row.Docente) groupedData[key].Docente = row.Docente;
-                if (row.DocenteLab) groupedData[key].DocenteLab = row.DocenteLab;
-            });
-
-            // Processa ogni gruppo di dati
-            Object.values(groupedData).forEach(row => {
-                const dayName = row.dayName;
-                const hourNumber = row.hourNumber;
-                
-                if (!dayName || !hourNumber) {
-                    return;
-                }
-
-                // Calcola la data dell'evento
-                const eventDate = new Date(monday);
-                eventDate.setDate(monday.getDate() + dayMap[dayName]);
-                
-                // Determina quale classe usare per filtrare la scansione oraria
-                let classNameForSchedule = '';
-                switch (viewType) {
-                    case 'classe':
-                        // Vista classe: usa direttamente il nome della classe
-                        classNameForSchedule = entityName;
-                        break;
-                    case 'docente':
-                    case 'laboratorio':
-                        // Vista docente/laboratorio: usa la classe della riga corrente
-                        classNameForSchedule = row.Classe;
-                        break;
-                }
-                
-                // Filtra la scansione oraria per classe e poi per ora
-                const classSchedule = getScheduleForClass(classNameForSchedule);
-                const timeSlots = classSchedule.filter(slot => slot.ora == hourNumber);
-                
-                if (timeSlots.length === 0) {
-                    console.warn(`Nessuna scansione oraria trovata per classe ${classNameForSchedule}, ora: ${hourNumber}`);
-                    return;
-                }
-
-                // Crea un evento per ogni intervallo orario
-                timeSlots.forEach(slot => {
-                    const startTime = slot.from.split(':');
-                    const endTime = slot.to.split(':');
+            // Itera attraverso la struttura della tabella
+            const { schedule, hours, days } = currentScheduleData;
+            
+            hours.forEach((hour, hourIndex) => {
+                days.forEach((dayName, dayIndex) => {
+                    const cellData = schedule[hour] && schedule[hour][dayName];
                     
-                    const startDate = new Date(eventDate);
-                    startDate.setHours(parseInt(startTime[0]), parseInt(startTime[1]), 0, 0);
-                    
-                    const endDate = new Date(eventDate);
-                    endDate.setHours(parseInt(endTime[0]), parseInt(endTime[1]), 0, 0);
+                    // Controllo per celle vuote - considera diversi tipi di struttura
+                    if (!cellData || 
+                        cellData.empty || 
+                        (Array.isArray(cellData) && cellData.length === 0)) {
+                        return; // Salta celle vuote
+                    }
 
-                    // Determina il titolo dell'evento basato sulla vista
-                    let eventTitle = '';
-                    let eventDescription = '';
-                    let eventLocation = '';
+                    // Calcola la data dell'evento
+                    const eventDate = new Date(monday);
+                    eventDate.setDate(monday.getDate() + dayMap[dayName]);
                     
+                    // Determina quale classe usare per filtrare la scansione oraria
+                    let classNameForSchedule = '';
                     switch (viewType) {
-                        case 'docente':
-                            const materiaDocente = row.Materia || row.DocenteLabMateria || '';
-                            const labIndicator = row.Laboratorio ? ' (L)' : '';
-                            eventTitle = `${row.Classe || 'Lezione'}${materiaDocente ? ' - ' + materiaDocente : ''}${labIndicator}`;
-                            eventDescription = `Materia: ${materiaDocente || '-'}\nDocente: ${entityName}`;
-                            
-                            // Aggiungi docente in compresenza se presente
-                            const altriDocenti = row.allDocenti.filter(doc => doc !== entityName);
-                            if (altriDocenti.length > 0) {
-                                eventDescription += `\nCompresenza: ${altriDocenti.join(', ')}`;
-                            }
-                            
-                            if (row.Laboratorio) {
-                                const labLocation = labLocations[row.Laboratorio] || '';
-                                eventDescription += `\nLaboratorio: ${row.Laboratorio}${labLocation ? ' (' + labLocation + ')' : ''}`;
-                            }
-                            
-                            // Location: posizione della classe (o laboratorio se presente)
-                            eventLocation = row.Laboratorio ? (labLocations[row.Laboratorio] || row.Laboratorio) : (classLocations[row.Classe] || '');
-                            break;
-                            
                         case 'classe':
-                            const materiaClasse = row.Materia || row.DocenteLabMateria || '';
-                            const labIndicatorClasse = row.Laboratorio ? ' (L)' : '';
-                            eventTitle = `${materiaClasse || 'Lezione'}${labIndicatorClasse}`;
-                            
-                            if (row.allDocenti.length > 1) {
-                                eventDescription = `Classe: ${entityName}\nDocente: ${row.allDocenti[0]}\nCompresenza: ${row.allDocenti.slice(1).join(', ')}`;
-                            } else {
-                                eventDescription = `Classe: ${entityName}\nDocente: ${row.allDocenti[0] || '-'}`;
-                            }
-                            
-                            if (row.Laboratorio) {
-                                const labLocation = labLocations[row.Laboratorio] || '';
-                                eventDescription += `\nLaboratorio: ${row.Laboratorio}${labLocation ? ' (' + labLocation + ')' : ''}`;
-                            }
-                            
-                            // Location: posizione della classe (o laboratorio se presente)
-                            eventLocation = row.Laboratorio ? (labLocations[row.Laboratorio] || row.Laboratorio) : (classLocations[entityName] || '');
+                            classNameForSchedule = entityName;
                             break;
-                            
+                        case 'docente':
                         case 'laboratorio':
-                            const materiaLab = row.DocenteLabMateria || '';
-                            eventTitle = `${row.Classe || 'Utilizzo laboratorio'}${materiaLab ? ' - ' + materiaLab : ''} (L)`;
-                            eventDescription = `Laboratorio: ${entityName}`;
-                            
-                            const labLocationLab = labLocations[entityName] || '';
-                            if (labLocationLab) {
-                                eventDescription += ` (${labLocationLab})`;
-                            }
-                            
-                            if (row.allDocenti.length > 1) {
-                                eventDescription += `\nClasse: ${row.Classe || '-'}\nDocente: ${row.allDocenti[0]}\nCompresenza: ${row.allDocenti.slice(1).join(', ')}`;
-                            } else {
-                                eventDescription += `\nClasse: ${row.Classe || '-'}\nDocente: ${row.allDocenti[0] || '-'}`;
-                            }
-                            
-                            eventDescription += `\nMateria: ${materiaLab || '-'}`;
-                            
-                            // Location: posizione del laboratorio
-                            eventLocation = labLocationLab || entityName;
+                            classNameForSchedule = cellData.classe || (Array.isArray(cellData) ? cellData[0]?.classe : '');
                             break;
                     }
-
-                    // Aggiungi informazioni sulla scansione oraria alla descrizione
-                    if (slot.label) {
-                        eventDescription += `\nScansione oraria: ${slot.label}`;
+                    
+                    // Ottieni l'ora numerica dalla posizione nella tabella
+                    const hourNumber = hourIndex + 1;
+                    
+                    // Filtra la scansione oraria per classe e poi per ora
+                    const classSchedule = getScheduleForClass(classNameForSchedule);
+                    const timeSlots = classSchedule.filter(slot => slot.ora == hourNumber);
+                    
+                    if (timeSlots.length === 0) {
+                        console.warn(`Nessuna scansione oraria trovata per classe ${classNameForSchedule}, ora: ${hourNumber}`);
+                        return;
                     }
 
-                    // Aggiungi evento
-                    const newEvent = {
-                        title: eventTitle,
-                        description: eventDescription,
-                        start: startDate,
-                        end: endDate,
-                        location: eventLocation
-                    };
-                    
-                    events.push(newEvent);
+                    // Crea un evento per ogni intervallo orario
+                    timeSlots.forEach(slot => {
+                        const startTime = slot.from.split(':');
+                        const endTime = slot.to.split(':');
+                        
+                        const startDate = new Date(eventDate);
+                        startDate.setHours(parseInt(startTime[0]), parseInt(startTime[1]), 0, 0);
+                        
+                        const endDate = new Date(eventDate);
+                        endDate.setHours(parseInt(endTime[0]), parseInt(endTime[1]), 0, 0);
+
+                        // Genera titolo e descrizione basandosi sui dati della tabella
+                        let eventTitle = '';
+                        let eventDescription = '';
+                        let eventLocation = '';
+                        
+                        switch (viewType) {
+                            case 'docente':
+                                const materiaDocente = cellData.materia || '';
+                                const labIndicator = cellData.laboratorio ? ' (L)' : '';
+                                eventTitle = `${cellData.classe || 'Lezione'}${materiaDocente ? ' - ' + materiaDocente : ''}${labIndicator}`;
+                                eventDescription = `Materia: ${materiaDocente || '-'}\nDocente: ${entityName}`;
+                                
+                                // Aggiungi compresenze se presenti
+                                if (cellData.compresenze && cellData.compresenze.length > 0) {
+                                    const altriDocenti = cellData.compresenze.filter(doc => doc !== entityName);
+                                    if (altriDocenti.length > 0) {
+                                        eventDescription += `\nCompresenza: ${altriDocenti.join(', ')}`;
+                                    }
+                                }
+                                
+                                if (cellData.laboratorio) {
+                                    const labLocation = labLocations[cellData.laboratorio] || '';
+                                    eventDescription += `\nLaboratorio: ${cellData.laboratorio}${labLocation ? ' (' + labLocation + ')' : ''}`;
+                                }
+                                
+                                // Location: posizione della classe (o laboratorio se presente)
+                                eventLocation = cellData.laboratorio ? (labLocations[cellData.laboratorio] || cellData.laboratorio) : (classLocations[cellData.classe] || '');
+                                break;
+                                
+                            case 'classe':
+                                // Per vista classe, cellData è un array di materie
+                                if (Array.isArray(cellData) && cellData.length > 0) {
+                                    cellData.forEach((materia, index) => {
+                                        const materiaClasse = materia.materia || '';
+                                        const labIndicatorClasse = materia.laboratori && materia.laboratori.length > 0 ? ' (L)' : '';
+                                        const currentTitle = `${materiaClasse || 'Lezione'}${labIndicatorClasse}`;
+                                        
+                                        if (index > 0) {
+                                            eventTitle += ' / ';
+                                            eventDescription += '\n---\n';
+                                        }
+                                        eventTitle += currentTitle;
+                                        
+                                        if (materia.docenti && materia.docenti.length > 1) {
+                                            eventDescription += `Classe: ${entityName}\nDocente: ${materia.docenti[0]}\nCompresenza: ${materia.docenti.slice(1).join(', ')}`;
+                                        } else {
+                                            eventDescription += `Classe: ${entityName}\nDocente: ${(materia.docenti && materia.docenti[0]) || '-'}`;
+                                        }
+                                        
+                                        if (materia.laboratori && materia.laboratori.length > 0) {
+                                            const labLocation = labLocations[materia.laboratori[0]] || '';
+                                            eventDescription += `\nLaboratorio: ${materia.laboratori[0]}${labLocation ? ' (' + labLocation + ')' : ''}`;
+                                        }
+                                    });
+                                    
+                                    // Location: posizione della classe (o laboratorio se presente)
+                                    const firstMateria = cellData[0];
+                                    if (firstMateria && firstMateria.laboratori && firstMateria.laboratori.length > 0) {
+                                        eventLocation = labLocations[firstMateria.laboratori[0]] || firstMateria.laboratori[0];
+                                    } else {
+                                        eventLocation = classLocations[entityName] || '';
+                                    }
+                                } else {
+                                    // Cella vuota o non valida - salta
+                                    return;
+                                }
+                                break;
+                                
+                            case 'laboratorio':
+                                const materiaLab = cellData.materia || '';
+                                eventTitle = `${cellData.classe || 'Utilizzo laboratorio'}${materiaLab ? ' - ' + materiaLab : ''} (L)`;
+                                eventDescription = `Laboratorio: ${entityName}`;
+                                
+                                const labLocationLab = labLocations[entityName] || '';
+                                if (labLocationLab) {
+                                    eventDescription += ` (${labLocationLab})`;
+                                }
+                                
+                                eventDescription += `\nClasse: ${cellData.classe || '-'}`;
+                                
+                                // Aggiungi docenti
+                                if (cellData.compresenze && cellData.compresenze.length > 0) {
+                                    const docenti = [cellData.docenteLab, ...cellData.compresenze].filter(Boolean);
+                                    if (docenti.length > 1) {
+                                        eventDescription += `\nDocente: ${docenti[0]}\nCompresenza: ${docenti.slice(1).join(', ')}`;
+                                    } else {
+                                        eventDescription += `\nDocente: ${docenti[0] || '-'}`;
+                                    }
+                                } else {
+                                    eventDescription += `\nDocente: ${cellData.docenteLab || '-'}`;
+                                }
+                                
+                                eventDescription += `\nMateria: ${materiaLab || '-'}`;
+                                
+                                // Location: posizione del laboratorio
+                                eventLocation = labLocationLab || entityName;
+                                break;
+                        }
+
+                        // Aggiungi informazioni sulla scansione oraria alla descrizione
+                        if (slot.label) {
+                            eventDescription += `\nScansione oraria: ${slot.label}`;
+                        }
+
+                        // Aggiungi evento
+                        const newEvent = {
+                            title: eventTitle,
+                            description: eventDescription,
+                            start: startDate,
+                            end: endDate,
+                            location: eventLocation
+                        };
+                        
+                        events.push(newEvent);
+                    });
                 });
             });
 
@@ -2396,7 +2416,7 @@
                 return;
             }
 
-            console.log(`Calendario generato con ${events.length} eventi`);
+            console.log(`Calendario generato con ${events.length} eventi dalla struttura della tabella`);
             
             // Genera il file iCal
             const icalContent = generateICalendar(events, viewType, entityName);
