@@ -518,6 +518,42 @@
             margin-top: 3px;
         }
 
+        /* Stili per conflitti orario */
+        .has-conflict {
+            border: 2px solid #f44336 !important;
+            background: #ffebee !important;
+        }
+
+        .conflict-lesson {
+            background: #ffcdd2 !important;
+            border: 1px solid #e57373;
+            margin-bottom: 5px;
+        }
+
+        .conflict-lesson:last-child {
+            margin-bottom: 0;
+        }
+
+        .conflict-indicator {
+            font-size: 0.8em;
+            color: #d32f2f;
+            font-weight: bold;
+            background: #ffebee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 5px;
+            border: 1px solid #f44336;
+        }
+
+        .conflict-separator {
+            text-align: center;
+            color: #666;
+            font-size: 0.8em;
+            margin: 3px 0;
+            font-weight: bold;
+        }
+
         .docente-info {
             font-size: 0.85em;
             color: #1976d2;
@@ -1712,13 +1748,24 @@
                     // Trova le compresenze
                     const compresenze = findCompresenze(row, teacherName);
                     
-                    schedule[ora][giorno] = {
+                    const lessonData = {
                         classe: row.Classe || '',
                         materia: isLabSession ? (row.DocenteLabMateria || row.Materia || '') : (row.Materia || ''),
                         laboratorio: row.Laboratorio || '',
                         isLabSession: isLabSession,
                         compresenze: compresenze
                     };
+                    
+                    // Gestione conflitti: se esiste già una lezione in questo slot, crea un array
+                    if (schedule[ora][giorno] === null) {
+                        schedule[ora][giorno] = lessonData;
+                    } else {
+                        // Conflitto rilevato: converti in array se non lo è già
+                        if (!Array.isArray(schedule[ora][giorno])) {
+                            schedule[ora][giorno] = [schedule[ora][giorno]];
+                        }
+                        schedule[ora][giorno].push(lessonData);
+                    }
                 }
             });
 
@@ -1760,37 +1807,80 @@
                 days.forEach(day => {
                     const cell = document.createElement('td');
                     const lesson = schedule[hour][day];
-                    if (lesson && lesson.classe) {
-                        const classType = lesson.isLabSession ? 'class-info lab-session' : 'class-info';
-                        let cellContent = `<div class="${classType}">
-                            <span class="class-name">${lesson.classe}</span>`;
-                        if (showDove) {
-                            cellContent += `<span class="lab-info">📍 ${classLocations[lesson.classe] || '-'}</span>`;
-                        }
-                        cellContent += lesson.materia ? `<span class="subject-name">${lesson.materia}</span>` : '';
-                        if (showLab && lesson.laboratorio) {
-                            cellContent += `<span class="lab-info">🔬 ${lesson.laboratorio}</span>`;
-                            if (showDove) {
-                                cellContent += `<span class="lab-info">📍 ${labLocations[lesson.laboratorio] || '-'}</span>`;
-                            }
-                        }
-                        if (showCompresenze && lesson.compresenze && lesson.compresenze.length > 0) {
-                            lesson.compresenze.forEach(doc => {
-                                cellContent += `<span class="compresenza-info">👥 con ${doc}</span>`;
+                    
+                    if (lesson) {
+                        // Gestisce sia lezioni singole che conflitti (array di lezioni)
+                        const lessons = Array.isArray(lesson) ? lesson : [lesson];
+                        const hasConflict = Array.isArray(lesson);
+                        
+                        if (lessons.length > 0 && lessons[0].classe) {
+                            let cellContent = '';
+                            
+                            lessons.forEach((singleLesson, index) => {
+                                const classType = singleLesson.isLabSession ? 'class-info lab-session' : 'class-info';
+                                const conflictClass = hasConflict ? ' conflict-lesson' : '';
+                                
+                                cellContent += `<div class="${classType}${conflictClass}">`;
+                                
+                                // Se è un conflitto, aggiungi un indicatore
+                                if (hasConflict && index === 0) {
+                                    cellContent += `<span class="conflict-indicator">⚠️ TURNO</span>`;
+                                }
+                                
+                                cellContent += `<span class="class-name">${singleLesson.classe}</span>`;
+                                
+                                if (showDove) {
+                                    cellContent += `<span class="lab-info">📍 ${classLocations[singleLesson.classe] || '-'}</span>`;
+                                }
+                                
+                                cellContent += singleLesson.materia ? `<span class="subject-name">${singleLesson.materia}</span>` : '';
+                                
+                                if (showLab && singleLesson.laboratorio) {
+                                    cellContent += `<span class="lab-info">🔬 ${singleLesson.laboratorio}</span>`;
+                                    if (showDove) {
+                                        cellContent += `<span class="lab-info">📍 ${labLocations[singleLesson.laboratorio] || '-'}</span>`;
+                                    }
+                                }
+                                
+                                if (showCompresenze && singleLesson.compresenze && singleLesson.compresenze.length > 0) {
+                                    singleLesson.compresenze.forEach(doc => {
+                                        cellContent += `<span class="compresenza-info">👥 con ${doc}</span>`;
+                                    });
+                                }
+                                
+                                cellContent += '</div>';
+                                
+                                // Aggiungi separatore tra le lezioni in conflitto (tranne per l'ultima)
+                                if (hasConflict && index < lessons.length - 1) {
+                                    cellContent += '<div class="conflict-separator">---</div>';
+                                }
                             });
+                            
+                            cell.innerHTML = cellContent;
+                            
+                            // Imposta attributi per la prima lezione (per compatibilità con funzioni esistenti)
+                            cell.setAttribute('data-classe', lessons[0].classe);
+                            if (lessons[0].materia) {
+                                cell.setAttribute('data-materia', lessons[0].materia);
+                            }
+                            
+                            // Se è un conflitto, aggiungi classe CSS per styling
+                            if (hasConflict) {
+                                cell.classList.add('has-conflict');
+                            }
+                            
+                            cell.addEventListener('click', function(e) {
+                                e.stopPropagation();
+                                clearHighlights();
+                                // Evidenzia tutte le classi in conflitto
+                                lessons.forEach(singleLesson => {
+                                    highlightCells('classe', singleLesson.classe);
+                                });
+                            });
+                            cell.style.cursor = 'pointer';
+                        } else {
+                            cell.innerHTML = '<span class="empty-slot">-</span>';
                         }
-                        cellContent += '</div>';
-                        cell.innerHTML = cellContent;
-                        cell.setAttribute('data-classe', lesson.classe);
-                        if (lesson.materia) {
-                            cell.setAttribute('data-materia', lesson.materia);
-                        }
-                        cell.addEventListener('click', function(e) {
-                            e.stopPropagation();
-                            clearHighlights();
-                            highlightCells('classe', lesson.classe);
-                        });
-                        cell.style.cursor = 'pointer';
                     } else {
                         cell.innerHTML = '<span class="empty-slot">-</span>';
                     }
@@ -2266,7 +2356,12 @@
                             break;
                         case 'docente':
                         case 'laboratorio':
-                            classNameForSchedule = cellData.classe || (Array.isArray(cellData) ? cellData[0]?.classe : '');
+                            // Gestisce sia lezioni singole che conflitti (array)
+                            if (Array.isArray(cellData)) {
+                                classNameForSchedule = cellData.length > 0 ? cellData[0].classe : '';
+                            } else {
+                                classNameForSchedule = cellData.classe || '';
+                            }
                             break;
                     }
                     
@@ -2300,29 +2395,51 @@
                         
                         switch (viewType) {
                             case 'docente':
-                                const materiaDocente = cellData.materia || '';
-                                label  = cellData.laboratorio ? 'L' : '';
-                                label += (cellData.compresenze && cellData.compresenze.length > 0) ? 'C':'';
-                                if (label != "") { label = ` (${label})` }
+                                // Gestisce sia lezioni singole che conflitti (array)
+                                const lessons = Array.isArray(cellData) ? cellData : [cellData];
+                                const hasConflict = Array.isArray(cellData) && cellData.length > 1;
+                                
+                                lessons.forEach((lesson, index) => {
+                                    const materiaDocente = lesson.materia || '';
+                                    let label = lesson.laboratorio ? 'L' : '';
+                                    label += (lesson.compresenze && lesson.compresenze.length > 0) ? 'C':'';
+                                    if (label != "") { label = ` (${label})` }
 
-                                eventTitle = `${cellData.classe || 'Lezione'}${materiaDocente ? ' ' + materiaDocente : ''}${label}`;
-                                eventDescription = `Materia: ${materiaDocente || '-'}\nDocente: ${entityName}`;
-                                
-                                // Aggiungi compresenze se presenti
-                                if (cellData.compresenze && cellData.compresenze.length > 0) {
-                                    const altriDocenti = cellData.compresenze.filter(doc => doc !== entityName);
-                                    if (altriDocenti.length > 0) {
-                                        eventDescription += `\nCompresenza: ${altriDocenti.join(', ')}`;
+                                    let conflictPrefix = hasConflict ? `[TURNO ${index + 1}/${lessons.length}] ` : '';
+                                    let eventTitle = `${conflictPrefix}${lesson.classe || 'Lezione'}${materiaDocente ? ' ' + materiaDocente : ''}${label}`;
+                                    let eventDescription = `Materia: ${materiaDocente || '-'}\nDocente: ${entityName}`;
+                                    
+                                    if (hasConflict) {
+                                        eventDescription += `\n⚠️ TURNO ORARIO - Lezione ${index + 1} di ${lessons.length}`;
                                     }
-                                }
-                                
-                                if (cellData.laboratorio) {
-                                    const labLocation = labLocations[cellData.laboratorio] || '';
-                                    eventDescription += `\nLaboratorio: ${cellData.laboratorio}${labLocation ? ' (' + labLocation + ')' : ''}`;
-                                }
-                                
-                                // Location: posizione della classe (o laboratorio se presente)
-                                eventLocation = cellData.laboratorio ? (labLocations[cellData.laboratorio] || cellData.laboratorio) : (classLocations[cellData.classe] || '');
+                                    
+                                    // Aggiungi compresenze se presenti
+                                    if (lesson.compresenze && lesson.compresenze.length > 0) {
+                                        const altriDocenti = lesson.compresenze.filter(doc => doc !== entityName);
+                                        if (altriDocenti.length > 0) {
+                                            eventDescription += `\nCompresenza: ${altriDocenti.join(', ')}`;
+                                        }
+                                    }
+                                    
+                                    if (lesson.laboratorio) {
+                                        const labLocation = labLocations[lesson.laboratorio] || '';
+                                        eventDescription += `\nLaboratorio: ${lesson.laboratorio}${labLocation ? ' (' + labLocation + ')' : ''}`;
+                                    }
+                                    
+                                    // Location: posizione della classe (o laboratorio se presente)
+                                    let eventLocation = lesson.laboratorio ? (labLocations[lesson.laboratorio] || lesson.laboratorio) : (classLocations[lesson.classe] || '');
+                                    
+                                    // Crea l'evento per questo specifico lesson
+                                    const event = {
+                                        title: eventTitle,
+                                        start: startDate.toISOString(),
+                                        end: endDate.toISOString(),
+                                        description: eventDescription,
+                                        location: eventLocation
+                                    };
+                                    
+                                    events.push(event);
+                                });
                                 break;
                                 
                             case 'classe':
@@ -2395,21 +2512,24 @@
                                 break;
                         }
 
-                        // Aggiungi informazioni sulla scansione oraria alla descrizione
-                        if (slot.label) {
-                            eventDescription += `\nScansione oraria: ${slot.label}`;
-                        }
+                        // Per le viste classe e laboratorio, aggiungi informazioni sulla scansione oraria e crea l'evento
+                        if (viewType !== 'docente') {
+                            // Aggiungi informazioni sulla scansione oraria alla descrizione
+                            if (slot.label) {
+                                eventDescription += `\nScansione oraria: ${slot.label}`;
+                            }
 
-                        // Aggiungi evento
-                        const newEvent = {
-                            title: eventTitle,
-                            description: eventDescription,
-                            start: startDate,
-                            end: endDate,
-                            location: eventLocation
-                        };
-                        
-                        events.push(newEvent);
+                            // Aggiungi evento
+                            const newEvent = {
+                                title: eventTitle,
+                                description: eventDescription,
+                                start: startDate,
+                                end: endDate,
+                                location: eventLocation
+                            };
+                            
+                            events.push(newEvent);
+                        }
                     });
                 });
             });
@@ -2524,7 +2644,9 @@
 
         // Funzione per formattare una data per iCal
         function formatDateForICal(date) {
-            return date.toISOString().replace(/[:-]/g, '').split('.')[0] + 'Z';
+            // Gestisce sia oggetti Date che stringhe ISO
+            const dateObj = typeof date === 'string' ? new Date(date) : date;
+            return dateObj.toISOString().replace(/[:-]/g, '').split('.')[0] + 'Z';
         }
     </script>
 </body>
