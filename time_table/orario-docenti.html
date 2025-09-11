@@ -1756,17 +1756,46 @@
                         compresenze: compresenze
                     };
                     
-                    // Gestione conflitti: se esiste già una lezione in questo slot, crea un array
+                    // Crea una chiave unica per identificare duplicati
+                    const lessonKey = `${lessonData.classe}-${lessonData.materia}-${lessonData.laboratorio}-${lessonData.isLabSession}`;
+                    
+                    // Gestione conflitti con eliminazione automatica duplicati
                     if (schedule[ora][giorno] === null) {
                         schedule[ora][giorno] = lessonData;
+                        schedule[ora][giorno]._keys = new Set([lessonKey]); // Traccia le chiavi per evitare duplicati
                     } else {
-                        // Conflitto rilevato: converti in array se non lo è già
+                        // Converti in array se non lo è già
                         if (!Array.isArray(schedule[ora][giorno])) {
-                            schedule[ora][giorno] = [schedule[ora][giorno]];
+                            const existing = schedule[ora][giorno];
+                            const existingKey = `${existing.classe}-${existing.materia}-${existing.laboratorio}-${existing.isLabSession}`;
+                            schedule[ora][giorno] = [existing];
+                            schedule[ora][giorno]._keys = new Set([existingKey]);
                         }
-                        schedule[ora][giorno].push(lessonData);
+                        
+                        // Aggiungi solo se non è un duplicato
+                        if (!schedule[ora][giorno]._keys.has(lessonKey)) {
+                            schedule[ora][giorno].push(lessonData);
+                            schedule[ora][giorno]._keys.add(lessonKey);
+                        } else {
+                            console.log(`Duplicato ignorato per ${teacherName}: ${lessonData.classe} ${lessonData.materia} ${lessonData.laboratorio}`);
+                        }
                     }
                 }
+            });
+            
+            // Pulizia: rimuovi i Set di chiavi prima di passare alla visualizzazione
+            hours.forEach(hour => {
+                days.forEach(day => {
+                    if (schedule[hour][day] && Array.isArray(schedule[hour][day])) {
+                        delete schedule[hour][day]._keys;
+                        
+                        // Se dopo aver eliminato i duplicati rimane solo un elemento, 
+                        // converti l'array in oggetto singolo (non è più un conflitto)
+                        if (schedule[hour][day].length === 1) {
+                            schedule[hour][day] = schedule[hour][day][0];
+                        }
+                    }
+                });
             });
 
             // Genera la tabella HTML
