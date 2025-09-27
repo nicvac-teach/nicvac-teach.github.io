@@ -1682,8 +1682,8 @@
 
             teacherData.forEach(row => {
                 if (row.Classe) classiUniche.add(row.Classe);
-                if (row.Materia || row.DocenteLabMateria) {
-                    materiUniche.add(row.Materia || row.DocenteLabMateria);
+                if (row.DocenteLabMateria || row.Materia) {
+                    materiUniche.add(row.DocenteLabMateria || row.Materia);
                 }
                 if (row.Laboratorio) labUniche.add(row.Laboratorio);
                 // Conta ore uniche per evitare duplicati in caso di compresenze
@@ -1750,7 +1750,7 @@
                     
                     const lessonData = {
                         classe: row.Classe || '',
-                        materia: isLabSession ? (row.DocenteLabMateria || row.Materia || '') : (row.Materia || ''),
+                        materia: row.DocenteLabMateria || row.Materia || '',
                         laboratorio: row.Laboratorio || '',
                         isLabSession: isLabSession,
                         compresenze: compresenze
@@ -1946,8 +1946,9 @@
             classData.forEach(row => {
                 if (row.Docente) docentiUniche.add(row.Docente);
                 if (row.DocenteLab) docentiUniche.add(row.DocenteLab);
-                if (row.Materia) materiUniche.add(row.Materia);
-                if (row.DocenteLabMateria) materiUniche.add(row.DocenteLabMateria);
+                if (row.DocenteLabMateria || row.Materia) {
+                    materiUniche.add(row.DocenteLabMateria || row.Materia);
+                }
                 if (row.Laboratorio) labUniche.add(row.Laboratorio);
                 // Conta ore uniche (giorno-ora)
                 if (row.Giorno && row.Ora) {
@@ -2006,7 +2007,7 @@
                     // Raggruppa per materia
                     const materieMap = {};
                     docentiBlocco.forEach(r => {
-                        const materia = r.Materia || r.DocenteLabMateria || 'Senza materia';
+                        const materia = r.DocenteLabMateria || r.Materia || 'Senza materia';
                         if (!materieMap[materia]) {
                             materieMap[materia] = {
                                 docenti: [],
@@ -2139,7 +2140,9 @@
                 if (row.Classe) classiUniche.add(row.Classe);
                 if (row.DocenteLab) docentiUniche.add(row.DocenteLab);
                 if (row.Docente) docentiUniche.add(row.Docente);
-                if (row.DocenteLabMateria) materiUniche.add(row.DocenteLabMateria);
+                if (row.DocenteLabMateria || row.Materia) {
+                    materiUniche.add(row.DocenteLabMateria || row.Materia);
+                }
                 // Conta ore uniche di utilizzo (giorno-ora)
                 if (row.Giorno && row.Ora) {
                     oreUniche.add(`${row.Giorno}-${row.Ora}`);
