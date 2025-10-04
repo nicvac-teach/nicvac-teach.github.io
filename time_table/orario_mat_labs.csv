@@ -409,42 +409,42 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5IB,1,2,Minutiello I.,Inglese,,,
 5IB,3,5,Minutiello I.,Inglese,,,
 5IB,4,4,Minutiello I.,Inglese,,,
-1SD,1,1,Andreazza L.,Informatica,,,
-1SD,5,4,Andreazza L.,Informatica,,,
-1TrED,1,3,Andreazza L.,Informatica,,,
-1TrED,2,1,Andreazza L.,Informatica,,,
-1TrED,4,5,Andreazza L.,Informatica,,,
-2SD,4,1,Andreazza L.,Informatica,,,
-2SD,5,5,Andreazza L.,Informatica,,,
-2TrED,4,3,Andreazza L.,Informatica,,,
-2TrED,5,6,Andreazza L.,Informatica,,,
-3SD,2,2,Andreazza L.,Informatica,,,
-3SD,3,5,Andreazza L.,Informatica,,,
-3TrED,2,3,Andreazza L.,Informatica,,,
+1SD,1,3,Andreazza L.,Informatica,,,
+1SD,4,1,Andreazza L.,Informatica,,,
+1TrED,2,3,Andreazza L.,Informatica,,,
+1TrED,4,2,Andreazza L.,Informatica,,,
+1TrED,5,4,Andreazza L.,Informatica,,,
+2SD,3,6,Andreazza L.,Informatica,,,
+2SD,5,1,Andreazza L.,Informatica,,,
+2TrED,2,4,Andreazza L.,Informatica,,,
+2TrED,3,5,Andreazza L.,Informatica,,,
+3SD,4,3,Andreazza L.,Informatica,,,
+3SD,5,2,Andreazza L.,Informatica,,,
+3TrED,1,5,Andreazza L.,Informatica,,,
 3TrED,3,4,Andreazza L.,Informatica,,,
-3TrED,4,2,Andreazza L.,Informatica,,,
+3TrED,5,5,Andreazza L.,Informatica,,,
 4SD,1,2,Andreazza L.,Informatica,,,
-4SD,3,6,Andreazza L.,Informatica,,,
-4TrED,1,5,Andreazza L.,Informatica,,,
-4TrED,5,7,Andreazza L.,Informatica,,,
+4SD,2,6,Andreazza L.,Informatica,,,
+4TrED,1,1,Andreazza L.,Informatica,,,
+4TrED,2,7,Andreazza L.,Informatica,,,
+1SA,1,5,Arcamone F.,Matematica,,,
 1SA,1,6,Arcamone F.,Matematica,,,
 1SA,2,1,Arcamone F.,Matematica,,,
-1SA,3,4,Arcamone F.,Matematica,,,
 1SA,3,5,Arcamone F.,Matematica,,,
-1SA,4,4,Arcamone F.,Matematica,,,
-1SE,1,5,Arcamone F.,Matematica,,,
+1SA,5,2,Arcamone F.,Matematica,,,
+1SE,2,4,Arcamone F.,Matematica,,,
 1SE,3,3,Arcamone F.,Matematica,,,
+1SE,3,4,Arcamone F.,Matematica,,,
 1SE,4,2,Arcamone F.,Matematica,,,
-1SE,4,3,Arcamone F.,Matematica,,,
-1SE,5,4,Arcamone F.,Matematica,,,
+1SE,5,3,Arcamone F.,Matematica,,,
 2SA,2,3,Arcamone F.,Matematica,,,
-2SA,4,1,Arcamone F.,Matematica,,,
-2SA,5,1,Arcamone F.,Matematica,,,
-2SA,5,2,Arcamone F.,Matematica,,,
-2SE,1,4,Arcamone F.,Matematica,,,
+2SA,3,1,Arcamone F.,Matematica,,,
+2SA,4,3,Arcamone F.,Matematica,,,
+2SA,4,4,Arcamone F.,Matematica,,,
 2SE,2,2,Arcamone F.,Matematica,,,
-2SE,3,6,Arcamone F.,Matematica,,,
+2SE,4,1,Arcamone F.,Matematica,,,
 2SE,5,5,Arcamone F.,Matematica,,,
+2SE,5,6,Arcamone F.,Matematica,,,
 1SF,1,1,Avolio P.,Fisica,,,
 1SF,5,1,Avolio P.,Fisica,,,
 1TrED,1,6,Avolio P.,Fisica,,,
@@ -482,11 +482,11 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 1TrED,2,6,Battino B.,Scienze naturali,,,
 1TrED,4,7,Battino B.,Scienze naturali,Chimica_Liceo,Battino B.,Scienze naturali
 3TrED,2,2,Battino B.,Scienze naturali,,,
-3TrED,4,4,Battino B.,Scienze naturali,,,
-3TrED,4,5,Battino B.,Scienze naturali,Chimica_Liceo,Battino B.,Scienze naturali
+3TrED,4,4,Battino B.,Scienze naturali,Chimica_Liceo,Battino B.,Scienze naturali
+3TrED,4,5,Battino B.,Scienze naturali,,,
 4SF,2,3,Battino B.,Scienze naturali,,,
-4SF,3,1,Battino B.,Scienze naturali,,,
-4SF,3,2,Battino B.,Scienze naturali,Chimica_Liceo,Battino B.,Scienze naturali
+4SF,3,1,Battino B.,Scienze naturali,Chimica_Liceo,Battino B.,Scienze naturali
+4SF,3,2,Battino B.,Scienze naturali,,,
 5SD,1,5,Battino B.,Scienze naturali,,,
 5SD,4,6,Battino B.,Scienze naturali,,,
 5SF,1,6,Battino B.,Scienze naturali,,,
@@ -498,24 +498,24 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 2SC,1,3,Benagiano P.,Storia e geografia,,,
 2SC,3,3,Benagiano P.,Storia e geografia,,,
 2SC,3,4,Benagiano P.,Storia e geografia,,,
-1SA,1,5,Biancofiore F.,Inglese,,,
-1SA,2,6,Biancofiore F.,Inglese,,,
+1SA,1,4,Biancofiore F.,Inglese,,,
+1SA,3,4,Biancofiore F.,Inglese,,,
 1SA,5,1,Biancofiore F.,Inglese,,,
 2SA,2,4,Biancofiore F.,Inglese,,,
-2SA,3,1,Biancofiore F.,Inglese,,,
-2SA,4,2,Biancofiore F.,Inglese,,,
+2SA,4,1,Biancofiore F.,Inglese,,,
+2SA,5,2,Biancofiore F.,Inglese,,,
 3SA,1,3,Biancofiore F.,Inglese,,,
-3SA,4,5,Biancofiore F.,Inglese,,,
-3SA,5,5,Biancofiore F.,Inglese,,,
-4SA,1,4,Biancofiore F.,Inglese,,,
+3SA,3,5,Biancofiore F.,Inglese,,,
+3SA,5,4,Biancofiore F.,Inglese,,,
+4SA,1,5,Biancofiore F.,Inglese,,,
 4SA,3,2,Biancofiore F.,Inglese,,,
-4SA,5,2,Biancofiore F.,Inglese,,,
-5SA,1,2,Biancofiore F.,Inglese,,,
-5SA,2,3,Biancofiore F.,Inglese,,,
-5SA,4,1,Biancofiore F.,Inglese,,,
+4SA,4,2,Biancofiore F.,Inglese,,,
+5SA,3,1,Biancofiore F.,Inglese,,,
+5SA,4,5,Biancofiore F.,Inglese,,,
+5SA,5,5,Biancofiore F.,Inglese,,,
+5SD,1,6,Biancofiore F.,Inglese,,,
 5SD,2,5,Biancofiore F.,Inglese,,,
 5SD,4,3,Biancofiore F.,Inglese,,,
-5SD,5,3,Biancofiore F.,Inglese,,,
 2TrED,2,1,Biasi A.,Disegno e storia dell'Arte,,,
 2TrED,3,7,Biasi A.,Disegno e storia dell'Arte,,,
 2TrED,5,3,Biasi A.,Disegno e storia dell'Arte,,,
@@ -533,40 +533,40 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 3TrED,4,3,Campanale D.,Religione cattolica,,,
 4TrED,4,6,Campanale D.,Religione cattolica,,,
 1TrED,2,5,Carnimeo L.,Scienze naturali,,,
-1TrED,4,2,Carnimeo L.,Scienze naturali,,,
+1TrED,4,5,Carnimeo L.,Scienze naturali,,,
 1TrED,5,3,Carnimeo L.,Scienze naturali,,,
 2SD,2,3,Carnimeo L.,Scienze naturali,,,
-2SD,3,4,Carnimeo L.,Scienze naturali,,,
-2SD,3,5,Carnimeo L.,Scienze naturali,Chimica_Liceo,Carnimeo L.,Scienze naturali
-2SD,5,1,Carnimeo L.,Scienze naturali,,,
+2SD,4,3,Carnimeo L.,Scienze naturali,,,
+2SD,5,4,Carnimeo L.,Scienze naturali,,,
+2SD,5,5,Carnimeo L.,Scienze naturali,Chimica_Liceo,Carnimeo L.,Scienze naturali
 2SE,2,1,Carnimeo L.,Scienze naturali,,,
-2SE,3,1,Carnimeo L.,Scienze naturali,Chimica_Liceo,Carnimeo L.,Scienze naturali
-2SE,3,2,Carnimeo L.,Scienze naturali,,,
+2SE,3,1,Carnimeo L.,Scienze naturali,,,
+2SE,3,2,Carnimeo L.,Scienze naturali,Chimica_Liceo,Carnimeo L.,Scienze naturali
 2SE,4,6,Carnimeo L.,Scienze naturali,,,
+3SD,1,4,Carnimeo L.,Scienze naturali,,,
 3SD,1,5,Carnimeo L.,Scienze naturali,,,
-3SD,2,4,Carnimeo L.,Scienze naturali,,,
-3SD,4,3,Carnimeo L.,Scienze naturali,,,
+3SD,2,2,Carnimeo L.,Scienze naturali,,,
 3SD,4,4,Carnimeo L.,Scienze naturali,,,
-3SD,5,2,Carnimeo L.,Scienze naturali,,,
+3SD,5,1,Carnimeo L.,Scienze naturali,,,
 3TrED,1,6,Carnimeo L.,Scienze naturali,,,
 3TrED,1,7,Carnimeo L.,Scienze naturali,Chimica_Liceo,Carnimeo L.,Scienze naturali
-1SA,1,4,Cassano C.,Scienze naturali,,,
+1SA,3,3,Cassano C.,Scienze naturali,,,
 1SA,4,3,Cassano C.,Scienze naturali,Chimica_Liceo,Cassano C.,Scienze naturali
 1SA,5,5,Cassano C.,Scienze naturali,,,
+3SA,1,1,Cassano C.,Scienze naturali,,,
 3SA,2,1,Cassano C.,Scienze naturali,,,
-3SA,3,3,Cassano C.,Scienze naturali,,,
-3SA,4,1,Cassano C.,Scienze naturali,,,
-3SA,4,2,Cassano C.,Scienze naturali,,,
-3SA,5,4,Cassano C.,Scienze naturali,,,
-4SA,1,2,Cassano C.,Scienze naturali,,,
+3SA,2,2,Cassano C.,Scienze naturali,,,
+3SA,3,4,Cassano C.,Scienze naturali,,,
+3SA,4,5,Cassano C.,Scienze naturali,,,
+4SA,1,4,Cassano C.,Scienze naturali,,,
 4SA,3,1,Cassano C.,Scienze naturali,,,
-4SB,1,6,Cassano C.,Scienze naturali,,,
-4SB,2,3,Cassano C.,Scienze naturali,,,
-5SA,1,5,Cassano C.,Scienze naturali,,,
-5SA,2,2,Cassano C.,Scienze naturali,,,
+4SB,1,5,Cassano C.,Scienze naturali,,,
+4SB,4,6,Cassano C.,Scienze naturali,,,
+5SA,1,2,Cassano C.,Scienze naturali,,,
+5SA,2,4,Cassano C.,Scienze naturali,,,
 5SA,5,6,Cassano C.,Scienze naturali,,,
 5SB,2,5,Cassano C.,Scienze naturali,,,
-5SB,3,2,Cassano C.,Scienze naturali,,,
+5SB,3,5,Cassano C.,Scienze naturali,,,
 5SB,4,4,Cassano C.,Scienze naturali,,,
 2SF,1,5,Cassano M.,Matematica,,,
 2SF,2,4,Cassano M.,Matematica,,,
@@ -602,9 +602,9 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5SD,1,1,Cecalupo C.,Spagnolo,,,
 5SD,2,1,Cecalupo C.,Spagnolo,,,
 5SD,5,4,Cecalupo C.,Spagnolo,,,
-1SE,1,4,Ciavarella F.,Scienze naturali,Chimica_Liceo,Ciavarella F.,Scienze naturali
+1SE,1,4,Ciavarella F.,Scienze naturali,,,
 1SE,2,5,Ciavarella F.,Scienze naturali,,,
-1SE,4,5,Ciavarella F.,Scienze naturali,,,
+1SE,4,5,Ciavarella F.,Scienze naturali,Chimica_Liceo,Ciavarella F.,Scienze naturali
 3SC,1,2,Ciavarella F.,Scienze naturali,,,
 3SC,2,6,Ciavarella F.,Scienze naturali,,,
 3SC,3,6,Ciavarella F.,Scienze naturali,,,
@@ -649,27 +649,27 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 4SD,2,2,Cippone N.,Italiano,,,
 4SD,3,1,Cippone N.,Italiano,,,
 4SD,3,2,Cippone N.,Italiano,,,
-1SA,5,2,Colasuonno M.,Religione cattolica,,,
+1SA,4,4,Colasuonno M.,Religione cattolica,,,
 1SB,3,5,Colasuonno M.,Religione cattolica,,,
-1SC,5,4,Colasuonno M.,Religione cattolica,,,
-1SE,2,4,Colasuonno M.,Religione cattolica,,,
-2SA,4,4,Colasuonno M.,Religione cattolica,,,
+1SC,2,1,Colasuonno M.,Religione cattolica,,,
+1SE,1,5,Colasuonno M.,Religione cattolica,,,
+2SA,5,1,Colasuonno M.,Religione cattolica,,,
 2SB,3,4,Colasuonno M.,Religione cattolica,,,
 2SC,3,2,Colasuonno M.,Religione cattolica,,,
-2SE,5,1,Colasuonno M.,Religione cattolica,,,
+2SE,1,4,Colasuonno M.,Religione cattolica,,,
 3SA,5,3,Colasuonno M.,Religione cattolica,,,
-3SB,1,5,Colasuonno M.,Religione cattolica,,,
-3SC,1,4,Colasuonno M.,Religione cattolica,,,
-4SA,2,2,Colasuonno M.,Religione cattolica,,,
-4SB,2,1,Colasuonno M.,Religione cattolica,,,
+3SB,4,5,Colasuonno M.,Religione cattolica,,,
+3SC,2,3,Colasuonno M.,Religione cattolica,,,
+4SA,5,2,Colasuonno M.,Religione cattolica,,,
+4SB,3,6,Colasuonno M.,Religione cattolica,,,
 4SC,4,6,Colasuonno M.,Religione cattolica,,,
-5SA,3,1,Colasuonno M.,Religione cattolica,,,
-5SB,2,3,Colasuonno M.,Religione cattolica,,,
-5SC,1,6,Colasuonno M.,Religione cattolica,,,
-5SE,4,5,Colasuonno M.,Religione cattolica,,,
-1SB,1,5,Cosso L.,Scienze naturali,,,
+5SA,2,2,Colasuonno M.,Religione cattolica,,,
+5SB,1,1,Colasuonno M.,Religione cattolica,,,
+5SC,5,4,Colasuonno M.,Religione cattolica,,,
+5SE,1,2,Colasuonno M.,Religione cattolica,,,
+1SB,1,5,Cosso L.,Scienze naturali,Chimica_Liceo,Cosso L.,Scienze naturali
 1SB,3,1,Cosso L.,Scienze naturali,,,
-1SB,4,4,Cosso L.,Scienze naturali,Chimica_Liceo,Cosso L.,Scienze naturali
+1SB,4,4,Cosso L.,Scienze naturali,,,
 3SB,1,1,Cosso L.,Scienze naturali,,,
 3SB,1,2,Cosso L.,Scienze naturali,,,
 3SB,2,6,Cosso L.,Scienze naturali,,,
@@ -703,17 +703,17 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5SF,4,5,De Nicolò G.,Matematica,,,
 5SF,4,6,De Nicolò G.,Matematica,,,
 1SC,2,5,De Pasquale C.,Scienze naturali,,,
-1SC,3,4,De Pasquale C.,Scienze naturali,,,
-1SC,5,5,De Pasquale C.,Scienze naturali,Chimica_Liceo,De Pasquale C.,Scienze naturali
+1SC,3,4,De Pasquale C.,Scienze naturali,Chimica_Liceo,De Pasquale C.,Scienze naturali
+1SC,5,5,De Pasquale C.,Scienze naturali,,,
 1SD,1,6,De Pasquale C.,Scienze naturali,,,
 1SD,3,2,De Pasquale C.,Scienze naturali,,,
 1SD,4,2,De Pasquale C.,Scienze naturali,Chimica_Liceo,De Pasquale C.,Scienze naturali
 2SC,1,5,De Pasquale C.,Scienze naturali,,,
-2SC,2,1,De Pasquale C.,Scienze naturali,Chimica_Liceo,De Pasquale C.,Scienze naturali
-2SC,2,2,De Pasquale C.,Scienze naturali,,,
+2SC,2,1,De Pasquale C.,Scienze naturali,,,
+2SC,2,2,De Pasquale C.,Scienze naturali,Chimica_Liceo,De Pasquale C.,Scienze naturali
 2SC,4,1,De Pasquale C.,Scienze naturali,,,
-4SC,1,3,De Pasquale C.,Scienze naturali,Chimica_Liceo,De Pasquale C.,Scienze naturali
-4SC,1,4,De Pasquale C.,Scienze naturali,,,
+4SC,1,3,De Pasquale C.,Scienze naturali,,,
+4SC,1,4,De Pasquale C.,Scienze naturali,Chimica_Liceo,De Pasquale C.,Scienze naturali
 4SC,2,3,De Pasquale C.,Scienze naturali,,,
 4SD,3,3,De Pasquale C.,Scienze naturali,,,
 4SD,5,3,De Pasquale C.,Scienze naturali,Chimica_Liceo,De Pasquale C.,Scienze naturali
@@ -752,8 +752,8 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 2TrED,5,1,Fatone Maria T.,Scienze naturali,,,
 4SE,1,6,Fatone Maria T.,Scienze naturali,,,
 4SE,5,6,Fatone Maria T.,Scienze naturali,,,
-4TrED,3,4,Fatone Maria T.,Scienze naturali,Chimica_Liceo,Fatone Maria T.,Scienze naturali
-4TrED,3,5,Fatone Maria T.,Scienze naturali,,,
+4TrED,3,4,Fatone Maria T.,Scienze naturali,,,
+4TrED,3,5,Fatone Maria T.,Scienze naturali,Chimica_Liceo,Fatone Maria T.,Scienze naturali
 4TrED,5,2,Fatone Maria T.,Scienze naturali,,,
 5SE,1,3,Fatone Maria T.,Scienze naturali,,,
 5SE,1,4,Fatone Maria T.,Scienze naturali,,,
@@ -762,17 +762,17 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5SF,5,3,Fatone Maria T.,Scienze naturali,,,
 5SF,5,4,Fatone Maria T.,Scienze naturali,,,
 3SB,1,6,Filosofia 1.,Storia,,,
-3SB,4,5,Filosofia 1.,Storia,,,
+3SB,4,6,Filosofia 1.,Storia,,,
 3SC,1,3,Filosofia 1.,Storia,,,
-3SC,4,4,Filosofia 1.,Storia,,,
-4SB,1,4,Filosofia 1.,Filosofia e storia,,,
-4SB,1,5,Filosofia 1.,Filosofia e storia,,,
-4SB,3,6,Filosofia 1.,Filosofia e storia,,,
-4SB,4,6,Filosofia 1.,Filosofia e storia,,,
-5SB,1,1,Filosofia 1.,Filosofia e storia,,,
-5SB,3,5,Filosofia 1.,Filosofia e storia,,,
-5SB,4,1,Filosofia 1.,Filosofia e storia,,,
-5SB,4,2,Filosofia 1.,Filosofia e storia,,,
+3SC,3,5,Filosofia 1.,Storia,,,
+4SD,1,5,Filosofia 1.,Filosofia e storia,,,
+4SD,3,6,Filosofia 1.,Filosofia e storia,,,
+4SD,4,1,Filosofia 1.,Filosofia e storia,,,
+4SD,4,2,Filosofia 1.,Filosofia e storia,,,
+5SD,1,4,Filosofia 1.,Filosofia e storia,,,
+5SD,3,7,Filosofia 1.,Filosofia e storia,,,
+5SD,4,4,Filosofia 1.,Filosofia e storia,,,
+5SD,4,5,Filosofia 1.,Filosofia e storia,,,
 1SE,3,1,Fisica 2.,Fisica,,,
 1SE,3,2,Fisica 2.,Fisica,,,
 2SE,3,3,Fisica 2.,Fisica,,,
@@ -969,14 +969,14 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5SF,3,5,Lunanova F.,Filosofia e storia,,,
 5SF,4,4,Lunanova F.,Filosofia e storia,,,
 5SF,5,6,Lunanova F.,Filosofia e storia,,,
-4SD,1,5,Malizia F.,Filosofia e storia,,,
-4SD,2,6,Malizia F.,Filosofia e storia,,,
-4SD,4,1,Malizia F.,Filosofia e storia,,,
-4SD,4,2,Malizia F.,Filosofia e storia,,,
-5SD,1,6,Malizia F.,Filosofia e storia,,,
-5SD,2,7,Malizia F.,Filosofia e storia,,,
-5SD,4,4,Malizia F.,Filosofia e storia,,,
-5SD,4,5,Malizia F.,Filosofia e storia,,,
+4SB,1,3,Malizia F.,Filosofia e storia,,,
+4SB,1,4,Malizia F.,Filosofia e storia,,,
+4SB,2,1,Malizia F.,Filosofia e storia,,,
+4SB,4,1,Malizia F.,Filosofia e storia,,,
+5SB,1,5,Malizia F.,Filosofia e storia,,,
+5SB,1,6,Malizia F.,Filosofia e storia,,,
+5SB,2,3,Malizia F.,Filosofia e storia,,,
+5SB,4,2,Malizia F.,Filosofia e storia,,,
 4SF,5,5,Manniello Michele D.,Scienze naturali,,,
 4SF,5,6,Manniello Michele D.,Scienze naturali,,,
 2TrED,1,7,Mansueto M.,Fisica,,,
@@ -1024,24 +1024,24 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 2SF,1,2,Minenna A.,Scienze naturali,Chimica_Liceo,Minenna A.,Scienze naturali
 2SF,3,1,Minenna A.,Scienze naturali,,,
 2SF,5,1,Minenna A.,Scienze naturali,,,
-1SD,1,3,Montrone C.,Inglese,,,
+1SD,1,1,Montrone C.,Inglese,,,
 1SD,4,5,Montrone C.,Inglese,,,
 1SD,5,6,Montrone C.,Inglese,,,
+1TrED,1,3,Montrone C.,Inglese,,,
+1TrED,2,1,Montrone C.,Inglese,,,
 1TrED,2,2,Montrone C.,Inglese,,,
-1TrED,2,3,Montrone C.,Inglese,,,
-1TrED,3,2,Montrone C.,Inglese,,,
-1TrED,5,4,Montrone C.,Inglese,,,
-2TrED,1,1,Montrone C.,Inglese,,,
+1TrED,4,4,Montrone C.,Inglese,,,
+2TrED,1,4,Montrone C.,Inglese,,,
 2TrED,3,4,Montrone C.,Inglese,,,
-2TrED,3,5,Montrone C.,Inglese,,,
-2TrED,4,2,Montrone C.,Inglese,,,
-3TrED,1,5,Montrone C.,Inglese,,,
-3TrED,2,1,Montrone C.,Inglese,,,
-3TrED,4,1,Montrone C.,Inglese,,,
-3TrED,5,7,Montrone C.,Inglese,,,
-4TrED,1,4,Montrone C.,Inglese,,,
-4TrED,4,4,Montrone C.,Inglese,,,
-4TrED,5,5,Montrone C.,Inglese,,,
+2TrED,4,6,Montrone C.,Inglese,,,
+2TrED,5,2,Montrone C.,Inglese,,,
+3TrED,2,3,Montrone C.,Inglese,,,
+3TrED,3,1,Montrone C.,Inglese,,,
+3TrED,3,2,Montrone C.,Inglese,,,
+3TrED,5,4,Montrone C.,Inglese,,,
+4TrED,1,5,Montrone C.,Inglese,,,
+4TrED,4,7,Montrone C.,Inglese,,,
+4TrED,5,3,Montrone C.,Inglese,,,
 2SE,1,1,Morgese M.,Italiano e geostoria,,,
 2SE,1,2,Morgese M.,Italiano e geostoria,,,
 2SE,2,6,Morgese M.,Italiano e geostoria,,,
@@ -1078,17 +1078,17 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5SC,1,4,Panzini L.,Informatica,,,
 5SC,1,5,Panzini L.,Informatica,,,
 3SE,2,2,Parisi Maria C.,Matematica,,,
-3SE,4,1,Parisi Maria C.,Matematica,,,
+3SE,3,3,Parisi Maria C.,Matematica,,,
+3SE,3,4,Parisi Maria C.,Matematica,,,
 3SE,4,2,Parisi Maria C.,Matematica,,,
-3SE,5,2,Parisi Maria C.,Matematica,,,
 4SE,1,4,Parisi Maria C.,Matematica,,,
 4SE,1,5,Parisi Maria C.,Matematica,,,
 4SE,4,3,Parisi Maria C.,Matematica,,,
 4SE,5,1,Parisi Maria C.,Matematica,,,
 5SA,3,6,Parisi Maria C.,Matematica,,,
-5SA,4,5,Parisi Maria C.,Matematica,,,
+5SA,4,1,Parisi Maria C.,Matematica,,,
+5SA,5,3,Parisi Maria C.,Matematica,,,
 5SA,5,4,Parisi Maria C.,Matematica,,,
-5SA,5,5,Parisi Maria C.,Matematica,,,
 5SE,1,6,Parisi Maria C.,Matematica,,,
 5SE,1,7,Parisi Maria C.,Matematica,,,
 5SE,2,1,Parisi Maria C.,Matematica,,,
@@ -1184,42 +1184,42 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5SA,4,6,Pulice R.,Italiano,,,
 5SA,5,1,Pulice R.,Italiano,,,
 5SA,5,2,Pulice R.,Italiano,,,
-3SA,2,2,Quarto G.,Filosofia e storia,,,
-3SA,3,4,Quarto G.,Filosofia e storia,,,
+3SA,3,3,Quarto G.,Filosofia e storia,,,
 3SA,4,3,Quarto G.,Filosofia e storia,,,
+3SA,5,1,Quarto G.,Filosofia e storia,,,
 3SA,5,2,Quarto G.,Filosofia e storia,,,
-3SC,2,3,Quarto G.,Filosofia,,,
-3SC,3,5,Quarto G.,Filosofia,,,
+3SC,1,4,Quarto G.,Filosofia,,,
+3SC,3,4,Quarto G.,Filosofia,,,
 3SD,1,3,Quarto G.,Filosofia e storia,,,
-3SD,1,4,Quarto G.,Filosofia e storia,,,
+3SD,2,4,Quarto G.,Filosofia e storia,,,
+3SD,3,5,Quarto G.,Filosofia e storia,,,
 3SD,4,2,Quarto G.,Filosofia e storia,,,
-3SD,5,1,Quarto G.,Filosofia e storia,,,
-4SA,1,5,Quarto G.,Filosofia e storia,,,
 4SA,2,1,Quarto G.,Filosofia e storia,,,
+4SA,2,2,Quarto G.,Filosofia e storia,,,
 4SA,3,6,Quarto G.,Filosofia e storia,,,
 4SA,4,1,Quarto G.,Filosofia e storia,,,
+5SA,1,5,Quarto G.,Filosofia e storia,,,
 5SA,1,6,Quarto G.,Filosofia e storia,,,
-5SA,2,4,Quarto G.,Filosofia e storia,,,
+5SA,2,3,Quarto G.,Filosofia e storia,,,
 5SA,4,4,Quarto G.,Filosofia e storia,,,
-5SA,5,3,Quarto G.,Filosofia e storia,,,
 1SD,2,3,Ricco M.,Italiano,,,
 1SD,3,3,Ricco M.,Italiano,,,
-1SD,4,1,Ricco M.,Italiano,,,
 1SD,5,3,Ricco M.,Italiano,,,
+1SD,5,4,Ricco M.,Italiano,,,
 1SE,2,1,Ricco M.,Italiano e geostoria,,,
 1SE,2,2,Ricco M.,Italiano e geostoria,,,
-1SE,3,4,Ricco M.,Italiano e geostoria,,,
-1SE,3,5,Ricco M.,Italiano e geostoria,,,
+1SE,3,6,Ricco M.,Italiano e geostoria,,,
+1SE,4,3,Ricco M.,Italiano e geostoria,,,
 1SE,4,4,Ricco M.,Italiano e geostoria,,,
 1SE,5,5,Ricco M.,Italiano e geostoria,,,
 1SE,5,6,Ricco M.,Italiano e geostoria,,,
 2SD,1,1,Ricco M.,Italiano e geostoria,,,
 2SD,1,2,Ricco M.,Italiano e geostoria,,,
 2SD,2,5,Ricco M.,Italiano e geostoria,,,
-2SD,3,6,Ricco M.,Italiano e geostoria,,,
+2SD,3,4,Ricco M.,Italiano e geostoria,,,
+2SD,3,5,Ricco M.,Italiano e geostoria,,,
+2SD,4,1,Ricco M.,Italiano e geostoria,,,
 2SD,4,2,Ricco M.,Italiano e geostoria,,,
-2SD,4,3,Ricco M.,Italiano e geostoria,,,
-2SD,5,4,Ricco M.,Italiano e geostoria,,,
 1SF,1,4,Rizzi M.,Italiano e geostoria,,,
 1SF,2,4,Rizzi M.,Italiano e geostoria,,,
 1SF,3,4,Rizzi M.,Italiano e geostoria,,,
@@ -1268,11 +1268,11 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 3SC,4,6,Rosati D.,Italiano,,,
 2TrED,1,5,Sallustio I.,Scienze naturali,,,
 2TrED,1,6,Sallustio I.,Scienze naturali,Chimica_Liceo,Sallustio I.,Scienze naturali
-2TrED,4,7,Sallustio I.,Scienze naturali,,,
+2TrED,4,2,Sallustio I.,Scienze naturali,,,
 3SE,1,3,Sallustio I.,Scienze naturali,,,
 3SE,2,4,Sallustio I.,Scienze naturali,,,
-3SE,3,3,Sallustio I.,Scienze naturali,,,
 3SE,4,4,Sallustio I.,Scienze naturali,,,
+3SE,5,2,Sallustio I.,Scienze naturali,,,
 3SE,5,3,Sallustio I.,Scienze naturali,,,
 3SF,1,4,Sallustio I.,Scienze naturali,,,
 3SF,2,1,Sallustio I.,Scienze naturali,,,
@@ -1327,68 +1327,68 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5SE,1,1,Sisto M.,Inglese,,,
 5SE,2,5,Sisto M.,Inglese,,,
 5SE,3,2,Sisto M.,Inglese,,,
-1SC,2,1,Sisto Mary A.,Storia e geografia,,,
+1SC,1,1,Sisto Mary A.,Storia e geografia,,,
 1SC,3,5,Sisto Mary A.,Storia e geografia,,,
 1SC,4,4,Sisto Mary A.,Storia e geografia,,,
-2TrED,1,4,Sisto Mary A.,Storia e geografia,,,
-2TrED,2,4,Sisto Mary A.,Storia e geografia,,,
+2TrED,1,2,Sisto Mary A.,Storia e geografia,,,
+2TrED,2,7,Sisto Mary A.,Storia e geografia,,,
 2TrED,4,5,Sisto Mary A.,Storia e geografia,,,
-3SB,2,2,Sisto Mary A.,Italiano,,,
-3SB,4,6,Sisto Mary A.,Italiano,,,
+3SB,2,4,Sisto Mary A.,Italiano,,,
+3SB,4,3,Sisto Mary A.,Italiano,,,
 3SB,5,2,Sisto Mary A.,Italiano,,,
 3SB,5,3,Sisto Mary A.,Italiano,,,
-4SB,1,3,Sisto Mary A.,Italiano,,,
-4SB,3,1,Sisto Mary A.,Italiano,,,
-4SB,3,2,Sisto Mary A.,Italiano,,,
+4SB,2,5,Sisto Mary A.,Italiano,,,
+4SB,2,6,Sisto Mary A.,Italiano,,,
+4SB,3,4,Sisto Mary A.,Italiano,,,
 4SB,5,5,Sisto Mary A.,Italiano,,,
-5SB,1,5,Sisto Mary A.,Italiano,,,
-5SB,1,6,Sisto Mary A.,Italiano,,,
+5SB,3,2,Sisto Mary A.,Italiano,,,
 5SB,3,3,Sisto Mary A.,Italiano,,,
+5SB,4,1,Sisto Mary A.,Italiano,,,
 5SB,5,1,Sisto Mary A.,Italiano,,,
-1SE,3,6,St. arte 1.,Disegno e storia dell'Arte,,,
+1SE,2,3,St. arte 1.,Disegno e storia dell'Arte,,,
 1SE,5,1,St. arte 1.,Disegno e storia dell'Arte,,,
 1SF,1,5,St. arte 1.,Disegno e storia dell'Arte,,,
 1SF,4,2,St. arte 1.,Disegno e storia dell'Arte,,,
 2SE,1,6,St. arte 1.,Disegno e storia dell'Arte,,,
-2SE,4,1,St. arte 1.,Disegno e storia dell'Arte,,,
+2SE,3,6,St. arte 1.,Disegno e storia dell'Arte,,,
 2SF,2,2,St. arte 1.,Disegno e storia dell'Arte,,,
 2SF,3,5,St. arte 1.,Disegno e storia dell'Arte,,,
 3SE,2,1,St. arte 1.,Disegno e storia dell'Arte,,,
-3SE,3,4,St. arte 1.,Disegno e storia dell'Arte,,,
+3SE,4,1,St. arte 1.,Disegno e storia dell'Arte,,,
 5SF,1,4,St. arte 1.,Disegno e storia dell'Arte,,,
 5SF,5,2,St. arte 1.,Disegno e storia dell'Arte,,,
-2TrED,1,2,Trabace I.,Italiano,,,
+2TrED,1,1,Trabace I.,Italiano,,,
 2TrED,2,3,Trabace I.,Italiano,,,
 2TrED,3,4,Trabace I.,Italiano,,,
-2TrED,4,6,Trabace I.,Italiano,,,
-2TrED,5,2,Trabace I.,Italiano,,,
-3SA,1,1,Trabace I.,Italiano,,,
-3SA,3,5,Trabace I.,Italiano,,,
+2TrED,4,3,Trabace I.,Italiano,,,
+2TrED,5,6,Trabace I.,Italiano,,,
 3SA,3,6,Trabace I.,Italiano,,,
-3SA,5,1,Trabace I.,Italiano,,,
+3SA,4,1,Trabace I.,Italiano,,,
+3SA,4,2,Trabace I.,Italiano,,,
+3SA,5,5,Trabace I.,Italiano,,,
 4TrED,1,3,Trabace I.,Italiano,,,
+4TrED,1,4,Trabace I.,Italiano,,,
 4TrED,2,1,Trabace I.,Italiano,,,
 4TrED,2,2,Trabace I.,Italiano,,,
-4TrED,4,7,Trabace I.,Italiano,,,
-4TrED,5,3,Trabace I.,Italiano,,,
+4TrED,5,7,Trabace I.,Italiano,,,
 3SB,1,4,Trentadue L.,Matematica,,,
-3SB,2,4,Trentadue L.,Matematica,,,
-3SB,4,3,Trentadue L.,Matematica,,,
-3SB,4,4,Trentadue L.,Matematica,,,
+3SB,1,5,Trentadue L.,Matematica,,,
+3SB,2,2,Trentadue L.,Matematica,,,
+3SB,3,4,Trentadue L.,Matematica,,,
 3TrED,1,3,Trentadue L.,Matematica,,,
-3TrED,3,1,Trentadue L.,Matematica,,,
-3TrED,3,2,Trentadue L.,Matematica,,,
-3TrED,5,4,Trentadue L.,Matematica,,,
-3TrED,5,5,Trentadue L.,Matematica,,,
-4SB,2,5,Trentadue L.,Matematica,,,
-4SB,2,6,Trentadue L.,Matematica,,,
-4SB,3,4,Trentadue L.,Matematica,,,
-4SB,4,1,Trentadue L.,Matematica,,,
-4TrED,1,1,Trentadue L.,Matematica,,,
-4TrED,1,2,Trentadue L.,Matematica,,,
-4TrED,2,7,Trentadue L.,Matematica,,,
+3TrED,2,1,Trentadue L.,Matematica,,,
+3TrED,4,1,Trentadue L.,Matematica,,,
+3TrED,4,2,Trentadue L.,Matematica,,,
+3TrED,5,7,Trentadue L.,Matematica,,,
+4SB,1,6,Trentadue L.,Matematica,,,
+4SB,2,3,Trentadue L.,Matematica,,,
+4SB,3,1,Trentadue L.,Matematica,,,
+4SB,3,2,Trentadue L.,Matematica,,,
+4TrED,2,5,Trentadue L.,Matematica,,,
 4TrED,3,3,Trentadue L.,Matematica,,,
+4TrED,4,4,Trentadue L.,Matematica,,,
 4TrED,4,5,Trentadue L.,Matematica,,,
+4TrED,5,5,Trentadue L.,Matematica,,,
 4TrED,5,6,Trentadue L.,Matematica,,,
 4SE,4,1,Vacca N.,Informatica,,,
 4SE,4,2,Vacca N.,Informatica,,,
@@ -1423,42 +1423,42 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5SD,3,5,Vitale E.,Fisica,,,
 5SD,3,6,Vitale E.,Fisica,,,
 5SD,5,6,Vitale E.,Fisica,,,
-1SA,3,3,Vitale L.,Informatica,,,
+1SA,2,6,Vitale L.,Informatica,,,
 1SA,4,1,Vitale L.,Informatica,,,
-1SE,2,3,Vitale L.,Informatica,,,
-1SE,5,3,Vitale L.,Informatica,,,
+1SE,3,5,Vitale L.,Informatica,,,
+1SE,5,4,Vitale L.,Informatica,,,
 2SA,1,3,Vitale L.,Informatica,,,
-2SA,4,3,Vitale L.,Informatica,,,
+2SA,4,2,Vitale L.,Informatica,,,
 2SE,2,4,Vitale L.,Informatica,,,
 2SE,5,2,Vitale L.,Informatica,,,
 3SB,2,5,Vitale L.,Informatica,,,
-3SB,3,4,Vitale L.,Informatica,,,
+3SB,4,4,Vitale L.,Informatica,,,
 3SE,1,1,Vitale L.,Informatica,,,
 3SE,3,7,Vitale L.,Informatica,,,
-4SA,4,2,Vitale L.,Informatica,,,
+4SA,1,2,Vitale L.,Informatica,,,
 4SA,5,1,Vitale L.,Informatica,,,
-5SD,1,4,Vitale L.,Informatica,,,
 5SD,2,2,Vitale L.,Informatica,,,
-5SE,1,2,Vitale L.,Informatica,,,
+5SD,5,3,Vitale L.,Informatica,,,
 5SE,3,6,Vitale L.,Informatica,,,
-1SC,1,1,Vox A.,Inglese,,,
+5SE,4,5,Vitale L.,Informatica,,,
 1SC,3,2,Vox A.,Inglese,,,
 1SC,4,2,Vox A.,Inglese,,,
+1SC,5,4,Vox A.,Inglese,,,
 2SC,2,4,Vox A.,Inglese,,,
 2SC,3,1,Vox A.,Inglese,,,
 2SC,5,5,Vox A.,Inglese,,,
 2SE,1,3,Vox A.,Inglese,,,
 2SE,2,3,Vox A.,Inglese,,,
-2SE,5,6,Vox A.,Inglese,,,
+2SE,5,1,Vox A.,Inglese,,,
 3SC,1,5,Vox A.,Inglese,,,
 3SC,2,5,Vox A.,Inglese,,,
-3SC,3,4,Vox A.,Inglese,,,
+3SC,4,4,Vox A.,Inglese,,,
 4SC,1,2,Vox A.,Inglese,,,
 4SC,2,6,Vox A.,Inglese,,,
 4SC,5,3,Vox A.,Inglese,,,
+5SC,1,6,Vox A.,Inglese,,,
 5SC,3,3,Vox A.,Inglese,,,
 5SC,4,1,Vox A.,Inglese,,,
-5SC,5,4,Vox A.,Inglese,,,
 2MA,2,3,Albergo N.,STA,,,
 2MA,5,5,Albergo N.,STA,,,
 2MA,5,6,Albergo N.,STA,,,
@@ -2764,249 +2764,249 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 4EA,1,4,Vitale G.,Matematica e CM,,,
 4EA,4,4,Vitale G.,Matematica e CM,,,
 4EA,4,5,Vitale G.,Matematica e CM,,,
-3GA,1,6,Alessi M.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
-3GA,1,7,Alessi M.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
-3GA,5,3,Alessi M.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
-3GA,5,4,Alessi M.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
-4GA,2,5,Alessi M.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
-4GA,2,6,Alessi M.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
-4GA,3,1,Alessi M.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
-4GA,3,2,Alessi M.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
-4GA,4,4,Alessi M.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
-4GA,4,5,Alessi M.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
-4GA,5,5,Alessi M.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
-4GB,4,6,Alessi M.,TPP,Grafica 1,Alessi M.,TPP
-4GB,4,7,Alessi M.,TPP,Grafica 1,Alessi M.,TPP
-5GA,2,3,Alessi M.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
-5GA,2,4,Alessi M.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
-5GA,3,5,Alessi M.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
-5GB,3,3,Alessi M.,TPP,Grafica 1,Alessi M.,TPP
-5GB,3,4,Alessi M.,TPP,Grafica 1,Alessi M.,TPP
-3GA,1,4,Alfonsi A.,Italiano e Storia,,,
+3GA,2,1,Alessi M.,Laboratori Tecnici,Grafica 1,Alessi M.,Laboratori Tecnici
+3GA,2,2,Alessi M.,Laboratori Tecnici,Grafica 1,Alessi M.,Laboratori Tecnici
+3GA,5,2,Alessi M.,Laboratori Tecnici,Grafica 1,Alessi M.,Laboratori Tecnici
+3GA,5,3,Alessi M.,Laboratori Tecnici,Grafica 1,Alessi M.,Laboratori Tecnici
+4GA,1,3,Alessi M.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
+4GA,1,4,Alessi M.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
+4GA,3,5,Alessi M.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
+4GA,4,3,Alessi M.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
+4GA,4,4,Alessi M.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
+4GA,5,6,Alessi M.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
+4GA,5,7,Alessi M.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
+4GB,3,6,Alessi M.,TPP,Grafica 1,Alessi M.,TPP
+4GB,3,7,Alessi M.,TPP,Grafica 1,Alessi M.,TPP
+5GA,4,1,Alessi M.,Progettazione Multimediale,Grafica,Alessi M.,Progettazione Multimediale
+5GA,4,2,Alessi M.,Progettazione Multimediale,Grafica,Alessi M.,Progettazione Multimediale
+5GA,5,4,Alessi M.,Progettazione Multimediale,Grafica,Alessi M.,Progettazione Multimediale
+5GB,1,1,Alessi M.,TPP,Grafica,Alessi M.,TPP
+5GB,1,2,Alessi M.,TPP,Grafica,Alessi M.,TPP
 3GA,2,3,Alfonsi A.,Italiano e Storia,,,
-3GA,3,1,Alfonsi A.,Italiano e Storia,,,
-3GA,3,2,Alfonsi A.,Italiano e Storia,,,
-3GA,4,7,Alfonsi A.,Italiano e Storia,,,
-3GA,5,5,Alfonsi A.,Italiano e Storia,,,
+3GA,3,3,Alfonsi A.,Italiano e Storia,,,
+3GA,3,4,Alfonsi A.,Italiano e Storia,,,
+3GA,4,2,Alfonsi A.,Italiano e Storia,,,
+3GA,5,6,Alfonsi A.,Italiano e Storia,,,
+3GA,5,7,Alfonsi A.,Italiano e Storia,,,
 4GA,1,1,Alfonsi A.,Italiano e Storia,,,
 4GA,1,2,Alfonsi A.,Italiano e Storia,,,
-4GA,2,1,Alfonsi A.,Italiano e Storia,,,
-4GA,3,3,Alfonsi A.,Italiano e Storia,,,
-4GA,4,6,Alfonsi A.,Italiano e Storia,,,
-4GA,5,6,Alfonsi A.,Italiano e Storia,,,
+4GA,3,6,Alfonsi A.,Italiano e Storia,,,
+4GA,4,1,Alfonsi A.,Italiano e Storia,,,
+4GA,5,4,Alfonsi A.,Italiano e Storia,,,
+4GA,5,5,Alfonsi A.,Italiano e Storia,,,
 5GA,1,3,Alfonsi A.,Italiano e Storia,,,
+5GA,1,4,Alfonsi A.,Italiano e Storia,,,
+5GA,2,1,Alfonsi A.,Italiano e Storia,,,
 5GA,2,2,Alfonsi A.,Italiano e Storia,,,
-5GA,3,4,Alfonsi A.,Italiano e Storia,,,
-5GA,4,4,Alfonsi A.,Italiano e Storia,,,
-5GA,4,5,Alfonsi A.,Italiano e Storia,,,
-5GA,5,4,Alfonsi A.,Italiano e Storia,,,
+5GA,3,5,Alfonsi A.,Italiano e Storia,,,
+5GA,4,3,Alfonsi A.,Italiano e Storia,,,
+4GA,1,5,Battista R.,Matematica,,,
 4GA,3,4,Battista R.,Matematica,,,
-4GA,3,5,Battista R.,Matematica,,,
-4GA,4,3,Battista R.,Matematica,,,
 4GA,5,2,Battista R.,Matematica,,,
+4GA,5,3,Battista R.,Matematica,,,
 3GA,2,6,De Benedittis A.,Teoria della comunicazione,,,
-3GA,4,6,De Benedittis A.,Teoria della comunicazione,,,
+3GA,4,1,De Benedittis A.,Teoria della comunicazione,,,
 3GB,2,1,De Benedittis A.,Teoria della comunicazione,,,
-3GB,4,1,De Benedittis A.,Teoria della comunicazione,,,
-4GA,2,2,De Benedittis A.,Teoria della comunicazione,,,
+3GB,4,6,De Benedittis A.,Teoria della comunicazione,,,
 4GA,2,3,De Benedittis A.,Teoria della comunicazione,,,
+4GA,2,4,De Benedittis A.,Teoria della comunicazione,,,
 4GA,4,2,De Benedittis A.,Teoria della comunicazione,,,
-4GB,2,5,De Benedittis A.,Teoria della comunicazione,,,
+4GB,2,2,De Benedittis A.,Teoria della comunicazione,,,
 4GB,4,4,De Benedittis A.,Teoria della comunicazione,,,
 4GB,4,5,De Benedittis A.,Teoria della comunicazione,,,
-3GA,1,6,De Cosmo D.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
-3GA,1,7,De Cosmo D.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
-3GA,3,4,De Cosmo D.,Laboratori Tecnici,,,
-3GA,3,5,De Cosmo D.,Laboratori Tecnici,,,
-3GA,5,3,De Cosmo D.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
-3GA,5,4,De Cosmo D.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
-4GA,1,5,De Cosmo D.,Laboratori Tecnici,,,
-4GA,2,5,De Cosmo D.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
-4GA,2,6,De Cosmo D.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
-4GA,3,1,De Cosmo D.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
-4GA,3,2,De Cosmo D.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
+3GA,2,1,De Cosmo D.,Laboratori Tecnici,Grafica 1,Alessi M.,Laboratori Tecnici
+3GA,2,2,De Cosmo D.,Laboratori Tecnici,Grafica 1,Alessi M.,Laboratori Tecnici
+3GA,3,2,De Cosmo D.,Laboratori Tecnici,,,
+3GA,4,5,De Cosmo D.,Laboratori Tecnici,,,
+3GA,5,2,De Cosmo D.,Laboratori Tecnici,Grafica 1,Alessi M.,Laboratori Tecnici
+3GA,5,3,De Cosmo D.,Laboratori Tecnici,Grafica 1,Alessi M.,Laboratori Tecnici
+4GA,1,3,De Cosmo D.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
+4GA,1,4,De Cosmo D.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
+4GA,3,1,De Cosmo D.,Laboratori Tecnici,,,
+4GA,4,3,De Cosmo D.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
+4GA,4,4,De Cosmo D.,Laboratori Tecnici,Grafica,Alessi M.,Laboratori Tecnici
 4GA,5,1,De Cosmo D.,Laboratori Tecnici,,,
-5GA,3,6,De Cosmo D.,Laboratori Tecnici,,,
-5GA,3,7,De Cosmo D.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
-5GA,4,1,De Cosmo D.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
-5GA,4,2,De Cosmo D.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
+5GA,1,6,De Cosmo D.,Laboratori Tecnici,,,
+5GA,1,7,De Cosmo D.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
+5GA,4,6,De Cosmo D.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
+5GA,4,7,De Cosmo D.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
 5GA,5,5,De Cosmo D.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
 5GA,5,6,De Cosmo D.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
-3GB,1,6,Dimitri F.,TPP,Grafica 1,Dimitri F.,TPP
-3GB,1,7,Dimitri F.,TPP,Grafica 1,Dimitri F.,TPP
-4GB,1,5,Dimitri F.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
-4GB,5,3,Dimitri F.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
-4GB,5,4,Dimitri F.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
-5GA,3,7,Dimitri F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
-5GA,4,1,Dimitri F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
-5GA,4,2,Dimitri F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
+3GB,3,1,Dimitri F.,TPP,Grafica 1,Dimitri F.,TPP
+3GB,3,2,Dimitri F.,TPP,Grafica 1,Dimitri F.,TPP
+4GB,1,2,Dimitri F.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
+4GB,1,3,Dimitri F.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
+4GB,3,3,Dimitri F.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
+5GA,1,7,Dimitri F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
+5GA,4,6,Dimitri F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
+5GA,4,7,Dimitri F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
 5GA,5,5,Dimitri F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
 5GA,5,6,Dimitri F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
-5GB,1,4,Dimitri F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
-5GB,2,1,Dimitri F.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
-5GB,2,2,Dimitri F.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
+5GB,1,5,Dimitri F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
+5GB,1,6,Dimitri F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
+5GB,2,1,Dimitri F.,Progettazione Multimediale,Grafica,Dimitri F.,Progettazione Multimediale
+5GB,2,2,Dimitri F.,Progettazione Multimediale,Grafica,Dimitri F.,Progettazione Multimediale
+5GB,3,4,Dimitri F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
 5GB,3,5,Dimitri F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
-5GB,3,6,Dimitri F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
-5GB,4,3,Dimitri F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
-5GB,4,4,Dimitri F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
-5GB,5,1,Dimitri F.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
-3GA,1,5,Fugaro V.,Matematica e CM,,,
-3GA,2,1,Fugaro V.,Matematica e CM,,,
-3GA,4,1,Fugaro V.,Matematica e CM,,,
+5GB,4,5,Dimitri F.,Progettazione Multimediale,Grafica,Dimitri F.,Progettazione Multimediale
+5GB,5,3,Dimitri F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
+3GA,1,2,Fugaro V.,Matematica e CM,,,
+3GA,1,3,Fugaro V.,Matematica e CM,,,
+3GA,4,6,Fugaro V.,Matematica e CM,,,
 3GA,5,1,Fugaro V.,Matematica e CM,,,
 3GB,2,2,Fugaro V.,Matematica e CM,,,
+3GB,3,5,Fugaro V.,Matematica e CM,,,
 3GB,3,6,Fugaro V.,Matematica e CM,,,
-3GB,4,4,Fugaro V.,Matematica e CM,,,
-3GB,5,3,Fugaro V.,Matematica e CM,,,
-4GB,1,6,Fugaro V.,Matematica e CM,,,
-4GB,2,4,Fugaro V.,Matematica e CM,,,
+3GB,4,5,Fugaro V.,Matematica e CM,,,
+4GB,1,1,Fugaro V.,Matematica e CM,,,
+4GB,2,1,Fugaro V.,Matematica e CM,,,
 4GB,3,4,Fugaro V.,Matematica e CM,,,
-4GB,3,5,Fugaro V.,Matematica e CM,,,
+4GB,4,3,Fugaro V.,Matematica e CM,,,
+5GA,2,3,Fugaro V.,Matematica,,,
 5GA,3,3,Fugaro V.,Matematica,,,
-5GA,4,3,Fugaro V.,Matematica,,,
-5GA,5,2,Fugaro V.,Matematica,,,
-5GB,2,3,Fugaro V.,Matematica,,,
-5GB,4,5,Fugaro V.,Matematica,,,
-5GB,5,4,Fugaro V.,Matematica,,,
-3GA,3,6,Giordano Giov.,Progettazione Multimediale,,,
-3GA,4,2,Giordano Giov.,Progettazione Multimediale,Grafica 1,Pistillo R.,Progettazione Multimediale
+5GA,5,3,Fugaro V.,Matematica,,,
+5GB,1,4,Fugaro V.,Matematica,,,
+5GB,4,4,Fugaro V.,Matematica,,,
+5GB,5,2,Fugaro V.,Matematica,,,
+3GA,3,1,Giordano Giov.,Progettazione Multimediale,,,
 3GA,4,3,Giordano Giov.,Progettazione Multimediale,Grafica 1,Pistillo R.,Progettazione Multimediale
-3GA,5,6,Giordano Giov.,Progettazione Multimediale,,,
-4GA,4,4,Giordano Giov.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
-4GA,4,5,Giordano Giov.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
-4GA,5,5,Giordano Giov.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
-4GB,1,5,Giordano Giov.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
-4GB,5,3,Giordano Giov.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
-4GB,5,4,Giordano Giov.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
-5GA,1,6,Giordano Giov.,Progettazione Multimediale,,,
-5GA,2,3,Giordano Giov.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
-5GA,2,4,Giordano Giov.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
-5GA,3,5,Giordano Giov.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
-5GB,2,1,Giordano Giov.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
-5GB,2,2,Giordano Giov.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
-5GB,4,6,Giordano Giov.,Progettazione Multimediale,,,
-5GB,5,1,Giordano Giov.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
-3GA,1,3,Inglese 5.,Inglese,,,
-3GA,3,3,Inglese 5.,Inglese,,,
-3GA,4,4,Inglese 5.,Inglese,,,
-3GB,1,2,Inglese 5.,Inglese,,,
-3GB,3,2,Inglese 5.,Inglese,,,
-3GB,5,2,Inglese 5.,Inglese,,,
-4GA,2,4,Inglese 5.,Inglese,,,
-4GA,4,1,Inglese 5.,Inglese,,,
-4GA,5,4,Inglese 5.,Inglese,,,
-4GB,2,3,Inglese 5.,Inglese,,,
-4GB,3,1,Inglese 5.,Inglese,,,
-4GB,4,3,Inglese 5.,Inglese,,,
-5GA,1,4,Inglese 5.,Inglese,,,
-5GA,2,5,Inglese 5.,Inglese,,,
-5GA,5,3,Inglese 5.,Inglese,,,
-5GB,1,1,Inglese 5.,Inglese,,,
-5GB,4,2,Inglese 5.,Inglese,,,
+3GA,4,4,Giordano Giov.,Progettazione Multimediale,Grafica 1,Pistillo R.,Progettazione Multimediale
+3GA,5,5,Giordano Giov.,Progettazione Multimediale,,,
+4GA,3,5,Giordano Giov.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
+4GA,5,6,Giordano Giov.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
+4GA,5,7,Giordano Giov.,Progettazione Multimediale,Grafica 1,Alessi M.,Progettazione Multimediale
+4GB,1,2,Giordano Giov.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
+4GB,1,3,Giordano Giov.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
+4GB,3,3,Giordano Giov.,Progettazione Multimediale,Grafica 1,Dimitri F.,Progettazione Multimediale
+5GA,3,6,Giordano Giov.,Progettazione Multimediale,,,
+5GA,4,1,Giordano Giov.,Progettazione Multimediale,Grafica,Alessi M.,Progettazione Multimediale
+5GA,4,2,Giordano Giov.,Progettazione Multimediale,Grafica,Alessi M.,Progettazione Multimediale
+5GA,5,4,Giordano Giov.,Progettazione Multimediale,Grafica,Alessi M.,Progettazione Multimediale
+5GB,2,1,Giordano Giov.,Progettazione Multimediale,Grafica,Dimitri F.,Progettazione Multimediale
+5GB,2,2,Giordano Giov.,Progettazione Multimediale,Grafica,Dimitri F.,Progettazione Multimediale
+5GB,3,2,Giordano Giov.,Progettazione Multimediale,,,
+5GB,4,5,Giordano Giov.,Progettazione Multimediale,Grafica,Dimitri F.,Progettazione Multimediale
+3GA,1,1,Inglese 5.,Inglese,,,
+3GA,2,4,Inglese 5.,Inglese,,,
+3GA,5,4,Inglese 5.,Inglese,,,
+3GB,2,3,Inglese 5.,Inglese,,,
+3GB,4,3,Inglese 5.,Inglese,,,
+3GB,5,3,Inglese 5.,Inglese,,,
+4GA,2,5,Inglese 5.,Inglese,,,
+4GA,3,3,Inglese 5.,Inglese,,,
+4GA,4,5,Inglese 5.,Inglese,,,
+4GB,1,4,Inglese 5.,Inglese,,,
+4GB,3,5,Inglese 5.,Inglese,,,
+4GB,4,6,Inglese 5.,Inglese,,,
+5GA,1,5,Inglese 5.,Inglese,,,
+5GA,3,4,Inglese 5.,Inglese,,,
+5GA,4,4,Inglese 5.,Inglese,,,
+5GB,1,3,Inglese 5.,Inglese,,,
+5GB,3,6,Inglese 5.,Inglese,,,
 5GB,5,5,Inglese 5.,Inglese,,,
-3GB,1,1,Marasciulo Maria G.,Italiano e Storia,,,
-3GB,2,5,Marasciulo Maria G.,Italiano e Storia,,,
+3GB,1,6,Marasciulo Maria G.,Italiano e Storia,,,
+3GB,2,6,Marasciulo Maria G.,Italiano e Storia,,,
 3GB,3,3,Marasciulo Maria G.,Italiano e Storia,,,
 3GB,3,4,Marasciulo Maria G.,Italiano e Storia,,,
-3GB,4,2,Marasciulo Maria G.,Italiano e Storia,,,
-3GB,4,3,Marasciulo Maria G.,Italiano e Storia,,,
-4GB,1,3,Marasciulo Maria G.,Italiano e Storia,,,
-4GB,1,4,Marasciulo Maria G.,Italiano e Storia,,,
-4GB,2,6,Marasciulo Maria G.,Italiano e Storia,,,
-4GB,2,7,Marasciulo Maria G.,Italiano e Storia,,,
-4GB,5,5,Marasciulo Maria G.,Italiano e Storia,,,
-4GB,5,6,Marasciulo Maria G.,Italiano e Storia,,,
-5GB,1,2,Marasciulo Maria G.,Italiano e Storia,,,
+3GB,4,4,Marasciulo Maria G.,Italiano e Storia,,,
+3GB,5,2,Marasciulo Maria G.,Italiano e Storia,,,
+4GB,2,5,Marasciulo Maria G.,Italiano e Storia,,,
+4GB,3,2,Marasciulo Maria G.,Italiano e Storia,,,
+4GB,4,1,Marasciulo Maria G.,Italiano e Storia,,,
+4GB,4,2,Marasciulo Maria G.,Italiano e Storia,,,
+4GB,5,3,Marasciulo Maria G.,Italiano e Storia,,,
+4GB,5,4,Marasciulo Maria G.,Italiano e Storia,,,
+5GB,1,7,Marasciulo Maria G.,Italiano e Storia,,,
+5GB,2,3,Marasciulo Maria G.,Italiano e Storia,,,
 5GB,2,4,Marasciulo Maria G.,Italiano e Storia,,,
 5GB,3,1,Marasciulo Maria G.,Italiano e Storia,,,
-5GB,3,2,Marasciulo Maria G.,Italiano e Storia,,,
-5GB,4,1,Marasciulo Maria G.,Italiano e Storia,,,
-5GB,5,7,Marasciulo Maria G.,Italiano e Storia,,,
-3GA,2,2,Minerva Immacolata A.,Religione cattolica,,,
-3GB,3,5,Minerva Immacolata A.,Religione cattolica,,,
-4GA,5,7,Minerva Immacolata A.,Religione cattolica,,,
-4GB,3,6,Minerva Immacolata A.,Religione cattolica,,,
-5GA,2,1,Minerva Immacolata A.,Religione cattolica,,,
+5GB,4,3,Marasciulo Maria G.,Italiano e Storia,,,
+5GB,5,1,Marasciulo Maria G.,Italiano e Storia,,,
+3GA,2,5,Minerva Immacolata A.,Religione cattolica,,,
+3GB,5,7,Minerva Immacolata A.,Religione cattolica,,,
+4GA,3,2,Minerva Immacolata A.,Religione cattolica,,,
+4GB,3,1,Minerva Immacolata A.,Religione cattolica,,,
+5GA,2,6,Minerva Immacolata A.,Religione cattolica,,,
 5GB,5,6,Minerva Immacolata A.,Religione cattolica,,,
-3GB,1,3,Palumbo R.,Laboratori Tecnici,Grafica 1,Pistillo R.,Progettazione Multimediale
-3GB,1,4,Palumbo R.,Laboratori Tecnici,Grafica 1,Pistillo R.,Progettazione Multimediale
-3GB,1,5,Palumbo R.,Laboratori Tecnici,,,
-3GB,2,3,Palumbo R.,Laboratori Tecnici,Grafica,Pistillo R.,Laboratori Tecnici
-3GB,2,4,Palumbo R.,Laboratori Tecnici,Grafica,Pistillo R.,Laboratori Tecnici
-3GB,4,5,Palumbo R.,Progettazione Multimediale,Grafica,Pistillo R.,Laboratori Tecnici
-3GB,4,6,Palumbo R.,Progettazione Multimediale,Grafica,Pistillo R.,Laboratori Tecnici
-3GB,5,4,Palumbo R.,Progettazione Multimediale,,,
-3GB,5,5,Palumbo R.,Progettazione Multimediale,,,
-3GB,5,6,Palumbo R.,Laboratori Tecnici,,,
-4GB,1,1,Palumbo R.,Laboratori Tecnici,,,
-4GB,1,2,Palumbo R.,Laboratori Tecnici,,,
-4GB,2,1,Palumbo R.,Laboratori Tecnici,Grafica,Pistillo R.,Laboratori Tecnici
-4GB,2,2,Palumbo R.,Laboratori Tecnici,Grafica,Pistillo R.,Laboratori Tecnici
+3GB,1,1,Palumbo R.,Progettazione Multimediale,,,
+3GB,1,2,Palumbo R.,Laboratori Tecnici,,,
+3GB,1,3,Palumbo R.,Laboratori Tecnici,,,
+3GB,2,4,Palumbo R.,Laboratori Tecnici,Grafica 1,Pistillo R.,Progettazione Multimediale
+3GB,2,5,Palumbo R.,Laboratori Tecnici,Grafica 1,Pistillo R.,Progettazione Multimediale
+3GB,4,1,Palumbo R.,Progettazione Multimediale,Grafica 1,Pistillo R.,Laboratori Tecnici
+3GB,4,2,Palumbo R.,Progettazione Multimediale,Grafica 1,Pistillo R.,Laboratori Tecnici
+3GB,5,4,Palumbo R.,Laboratori Tecnici,Grafica 1,Pistillo R.,Laboratori Tecnici
+3GB,5,5,Palumbo R.,Laboratori Tecnici,Grafica 1,Pistillo R.,Laboratori Tecnici
+3GB,5,6,Palumbo R.,Progettazione Multimediale,,,
+4GB,1,5,Palumbo R.,Laboratori Tecnici,,,
+4GB,1,6,Palumbo R.,Laboratori Tecnici,,,
+4GB,2,6,Palumbo R.,Laboratori Tecnici,Grafica,Pistillo R.,Laboratori Tecnici
+4GB,2,7,Palumbo R.,Laboratori Tecnici,Grafica,Pistillo R.,Laboratori Tecnici
 4GB,5,1,Palumbo R.,Laboratori Tecnici,Grafica,Pistillo R.,Laboratori Tecnici
 4GB,5,2,Palumbo R.,Laboratori Tecnici,Grafica,Pistillo R.,Laboratori Tecnici
-3GA,2,4,Perrone M.,Scienze motorie e sportive,,,
-3GA,2,5,Perrone M.,Scienze motorie e sportive,,,
-3GB,2,6,Perrone M.,Scienze motorie e sportive,,,
-3GB,2,7,Perrone M.,Scienze motorie e sportive,,,
-4GA,1,3,Perrone M.,Scienze motorie e sportive,,,
-4GA,1,4,Perrone M.,Scienze motorie e sportive,,,
-4GB,4,1,Perrone M.,Scienze motorie e sportive,,,
-4GB,4,2,Perrone M.,Scienze motorie e sportive,,,
+3GA,1,6,Perrone M.,Scienze motorie e sportive,,,
+3GA,1,7,Perrone M.,Scienze motorie e sportive,,,
+3GB,1,4,Perrone M.,Scienze motorie e sportive,,,
+3GB,1,5,Perrone M.,Scienze motorie e sportive,,,
+4GA,2,1,Perrone M.,Scienze motorie e sportive,,,
+4GA,2,2,Perrone M.,Scienze motorie e sportive,,,
+4GB,2,3,Perrone M.,Scienze motorie e sportive,,,
+4GB,2,4,Perrone M.,Scienze motorie e sportive,,,
 5GA,1,1,Perrone M.,Scienze motorie e sportive,,,
 5GA,1,2,Perrone M.,Scienze motorie e sportive,,,
-5GB,1,6,Perrone M.,Scienze motorie e sportive,,,
-5GB,1,7,Perrone M.,Scienze motorie e sportive,,,
-3GA,1,1,Pistillo R.,TPP,Grafica 1,Pistillo R.,TPP
-3GA,1,2,Pistillo R.,TPP,Grafica 1,Pistillo R.,TPP
-3GA,4,2,Pistillo R.,Progettazione Multimediale,Grafica 1,Pistillo R.,Progettazione Multimediale
+5GB,4,6,Perrone M.,Scienze motorie e sportive,,,
+5GB,4,7,Perrone M.,Scienze motorie e sportive,,,
+3GA,1,4,Pistillo R.,TPP,Grafica 1,Pistillo R.,TPP
+3GA,1,5,Pistillo R.,TPP,Grafica 1,Pistillo R.,TPP
 3GA,4,3,Pistillo R.,Progettazione Multimediale,Grafica 1,Pistillo R.,Progettazione Multimediale
-3GB,1,3,Pistillo R.,Laboratori Tecnici,Grafica 1,Pistillo R.,Progettazione Multimediale
-3GB,1,4,Pistillo R.,Laboratori Tecnici,Grafica 1,Pistillo R.,Progettazione Multimediale
-3GB,2,3,Pistillo R.,Laboratori Tecnici,Grafica,Pistillo R.,Laboratori Tecnici
-3GB,2,4,Pistillo R.,Laboratori Tecnici,Grafica,Pistillo R.,Laboratori Tecnici
-3GB,4,5,Pistillo R.,Progettazione Multimediale,Grafica,Pistillo R.,Laboratori Tecnici
-3GB,4,6,Pistillo R.,Progettazione Multimediale,Grafica,Pistillo R.,Laboratori Tecnici
-4GA,3,6,Pistillo R.,TPP,Grafica 1,Pistillo R.,TPP
-4GA,3,7,Pistillo R.,TPP,Grafica 1,Pistillo R.,TPP
-4GB,2,1,Pistillo R.,Laboratori Tecnici,Grafica,Pistillo R.,Laboratori Tecnici
-4GB,2,2,Pistillo R.,Laboratori Tecnici,Grafica,Pistillo R.,Laboratori Tecnici
+3GA,4,4,Pistillo R.,Progettazione Multimediale,Grafica 1,Pistillo R.,Progettazione Multimediale
+3GB,2,4,Pistillo R.,Laboratori Tecnici,Grafica 1,Pistillo R.,Progettazione Multimediale
+3GB,2,5,Pistillo R.,Laboratori Tecnici,Grafica 1,Pistillo R.,Progettazione Multimediale
+3GB,4,1,Pistillo R.,Progettazione Multimediale,Grafica 1,Pistillo R.,Laboratori Tecnici
+3GB,4,2,Pistillo R.,Progettazione Multimediale,Grafica 1,Pistillo R.,Laboratori Tecnici
+3GB,5,4,Pistillo R.,Laboratori Tecnici,Grafica 1,Pistillo R.,Laboratori Tecnici
+3GB,5,5,Pistillo R.,Laboratori Tecnici,Grafica 1,Pistillo R.,Laboratori Tecnici
+4GA,1,6,Pistillo R.,TPP,Grafica 1,Pistillo R.,TPP
+4GA,1,7,Pistillo R.,TPP,Grafica 1,Pistillo R.,TPP
+4GB,2,6,Pistillo R.,Laboratori Tecnici,Grafica,Pistillo R.,Laboratori Tecnici
+4GB,2,7,Pistillo R.,Laboratori Tecnici,Grafica,Pistillo R.,Laboratori Tecnici
 4GB,5,1,Pistillo R.,Laboratori Tecnici,Grafica,Pistillo R.,Laboratori Tecnici
 4GB,5,2,Pistillo R.,Laboratori Tecnici,Grafica,Pistillo R.,Laboratori Tecnici
-5GA,2,6,Pistillo R.,TPP,Grafica 1,Pistillo R.,TPP
-5GA,2,7,Pistillo R.,TPP,Grafica 1,Pistillo R.,TPP
-3GB,1,6,Procacci F.,TPP,Grafica 1,Dimitri F.,TPP
-3GB,1,7,Procacci F.,TPP,Grafica 1,Dimitri F.,TPP
-3GB,3,1,Procacci F.,TPP,,,
+5GA,3,1,Pistillo R.,TPP,Grafica,Pistillo R.,TPP
+5GA,3,2,Pistillo R.,TPP,Grafica,Pistillo R.,TPP
+3GB,2,7,Procacci F.,TPP,,,
+3GB,3,1,Procacci F.,TPP,Grafica 1,Dimitri F.,TPP
+3GB,3,2,Procacci F.,TPP,Grafica 1,Dimitri F.,TPP
 3GB,5,1,Procacci F.,TPP,,,
-4GB,3,2,Procacci F.,TPP,,,
-4GB,3,3,Procacci F.,TPP,,,
-4GB,4,6,Procacci F.,TPP,Grafica 1,Alessi M.,TPP
-4GB,4,7,Procacci F.,TPP,Grafica 1,Alessi M.,TPP
-5GB,1,4,Procacci F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
-5GB,1,5,Procacci F.,OGPP,,,
+4GB,3,6,Procacci F.,TPP,Grafica 1,Alessi M.,TPP
+4GB,3,7,Procacci F.,TPP,Grafica 1,Alessi M.,TPP
+4GB,5,5,Procacci F.,TPP,,,
+4GB,5,6,Procacci F.,TPP,,,
+5GB,1,5,Procacci F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
+5GB,1,6,Procacci F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
 5GB,2,5,Procacci F.,OGPP,,,
 5GB,2,6,Procacci F.,OGPP,,,
+5GB,3,4,Procacci F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
 5GB,3,5,Procacci F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
-5GB,3,6,Procacci F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
-5GB,4,3,Procacci F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
-5GB,4,4,Procacci F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
-5GB,5,2,Procacci F.,OGPP,,,
-5GB,5,3,Procacci F.,Laboratori Tecnici,,,
-3GA,1,1,Rociola S.,TPP,Grafica 1,Pistillo R.,TPP
-3GA,1,2,Rociola S.,TPP,Grafica 1,Pistillo R.,TPP
-3GA,4,5,Rociola S.,TPP,,,
-3GA,5,2,Rociola S.,TPP,,,
-4GA,1,6,Rociola S.,TPP,,,
-4GA,3,6,Rociola S.,TPP,Grafica 1,Pistillo R.,TPP
-4GA,3,7,Rociola S.,TPP,Grafica 1,Pistillo R.,TPP
-4GA,5,3,Rociola S.,TPP,,,
-5GA,1,5,Rociola S.,OGPP,,,
-5GA,2,6,Rociola S.,TPP,Grafica 1,Pistillo R.,TPP
-5GA,2,7,Rociola S.,TPP,Grafica 1,Pistillo R.,TPP
-5GA,3,1,Rociola S.,OGPP,,,
-5GA,3,2,Rociola S.,OGPP,,,
-5GA,4,6,Rociola S.,OGPP,,,
-5GA,5,1,Rociola S.,TPP,,,
-5GB,1,3,Rociola S.,TPP,,,
-5GB,3,3,Rociola S.,TPP,Grafica 1,Alessi M.,TPP
-5GB,3,4,Rociola S.,TPP,Grafica 1,Alessi M.,TPP
+5GB,4,1,Procacci F.,OGPP,,,
+5GB,4,2,Procacci F.,OGPP,,,
+5GB,5,3,Procacci F.,Laboratori Tecnici,Grafica,Dimitri F.,Laboratori Tecnici
+5GB,5,4,Procacci F.,Laboratori Tecnici,,,
+3GA,1,4,Rociola S.,TPP,Grafica 1,Pistillo R.,TPP
+3GA,1,5,Rociola S.,TPP,Grafica 1,Pistillo R.,TPP
+3GA,3,5,Rociola S.,TPP,,,
+3GA,3,6,Rociola S.,TPP,,,
+4GA,1,6,Rociola S.,TPP,Grafica 1,Pistillo R.,TPP
+4GA,1,7,Rociola S.,TPP,Grafica 1,Pistillo R.,TPP
+4GA,2,6,Rociola S.,TPP,,,
+4GA,4,6,Rociola S.,TPP,,,
+5GA,2,4,Rociola S.,OGPP,,,
+5GA,2,5,Rociola S.,OGPP,,,
+5GA,3,1,Rociola S.,TPP,Grafica,Pistillo R.,TPP
+5GA,3,2,Rociola S.,TPP,Grafica,Pistillo R.,TPP
+5GA,4,5,Rociola S.,OGPP,,,
+5GA,5,1,Rociola S.,OGPP,,,
+5GA,5,2,Rociola S.,TPP,,,
+5GB,1,1,Rociola S.,TPP,Grafica,Alessi M.,TPP
+5GB,1,2,Rociola S.,TPP,Grafica,Alessi M.,TPP
+5GB,3,3,Rociola S.,TPP,,,
