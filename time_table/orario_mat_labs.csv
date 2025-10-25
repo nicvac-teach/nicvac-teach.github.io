@@ -1515,23 +1515,23 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 1MC,2,5,Buzzanca A.,Tecnologie Informatiche,,,
 1MC,3,2,Buzzanca A.,Tecnologie Informatiche,Multimediale - Lamarr,Giannini A.,Tecnologie Informatiche
 1MC,4,1,Buzzanca A.,Tecnologie Informatiche,Multimediale - Lamarr,Giannini A.,Tecnologie Informatiche
-1ITC,1,6,Cacucci A.,Scienze Integrate Chimica,,,
 1ITC,4,5,Cacucci A.,Scienze Integrate Chimica,Chimica,Bellino Maria G.,Scienze Integrate Chimica
+1ITC,4,6,Cacucci A.,Scienze Integrate Chimica,,,
 1ITC,5,4,Cacucci A.,Scienze Integrate Chimica,,,
-1ITD,1,3,Cacucci A.,Scienze Integrate Chimica,,,
 1ITD,3,3,Cacucci A.,Scienze Integrate Chimica,Chimica,Bellino Maria G.,Scienze Integrate Chimica
 1ITD,4,3,Cacucci A.,Scienze Integrate Chimica,,,
+1ITD,5,2,Cacucci A.,Scienze Integrate Chimica,,,
+1ITE,2,2,Cacucci A.,Scienze Integrate Chimica,,,
 1ITE,3,1,Cacucci A.,Scienze Integrate Chimica,,,
 1ITE,3,2,Cacucci A.,Scienze Integrate Chimica,Chimica,Bellino Maria G.,Scienze Integrate Chimica
-1ITE,5,1,Cacucci A.,Scienze Integrate Chimica,,,
-2ITC,2,3,Cacucci A.,Scienze Integrate Chimica,,,
+2ITC,1,2,Cacucci A.,Scienze Integrate Chimica,,,
 2ITC,3,4,Cacucci A.,Scienze Integrate Chimica,Chimica,Bellino Maria G.,Scienze Integrate Chimica
-2ITC,5,5,Cacucci A.,Scienze Integrate Chimica,,,
+2ITC,5,1,Cacucci A.,Scienze Integrate Chimica,,,
 2ITE,1,4,Cacucci A.,Scienze Integrate Chimica,Chimica,Bellino Maria G.,Scienze Integrate Chimica
-2ITE,2,4,Cacucci A.,Scienze Integrate Chimica,,,
-2ITE,4,4,Cacucci A.,Scienze Integrate Chimica,,,
-2ITF,1,7,Cacucci A.,Scienze Integrate Chimica,,,
-2ITF,2,1,Cacucci A.,Scienze Integrate Chimica,,,
+2ITE,1,5,Cacucci A.,Scienze Integrate Chimica,,,
+2ITE,2,3,Cacucci A.,Scienze Integrate Chimica,,,
+2ITF,1,1,Cacucci A.,Scienze Integrate Chimica,,,
+2ITF,2,4,Cacucci A.,Scienze Integrate Chimica,,,
 2ITF,5,3,Cacucci A.,Scienze Integrate Chimica,Chimica,Bellino Maria G.,Scienze Integrate Chimica
 1ITD,1,2,Calabritto P.,Inglese,,,
 1ITD,4,2,Calabritto P.,Inglese,,,
@@ -1633,7 +1633,7 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 1ITB,3,3,De Mario A.,Italiano e Storia,,,
 1ITB,4,3,De Mario A.,Italiano e Storia,,,
 1ITB,4,4,De Mario A.,Italiano e Storia,,,
-1ITB,5,5,De Mario A.,Italiano e Storia,,,
+1ITB,5,2,De Mario A.,Italiano e Storia,,,
 1MB,1,2,De Mario A.,Italiano e Storia,,,
 1MB,1,3,De Mario A.,Italiano e Storia,,,
 1MB,2,1,De Mario A.,Italiano e Storia,,,
@@ -1646,30 +1646,30 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 2ITB,4,6,De Mario A.,Italiano e Storia,,,
 2ITB,4,7,De Mario A.,Italiano e Storia,,,
 2ITB,5,1,De Mario A.,Italiano e Storia,,,
-1ITA,1,4,De Michele V.,TTRG,,,
+1ITA,1,1,De Michele V.,TTRG,,,
 1ITA,2,3,De Michele V.,TTRG,TTRG - Tecnologie e Disegno,Montemurro G.,TTRG
-1ITA,4,1,De Michele V.,TTRG,,,
+1ITA,3,7,De Michele V.,TTRG,,,
+1ITD,1,3,De Michele V.,TTRG,,,
 1ITD,2,1,De Michele V.,TTRG,,,
 1ITD,3,5,De Michele V.,TTRG,TTRG - Tecnologie e Disegno,Pellegrini T.,TTRG
-1ITD,5,2,De Michele V.,TTRG,,,
 2ITA,2,2,De Michele V.,TTRG,,,
 2ITA,3,6,De Michele V.,TTRG,,,
 2ITA,5,1,De Michele V.,TTRG,TTRG - Tecnologie e Disegno,Montemurro G.,TTRG
 2ITD,2,5,De Michele V.,TTRG,,,
 2ITD,4,2,De Michele V.,TTRG,TTRG - Tecnologie e Disegno,Pellegrini T.,TTRG
-2ITD,5,3,De Michele V.,TTRG,,,
-2ITE,1,5,De Michele V.,TTRG,,,
+2ITD,5,2,De Michele V.,TTRG,,,
+2ITE,1,2,De Michele V.,TTRG,,,
 2ITE,3,4,De Michele V.,TTRG,TTRG - Tecnologie e Disegno,Gaudio M.,TTRG
-2ITE,5,4,De Michele V.,TTRG,,,
+2ITE,4,3,De Michele V.,TTRG,,,
 2ITE,2,5,De Pasquale G.,STA,,,
 2ITE,3,5,De Pasquale G.,STA,,,
 2ITE,4,5,De Pasquale G.,STA,,,
-1ITA,2,4,De Santis A.,Tecnologie Informatiche,,,
+1ITA,1,4,De Santis A.,Tecnologie Informatiche,,,
 1ITA,4,5,De Santis A.,Tecnologie Informatiche,Multimediale - Lamarr,Paglialonga C.,Tecnologie Informatiche
 1ITA,4,6,De Santis A.,Tecnologie Informatiche,Multimediale - Lamarr,Paglialonga C.,Tecnologie Informatiche
 1ITB,3,5,De Santis A.,Tecnologie Informatiche,Multimediale - Lamarr,Italiano R.,Tecnologie Informatiche
 1ITB,3,6,De Santis A.,Tecnologie Informatiche,Multimediale - Lamarr,Italiano R.,Tecnologie Informatiche
-1ITB,5,2,De Santis A.,Tecnologie Informatiche,,,
+1ITB,5,1,De Santis A.,Tecnologie Informatiche,,,
 1ITC,1,2,De Santis A.,Tecnologie Informatiche,Multimediale - Lamarr,Giannini A.,Tecnologie Informatiche
 1ITC,2,2,De Santis A.,Tecnologie Informatiche,Multimediale - Lamarr,Giannini A.,Tecnologie Informatiche
 1ITC,3,3,De Santis A.,Tecnologie Informatiche,,,
@@ -1680,8 +1680,8 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 2ITB,2,1,De Santis A.,STA,,,
 2ITB,5,3,De Santis A.,STA,,,
 2ITC,1,3,De Santis A.,STA,,,
-2ITC,4,3,De Santis A.,STA,,,
-2ITC,5,1,De Santis A.,STA,,,
+2ITC,2,4,De Santis A.,STA,,,
+2ITC,5,5,De Santis A.,STA,,,
 1MC,1,7,Deliso M.,Italiano e Storia,,,
 1MC,2,1,Deliso M.,Italiano e Storia,,,
 1MC,2,2,Deliso M.,Italiano e Storia,,,
@@ -1692,23 +1692,23 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 2MA,3,7,Deliso M.,Storia,,,
 2MD,1,6,Deliso M.,Storia,,,
 2MD,5,1,Deliso M.,Storia,,,
-1ITE,2,2,Desiati L.,Inglese,,,
+1ITE,1,6,Desiati L.,Inglese,,,
 1ITE,3,3,Desiati L.,Inglese,,,
-1ITE,4,3,Desiati L.,Inglese,,,
-1MC,3,4,Desiati L.,Inglese,,,
-1MC,4,5,Desiati L.,Inglese,,,
+1ITE,5,1,Desiati L.,Inglese,,,
+1MC,1,5,Desiati L.,Inglese,,,
+1MC,3,1,Desiati L.,Inglese,,,
 1MC,5,5,Desiati L.,Inglese,,,
-2ITE,1,2,Desiati L.,Inglese,,,
-2ITE,4,2,Desiati L.,Inglese,,,
+2ITE,2,4,Desiati L.,Inglese,,,
+2ITE,4,4,Desiati L.,Inglese,,,
 2ITE,5,2,Desiati L.,Inglese,,,
-2ITF,1,1,Desiati L.,Inglese,,,
-2ITF,2,4,Desiati L.,Inglese,,,
-2ITF,5,6,Desiati L.,Inglese,,,
+2ITF,1,7,Desiati L.,Inglese,,,
+2ITF,2,2,Desiati L.,Inglese,,,
+2ITF,4,5,Desiati L.,Inglese,,,
 2MB,2,6,Desiati L.,Inglese,,,
 2MB,3,2,Desiati L.,Inglese,,,
 2MB,4,1,Desiati L.,Inglese,,,
 2MC,2,3,Desiati L.,Inglese,,,
-2MC,3,1,Desiati L.,Inglese,,,
+2MC,4,2,Desiati L.,Inglese,,,
 2MC,5,3,Desiati L.,Inglese,,,
 1ITC,5,1,Di Lena E.,Scienze motorie e sportive,,,
 1ITC,5,2,Di Lena E.,Scienze motorie e sportive,,,
@@ -1734,23 +1734,23 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 2MD,1,1,Dragonetti Irma A.,Inglese,,,
 2MD,2,1,Dragonetti Irma A.,Inglese,,,
 2MD,4,3,Dragonetti Irma A.,Inglese,,,
-1ITA,1,1,Fanizzi G.,Scienze Integrate Fisica,,,
+1ITA,2,4,Fanizzi G.,Scienze Integrate Fisica,,,
 1ITA,3,5,Fanizzi G.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
-1ITA,4,7,Fanizzi G.,Scienze Integrate Fisica,,,
+1ITA,4,1,Fanizzi G.,Scienze Integrate Fisica,,,
+1ITC,1,6,Fanizzi G.,Scienze Integrate Fisica,,,
 1ITC,2,6,Fanizzi G.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
 1ITC,3,1,Fanizzi G.,Scienze Integrate Fisica,,,
-1ITC,4,6,Fanizzi G.,Scienze Integrate Fisica,,,
 1ITE,1,4,Fanizzi G.,Scienze Integrate Fisica,,,
 1ITE,2,7,Fanizzi G.,Scienze Integrate Fisica,,,
 1ITE,4,4,Fanizzi G.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
 2ITA,3,3,Fanizzi G.,Scienze Integrate Fisica,,,
 2ITA,3,4,Fanizzi G.,Scienze Integrate Fisica,,,
 2ITA,5,3,Fanizzi G.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
-2ITC,1,2,Fanizzi G.,Scienze Integrate Fisica,,,
-2ITC,2,4,Fanizzi G.,Scienze Integrate Fisica,,,
+2ITC,2,3,Fanizzi G.,Scienze Integrate Fisica,,,
+2ITC,4,3,Fanizzi G.,Scienze Integrate Fisica,,,
 2ITC,5,2,Fanizzi G.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
 2ITE,1,3,Fanizzi G.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
-2ITE,2,3,Fanizzi G.,Scienze Integrate Fisica,,,
+2ITE,4,2,Fanizzi G.,Scienze Integrate Fisica,,,
 2ITE,5,1,Fanizzi G.,Scienze Integrate Fisica,,,
 1GA,2,1,Fatone Maria T.,Scienze Integrate Scienze della Terra,,,
 1GA,2,2,Fatone Maria T.,Scienze Integrate Scienze della Terra,,,
@@ -1907,12 +1907,12 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 2MC,2,1,Marino V.,Matematica,,,
 2MC,4,5,Marino V.,Matematica,,,
 2MC,5,6,Marino V.,Matematica,,,
-1GA,1,5,Minerva Immacolata A.,Religione cattolica,,,
+1GA,4,5,Minerva Immacolata A.,Religione cattolica,,,
 1ITB,4,1,Minerva Immacolata A.,Religione cattolica,,,
-1ITE,1,6,Minerva Immacolata A.,Religione cattolica,,,
-2ITE,4,3,Minerva Immacolata A.,Religione cattolica,,,
+1ITE,4,3,Minerva Immacolata A.,Religione cattolica,,,
+2ITE,5,4,Minerva Immacolata A.,Religione cattolica,,,
 2ITF,4,2,Minerva Immacolata A.,Religione cattolica,,,
-2MD,1,7,Minerva Immacolata A.,Religione cattolica,,,
+2MD,5,3,Minerva Immacolata A.,Religione cattolica,,,
 1ITE,1,1,Montefinese P.,Italiano e Storia,,,
 1ITE,1,2,Montefinese P.,Italiano e Storia,,,
 1ITE,4,5,Montefinese P.,Italiano e Storia,,,
@@ -1980,18 +1980,18 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 1ITA,4,6,Paglialonga C.,Tecnologie Informatiche,Multimediale - Lamarr,Paglialonga C.,Tecnologie Informatiche
 1GA,2,7,Pagone T.,TTRG,TTRG - Tecnologie e Disegno,Montemurro G.,TTRG
 1GA,3,2,Pagone T.,TTRG,,,
-1GA,4,5,Pagone T.,TTRG,,,
+1GA,4,7,Pagone T.,TTRG,,,
 1MB,2,5,Pagone T.,TTRG,,,
 1MB,4,6,Pagone T.,TTRG,,,
 1MB,5,2,Pagone T.,TTRG,TTRG - Tecnologie e Disegno,Montemurro G.,TTRG
 1MC,1,3,Pagone T.,TTRG,,,
-1MC,3,1,Pagone T.,TTRG,,,
 1MC,4,4,Pagone T.,TTRG,TTRG - Tecnologie e Disegno,Vatinno D.,TTRG
+1MC,4,5,Pagone T.,TTRG,,,
 2MB,1,1,Pagone T.,TTRG,,,
 2MB,5,3,Pagone T.,TTRG,,,
 2MB,5,4,Pagone T.,TTRG,TTRG - Tecnologie e Disegno,Montemurro G.,TTRG
 2MC,2,6,Pagone T.,TTRG,TTRG - Tecnologie e Disegno,Montemurro G.,TTRG
-2MC,4,2,Pagone T.,TTRG,,,
+2MC,3,1,Pagone T.,TTRG,,,
 2MC,5,1,Pagone T.,TTRG,,,
 1ITD,3,5,Pellegrini T.,TTRG,TTRG - Tecnologie e Disegno,Pellegrini T.,TTRG
 2ITD,4,2,Pellegrini T.,TTRG,TTRG - Tecnologie e Disegno,Pellegrini T.,TTRG
@@ -2049,26 +2049,26 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 1GA,3,1,Salvemini M.,Scienze Integrate Fisica,,,
 1ITB,2,5,Salvemini M.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
 1ITB,4,7,Salvemini M.,Scienze Integrate Fisica,,,
-1ITB,5,1,Salvemini M.,Scienze Integrate Fisica,,,
+1ITB,5,5,Salvemini M.,Scienze Integrate Fisica,,,
 1ITD,2,4,Salvemini M.,Scienze Integrate Fisica,,,
 1ITD,3,4,Salvemini M.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
 1ITD,4,4,Salvemini M.,Scienze Integrate Fisica,,,
 2ITD,1,3,Salvemini M.,Scienze Integrate Fisica,,,
 2ITD,3,3,Salvemini M.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
-2ITD,5,2,Salvemini M.,Scienze Integrate Fisica,,,
+2ITD,5,3,Salvemini M.,Scienze Integrate Fisica,,,
 2ITF,1,2,Salvemini M.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
-2ITF,2,2,Salvemini M.,Scienze Integrate Fisica,,,
-2ITF,4,5,Salvemini M.,Scienze Integrate Fisica,,,
+2ITF,2,1,Salvemini M.,Scienze Integrate Fisica,,,
+2ITF,5,6,Salvemini M.,Scienze Integrate Fisica,,,
 2MD,3,2,Salvemini M.,Scienze Integrate Fisica,,,
 2MD,4,6,Salvemini M.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
-2MD,5,3,Salvemini M.,Scienze Integrate Fisica,,,
-1GA,3,7,Saracino Maria R.,Scienze Integrate Chimica,,,
+2MD,5,7,Salvemini M.,Scienze Integrate Fisica,,,
+1GA,1,5,Saracino Maria R.,Scienze Integrate Chimica,,,
 1GA,4,1,Saracino Maria R.,Scienze Integrate Chimica,,,
 1GA,5,4,Saracino Maria R.,Scienze Integrate Chimica,Chimica,Bellino Maria G.,Scienze Integrate Chimica
 1MA,1,6,Saracino Maria R.,Scienze Integrate Chimica,Chimica,Bellino Maria G.,Scienze Integrate Chimica
 1MA,2,3,Saracino Maria R.,Scienze Integrate Chimica,,,
 1MA,5,3,Saracino Maria R.,Scienze Integrate Chimica,,,
-1MC,1,5,Saracino Maria R.,Scienze Integrate Chimica,,,
+1MC,3,4,Saracino Maria R.,Scienze Integrate Chimica,,,
 1MC,4,2,Saracino Maria R.,Scienze Integrate Chimica,Chimica,Bellino Maria G.,Scienze Integrate Chimica
 1MC,5,1,Saracino Maria R.,Scienze Integrate Chimica,,,
 2MA,1,3,Saracino Maria R.,Scienze Integrate Chimica,,,
@@ -2201,8 +2201,8 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5MB,5,1,Altieri G.,TMPP,,,
 3TA,2,5,Amoruso R.,Italiano e Storia,,,
 3TA,2,6,Amoruso R.,Italiano e Storia,,,
+3TA,3,3,Amoruso R.,Italiano e Storia,,,
 3TA,3,4,Amoruso R.,Italiano e Storia,,,
-3TA,3,5,Amoruso R.,Italiano e Storia,,,
 3TA,4,5,Amoruso R.,Italiano e Storia,,,
 3TA,4,6,Amoruso R.,Italiano e Storia,,,
 3MB,1,6,Anifantis A.,MME,,,
@@ -2227,29 +2227,29 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5MB,3,3,Anifantis A.,MME,,,
 5MB,4,1,Anifantis A.,MME,,,
 5MB,4,2,Anifantis A.,Sistemi e automazione,,,
-3TA,3,6,Annese D.,Telecomunicazioni,Telecomunicazioni,Annese D.,Telecomunicazioni
 3TA,3,7,Annese D.,Telecomunicazioni,Telecomunicazioni,Annese D.,Telecomunicazioni
 3TA,4,3,Annese D.,Telecomunicazioni,Telecomunicazioni,Annese D.,Telecomunicazioni
+3TA,4,4,Annese D.,Telecomunicazioni,Telecomunicazioni,Annese D.,Telecomunicazioni
 3TA,5,3,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
 3TA,5,4,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
 3TB,1,5,Annese D.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
-3TB,4,4,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-3TB,4,5,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+3TB,3,5,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+3TB,3,6,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
 4TA,2,2,Annese D.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
 4TA,2,3,Annese D.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
-4TA,3,4,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-4TA,3,5,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+4TA,4,5,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+4TA,4,6,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
 5TA,1,2,Annese D.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
 5TA,1,3,Annese D.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
 5TA,2,1,Annese D.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
-5TA,4,7,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+5TA,3,3,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
 5TA,5,1,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
 5TA,5,2,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-3TB,1,2,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-3TB,1,3,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+3TB,3,1,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+3TB,3,2,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
 3TB,5,7,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
 4TA,1,1,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-4TA,5,3,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+4TA,1,2,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
 4TA,5,4,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
 5TA,3,4,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
 5TA,3,5,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
@@ -2396,10 +2396,10 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 3TA,3,1,De Benedictis M.,TPSIT,,,
 3TA,5,1,De Benedictis M.,TPSIT,,,
 4TA,1,1,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-4TA,1,2,De Benedictis M.,Telecomunicazioni,,,
+4TA,1,2,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
 4TA,2,7,De Benedictis M.,Telecomunicazioni,,,
 4TA,3,6,De Benedictis M.,Telecomunicazioni,,,
-4TA,5,3,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+4TA,5,3,De Benedictis M.,Telecomunicazioni,,,
 4TA,5,4,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
 5TA,2,6,De Benedictis M.,Telecomunicazioni,,,
 5TA,3,4,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
@@ -2437,10 +2437,10 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5MA,5,1,De Filippis A.,Italiano e Storia,,,
 5MA,5,2,De Filippis A.,Italiano e Storia,,,
 3TA,2,4,De Pasquale G.,Telecomunicazioni,,,
-3TA,3,6,De Pasquale G.,Telecomunicazioni,Telecomunicazioni,Annese D.,Telecomunicazioni
+3TA,3,6,De Pasquale G.,Telecomunicazioni,,,
 3TA,3,7,De Pasquale G.,Telecomunicazioni,Telecomunicazioni,Annese D.,Telecomunicazioni
 3TA,4,3,De Pasquale G.,Telecomunicazioni,Telecomunicazioni,Annese D.,Telecomunicazioni
-3TA,4,4,De Pasquale G.,Telecomunicazioni,,,
+3TA,4,4,De Pasquale G.,Telecomunicazioni,Telecomunicazioni,Annese D.,Telecomunicazioni
 3TA,5,2,De Pasquale G.,Telecomunicazioni,,,
 3TB,1,5,De Pasquale G.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
 3TB,1,6,De Pasquale G.,TPSIT,,,
@@ -2459,8 +2459,8 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5MA,1,4,Di Lena E.,Scienze motorie e sportive,,,
 5MA,1,5,Di Lena E.,Scienze motorie e sportive,,,
 3TB,1,1,Di Virgilio E.,Inglese,,,
+3TB,1,2,Di Virgilio E.,Inglese,,,
 3TB,2,1,Di Virgilio E.,Inglese,,,
-3TB,3,2,Di Virgilio E.,Inglese,,,
 3EA,1,5,Dragonetti Irma A.,Inglese,,,
 3EA,1,6,Dragonetti Irma A.,Inglese,,,
 3EA,5,6,Dragonetti Irma A.,Inglese,,,
@@ -2469,10 +2469,10 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 4EA,3,2,Dragonetti Irma A.,Inglese,,,
 3TB,5,4,Fusilli G.,Scienze motorie e sportive,,,
 3TB,5,5,Fusilli G.,Scienze motorie e sportive,,,
-3TB,3,5,Gallo M.,Sistemi e Reti,,,
-3TB,3,6,Gallo M.,Sistemi e Reti,,,
-3TB,4,4,Gallo M.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-3TB,4,5,Gallo M.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+3TB,3,5,Gallo M.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+3TB,3,6,Gallo M.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+3TB,4,4,Gallo M.,Sistemi e Reti,,,
+3TB,4,5,Gallo M.,Sistemi e Reti,,,
 3MA,5,3,Gaudio M.,DPOI,CAD 2,Gaudio M.,DPOI
 3MA,5,4,Gaudio M.,DPOI,CAD 2,Gaudio M.,DPOI
 3MC,1,3,Gaudio M.,TMPP,Macchine utensili,Gaudio M.,TMPP
@@ -2543,28 +2543,28 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5MA,4,2,Lupis G.,TMPP,,,
 5MA,5,6,Lupis G.,TMPP,Macchine utensili,Pellegrini T.,TMPP
 5MA,5,7,Lupis G.,TMPP,Macchine utensili,Pellegrini T.,TMPP
-3TA,3,2,Mancazzo D.,Sistemi e Reti,,,
-3TA,3,3,Mancazzo D.,Sistemi e Reti,,,
+3TA,3,5,Mancazzo D.,Sistemi e Reti,,,
+3TA,4,7,Mancazzo D.,Sistemi e Reti,,,
 3TA,5,3,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
 3TA,5,4,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-3TB,1,2,Mancazzo D.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-3TB,1,3,Mancazzo D.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+3TB,1,3,Mancazzo D.,Telecomunicazioni,,,
+3TB,1,4,Mancazzo D.,Telecomunicazioni,,,
 3TB,2,5,Mancazzo D.,Telecomunicazioni,,,
-3TB,3,1,Mancazzo D.,Telecomunicazioni,,,
-3TB,4,6,Mancazzo D.,Telecomunicazioni,,,
+3TB,3,1,Mancazzo D.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+3TB,3,2,Mancazzo D.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
 3TB,5,7,Mancazzo D.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
 4TA,2,6,Mancazzo D.,Sistemi e Reti,,,
-4TA,3,4,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-4TA,3,5,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+4TA,4,5,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+4TA,4,6,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
 4TA,5,6,Mancazzo D.,Sistemi e Reti,,,
 5TA,1,1,Mancazzo D.,Sistemi e Reti,,,
-5TA,4,7,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+5TA,3,3,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
 5TA,5,1,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
 5TA,5,2,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
 5TA,2,4,Marino V.,Matematica,,,
 5TA,2,5,Marino V.,Matematica,,,
 5TA,5,4,Marino V.,Matematica,,,
-3TB,1,4,Minerva Immacolata A.,Religione cattolica,,,
+3TB,4,6,Minerva Immacolata A.,Religione cattolica,,,
 4MB,2,3,Minutiello I.,Inglese,,,
 4MB,5,4,Minutiello I.,Inglese,,,
 4MB,5,5,Minutiello I.,Inglese,,,
@@ -2592,15 +2592,15 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 4TA,1,5,Montefinese P.,Italiano e Storia,,,
 4TA,1,6,Montefinese P.,Italiano e Storia,,,
 4TA,2,1,Montefinese P.,Italiano e Storia,,,
+4TA,3,4,Montefinese P.,Italiano e Storia,,,
+4TA,3,5,Montefinese P.,Italiano e Storia,,,
 4TA,4,3,Montefinese P.,Italiano e Storia,,,
-4TA,4,4,Montefinese P.,Italiano e Storia,,,
-4TA,5,5,Montefinese P.,Italiano e Storia,,,
 5TA,1,4,Montefinese P.,Italiano e Storia,,,
 5TA,2,2,Montefinese P.,Italiano e Storia,,,
 5TA,2,3,Montefinese P.,Italiano e Storia,,,
 5TA,3,1,Montefinese P.,Italiano e Storia,,,
 5TA,3,2,Montefinese P.,Italiano e Storia,,,
-5TA,5,3,Montefinese P.,Italiano e Storia,,,
+5TA,4,7,Montefinese P.,Italiano e Storia,,,
 3TB,2,4,Moro K.,Italiano e Storia,,,
 3TB,3,4,Moro K.,Italiano e Storia,,,
 3TB,4,1,Moro K.,Italiano e Storia,,,
@@ -2623,10 +2623,10 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 3MC,1,4,Papagna A.,TMPP,Macchine utensili,Gaudio M.,TMPP
 3MC,3,1,Papagna A.,DPOI,CAD 2,Simone G.,DPOI
 3MC,3,2,Papagna A.,DPOI,CAD 2,Simone G.,DPOI
-3MC,4,5,Papagna A.,TMPP,,,
+3MC,4,5,Papagna A.,DPOI,,,
 3MC,4,6,Papagna A.,TMPP,Macchine utensili,Gaudio M.,TMPP
 3MC,5,5,Papagna A.,TMPP,,,
-3MC,5,6,Papagna A.,DPOI,,,
+3MC,5,6,Papagna A.,TMPP,,,
 4MC,2,6,Papagna A.,TMPP,Macchine utensili,Buonsante I.,TMPP
 4MC,2,7,Papagna A.,TMPP,Macchine utensili,Buonsante I.,TMPP
 4MC,4,1,Papagna A.,TMPP,,,
@@ -2637,15 +2637,15 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5MC,4,3,Papagna A.,TMPP,,,
 5MC,5,1,Papagna A.,TMPP,Macchine utensili,Gaudio M.,TMPP
 5MC,5,2,Papagna A.,TMPP,Macchine utensili,Gaudio M.,TMPP
+3TA,3,2,Pecoraro Maria T.,Inglese,,,
 3TA,4,1,Pecoraro Maria T.,Inglese,,,
 3TA,5,6,Pecoraro Maria T.,Inglese,,,
-3TA,5,7,Pecoraro Maria T.,Inglese,,,
 4TA,3,1,Pecoraro Maria T.,Inglese,,,
-4TA,4,5,Pecoraro Maria T.,Inglese,,,
-4TA,4,6,Pecoraro Maria T.,Inglese,,,
-5TA,3,3,Pecoraro Maria T.,Inglese,,,
+4TA,4,4,Pecoraro Maria T.,Inglese,,,
+4TA,5,5,Pecoraro Maria T.,Inglese,,,
 5TA,4,2,Pecoraro Maria T.,Inglese,,,
 5TA,4,3,Pecoraro Maria T.,Inglese,,,
+5TA,5,3,Pecoraro Maria T.,Inglese,,,
 3MA,2,3,Pellegrini T.,TMPP,Macchine utensili,Pellegrini T.,TMPP
 3MA,4,4,Pellegrini T.,TMPP,Macchine utensili,Pellegrini T.,TMPP
 3MA,4,5,Pellegrini T.,TMPP,Macchine utensili,Pellegrini T.,TMPP
@@ -2734,24 +2734,24 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 4MB,2,5,Vatinno D.,MME,Macchine a fluido (2° piano-aula 4),Vatinno D.,MME
 3EA,1,1,Vavallo D.,MME,Macchine a fluido (2° piano-aula 4),Vatinno D.,MME
 3EA,1,2,Vavallo D.,MME,Macchine a fluido (2° piano-aula 4),Vatinno D.,MME
-3EA,2,1,Vavallo D.,MME,,,
-3EA,2,2,Vavallo D.,MME,,,
+3EA,2,1,Vavallo D.,IEDP,,,
+3EA,2,2,Vavallo D.,IEDP,,,
 3EA,3,6,Vavallo D.,IEDP,,,
-3EA,4,6,Vavallo D.,IEDP,,,
-3EA,5,2,Vavallo D.,IEDP,,,
+3EA,4,6,Vavallo D.,MME,,,
+3EA,5,2,Vavallo D.,MME,,,
 3EA,5,3,Vavallo D.,MME,Macchine a fluido (2° piano-aula 4),Vatinno D.,MME
-4EA,1,4,Vavallo D.,MME,,,
+4EA,1,4,Vavallo D.,IEDP,,,
 4EA,1,5,Vavallo D.,MME,Macchine a fluido (2° piano-aula 4),Vatinno D.,MME
 4EA,1,6,Vavallo D.,MME,Macchine a fluido (2° piano-aula 4),Vatinno D.,MME
-4EA,2,4,Vavallo D.,MME,,,
+4EA,2,4,Vavallo D.,IEDP,,,
 4EA,2,5,Vavallo D.,IEDP,,,
 4EA,2,6,Vavallo D.,IEDP,CAD 2,Simone G.,IEDP
 4EA,2,7,Vavallo D.,IEDP,CAD 2,Simone G.,IEDP
-4EA,3,3,Vavallo D.,IEDP,,,
+4EA,3,3,Vavallo D.,MME,,,
 4EA,3,4,Vavallo D.,TMPP,Macchine utensili,Buonsante I.,TMPP
 4EA,3,5,Vavallo D.,TMPP,Macchine utensili,Buonsante I.,TMPP
 4EA,4,5,Vavallo D.,MME,Macchine a fluido (2° piano-aula 4),Vatinno D.,MME
-4EA,5,1,Vavallo D.,IEDP,,,
+4EA,5,1,Vavallo D.,MME,,,
 3EA,2,5,Vitale G.,Matematica e CM,,,
 3EA,3,4,Vitale G.,Matematica e CM,,,
 3EA,3,5,Vitale G.,Matematica e CM,,,
