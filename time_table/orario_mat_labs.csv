@@ -478,9 +478,9 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5SF,2,6,Barbanente M.,Fisica,,,
 5SF,4,1,Barbanente M.,Fisica,,,
 5SF,4,2,Barbanente M.,Fisica,,,
-1TrED,2,5,Battino B.,Scienze naturali,,,
+1TrED,2,5,Battino B.,Scienze naturali,Chimica_Liceo,Battino B.,Scienze naturali
 1TrED,2,6,Battino B.,Scienze naturali,,,
-1TrED,4,7,Battino B.,Scienze naturali,Chimica_Liceo,Battino B.,Scienze naturali
+1TrED,4,7,Battino B.,Scienze naturali,,,
 3TrED,2,2,Battino B.,Scienze naturali,,,
 3TrED,4,4,Battino B.,Scienze naturali,,,
 3TrED,4,5,Battino B.,Scienze naturali,Chimica_Liceo,Battino B.,Scienze naturali
@@ -533,7 +533,7 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 3TrED,4,3,Campanale D.,Religione cattolica,,,
 4TrED,4,6,Campanale D.,Religione cattolica,,,
 1TrED,1,7,Carnimeo L.,Scienze naturali,,,
-1TrED,2,5,Carnimeo L.,Scienze naturali,,,
+1TrED,2,5,Carnimeo L.,Scienze naturali,Chimica_Liceo,Battino B.,Scienze naturali
 1TrED,5,5,Carnimeo L.,Scienze naturali,,,
 2SD,2,3,Carnimeo L.,Scienze naturali,,,
 2SD,4,3,Carnimeo L.,Scienze naturali,,,
@@ -602,8 +602,8 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5SD,1,1,Cecalupo C.,Spagnolo,,,
 5SD,2,1,Cecalupo C.,Spagnolo,,,
 5SD,5,4,Cecalupo C.,Spagnolo,,,
-1SE,1,4,Ciavarella F.,Scienze naturali,,,
-1SE,2,5,Ciavarella F.,Scienze naturali,Chimica_Liceo,Ciavarella F.,Scienze naturali
+1SE,1,4,Ciavarella F.,Scienze naturali,Chimica_Liceo,Ciavarella F.,Scienze naturali
+1SE,2,5,Ciavarella F.,Scienze naturali,,,
 1SE,4,5,Ciavarella F.,Scienze naturali,,,
 3SC,1,2,Ciavarella F.,Scienze naturali,,,
 3SC,2,6,Ciavarella F.,Scienze naturali,,,
