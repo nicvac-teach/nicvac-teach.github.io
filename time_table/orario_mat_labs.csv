@@ -427,8 +427,8 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 4SD,5,6,Andreazza L.,Informatica,,,
 4TrED,2,2,Andreazza L.,Informatica,,,
 4TrED,4,4,Andreazza L.,Informatica,,,
+1SA,1,4,Arcamone F.,Matematica,,,
 1SA,1,5,Arcamone F.,Matematica,,,
-1SA,2,5,Arcamone F.,Matematica,,,
 1SA,3,1,Arcamone F.,Matematica,,,
 1SA,3,2,Arcamone F.,Matematica,,,
 1SA,4,4,Arcamone F.,Matematica,,,
@@ -437,14 +437,14 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 1SE,4,1,Arcamone F.,Matematica,,,
 1SE,5,5,Arcamone F.,Matematica,,,
 1SE,5,6,Arcamone F.,Matematica,,,
-2SA,1,2,Arcamone F.,Matematica,,,
 2SA,1,3,Arcamone F.,Matematica,,,
 2SA,2,3,Arcamone F.,Matematica,,,
+2SA,4,2,Arcamone F.,Matematica,,,
 2SA,4,3,Arcamone F.,Matematica,,,
 2SE,1,1,Arcamone F.,Matematica,,,
 2SE,2,6,Arcamone F.,Matematica,,,
+2SE,5,2,Arcamone F.,Matematica,,,
 2SE,5,3,Arcamone F.,Matematica,,,
-2SE,5,4,Arcamone F.,Matematica,,,
 1SF,3,1,Avolio P.,Fisica,,,
 1SF,5,1,Avolio P.,Fisica,,,
 1TrED,1,6,Avolio P.,Fisica,,,
@@ -492,29 +492,29 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5SF,1,6,Battino B.,Scienze naturali,,,
 5SF,2,1,Battino B.,Scienze naturali,,,
 2SA,1,1,Benagiano P.,Italiano,,,
+2SA,1,2,Benagiano P.,Italiano,,,
+2SA,3,4,Benagiano P.,Italiano,,,
 2SA,3,5,Benagiano P.,Italiano,,,
-2SA,3,6,Benagiano P.,Italiano,,,
-2SA,5,3,Benagiano P.,Italiano,,,
 2SC,1,3,Benagiano P.,Storia e geografia,,,
-2SC,2,5,Benagiano P.,Storia e geografia,,,
-2SC,4,6,Benagiano P.,Storia e geografia,,,
-1SA,1,4,Biancofiore F.,Inglese,,,
+2SC,1,4,Benagiano P.,Storia e geografia,,,
+2SC,3,6,Benagiano P.,Storia e geografia,,,
+1SA,2,5,Biancofiore F.,Inglese,,,
 1SA,3,4,Biancofiore F.,Inglese,,,
 1SA,5,1,Biancofiore F.,Inglese,,,
 2SA,2,4,Biancofiore F.,Inglese,,,
 2SA,4,1,Biancofiore F.,Inglese,,,
-2SA,5,2,Biancofiore F.,Inglese,,,
-3SA,1,3,Biancofiore F.,Inglese,,,
+2SA,5,3,Biancofiore F.,Inglese,,,
+3SA,1,4,Biancofiore F.,Inglese,,,
 3SA,3,5,Biancofiore F.,Inglese,,,
 3SA,5,4,Biancofiore F.,Inglese,,,
 4SA,1,5,Biancofiore F.,Inglese,,,
 4SA,3,2,Biancofiore F.,Inglese,,,
 4SA,4,2,Biancofiore F.,Inglese,,,
+5SA,2,2,Biancofiore F.,Inglese,,,
 5SA,3,1,Biancofiore F.,Inglese,,,
-5SA,4,5,Biancofiore F.,Inglese,,,
 5SA,5,5,Biancofiore F.,Inglese,,,
 5SD,1,6,Biancofiore F.,Inglese,,,
-5SD,2,5,Biancofiore F.,Inglese,,,
+5SD,2,6,Biancofiore F.,Inglese,,,
 5SD,4,3,Biancofiore F.,Inglese,,,
 2TrED,2,2,Biasi A.,Disegno e storia dell'Arte,,,
 2TrED,3,5,Biasi A.,Disegno e storia dell'Arte,,,
@@ -536,8 +536,8 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 1TrED,4,5,Carnimeo L.,Scienze naturali,,,
 1TrED,5,5,Carnimeo L.,Scienze naturali,,,
 2SD,1,3,Carnimeo L.,Scienze naturali,,,
-2SD,4,3,Carnimeo L.,Scienze naturali,Chimica_Liceo,Carnimeo L.,Scienze naturali
-2SD,4,4,Carnimeo L.,Scienze naturali,,,
+2SD,4,3,Carnimeo L.,Scienze naturali,,,
+2SD,4,4,Carnimeo L.,Scienze naturali,Chimica_Liceo,Carnimeo L.,Scienze naturali
 2SD,5,4,Carnimeo L.,Scienze naturali,,,
 2SE,2,1,Carnimeo L.,Scienze naturali,,,
 2SE,3,1,Carnimeo L.,Scienze naturali,Chimica_Liceo,Carnimeo L.,Scienze naturali
@@ -650,23 +650,23 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 4SD,3,1,Cippone N.,Italiano,,,
 4SD,3,2,Cippone N.,Italiano,,,
 1SA,5,2,Colasuonno M.,Religione cattolica,,,
-1SB,3,4,Colasuonno M.,Religione cattolica,,,
+1SB,3,3,Colasuonno M.,Religione cattolica,,,
 1SC,3,5,Colasuonno M.,Religione cattolica,,,
-1SE,4,2,Colasuonno M.,Religione cattolica,,,
+1SE,1,5,Colasuonno M.,Religione cattolica,,,
 2SA,5,1,Colasuonno M.,Religione cattolica,,,
-2SB,3,1,Colasuonno M.,Religione cattolica,,,
-2SC,4,4,Colasuonno M.,Religione cattolica,,,
-2SE,2,4,Colasuonno M.,Religione cattolica,,,
-3SA,1,4,Colasuonno M.,Religione cattolica,,,
+2SB,2,2,Colasuonno M.,Religione cattolica,,,
+2SC,2,1,Colasuonno M.,Religione cattolica,,,
+2SE,5,4,Colasuonno M.,Religione cattolica,,,
+3SA,1,3,Colasuonno M.,Religione cattolica,,,
 3SB,4,3,Colasuonno M.,Religione cattolica,,,
 3SC,3,2,Colasuonno M.,Religione cattolica,,,
 4SA,5,3,Colasuonno M.,Religione cattolica,,,
-4SB,2,6,Colasuonno M.,Religione cattolica,,,
+4SB,3,6,Colasuonno M.,Religione cattolica,,,
 4SC,1,6,Colasuonno M.,Religione cattolica,,,
-5SA,2,2,Colasuonno M.,Religione cattolica,,,
+5SA,4,5,Colasuonno M.,Religione cattolica,,,
 5SB,4,1,Colasuonno M.,Religione cattolica,,,
 5SC,2,3,Colasuonno M.,Religione cattolica,,,
-5SE,1,5,Colasuonno M.,Religione cattolica,,,
+5SE,4,4,Colasuonno M.,Religione cattolica,,,
 1SB,2,2,Cosso L.,Scienze naturali,,,
 1SB,4,3,Cosso L.,Scienze naturali,,,
 1SB,5,5,Cosso L.,Scienze naturali,Chimica_Liceo,Cosso L.,Scienze naturali
@@ -703,18 +703,18 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5SF,4,5,De Nicolò G.,Matematica,,,
 5SF,4,6,De Nicolò G.,Matematica,,,
 1SC,1,4,De Pasquale C.,Scienze naturali,,,
-1SC,2,2,De Pasquale C.,Scienze naturali,,,
-1SC,3,4,De Pasquale C.,Scienze naturali,Chimica_Liceo,De Pasquale C.,Scienze naturali
-1SD,1,6,De Pasquale C.,Scienze naturali,,,
-1SD,2,3,De Pasquale C.,Scienze naturali,Chimica_Liceo,De Pasquale C.,Scienze naturali
+1SC,2,1,De Pasquale C.,Scienze naturali,Chimica_Liceo,De Pasquale C.,Scienze naturali
+1SC,3,4,De Pasquale C.,Scienze naturali,,,
+1SD,1,6,De Pasquale C.,Scienze naturali,Chimica_Liceo,De Pasquale C.,Scienze naturali
+1SD,2,3,De Pasquale C.,Scienze naturali,,,
 1SD,5,5,De Pasquale C.,Scienze naturali,,,
-2SC,2,1,De Pasquale C.,Scienze naturali,,,
+2SC,2,2,De Pasquale C.,Scienze naturali,,,
 2SC,3,5,De Pasquale C.,Scienze naturali,,,
 2SC,4,1,De Pasquale C.,Scienze naturali,,,
 2SC,4,2,De Pasquale C.,Scienze naturali,Chimica_Liceo,De Pasquale C.,Scienze naturali
 4SC,1,5,De Pasquale C.,Scienze naturali,,,
-4SC,4,3,De Pasquale C.,Scienze naturali,,,
-4SC,4,4,De Pasquale C.,Scienze naturali,Chimica_Liceo,De Pasquale C.,Scienze naturali
+4SC,4,3,De Pasquale C.,Scienze naturali,Chimica_Liceo,De Pasquale C.,Scienze naturali
+4SC,4,4,De Pasquale C.,Scienze naturali,,,
 4SD,3,7,De Pasquale C.,Scienze naturali,,,
 4SD,5,3,De Pasquale C.,Scienze naturali,,,
 4SD,5,4,De Pasquale C.,Scienze naturali,Chimica_Liceo,De Pasquale C.,Scienze naturali
@@ -907,19 +907,19 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 3TrED,4,2,Labbate G.,Filosofia e storia,,,
 3TrED,5,6,Labbate G.,Filosofia e storia,,,
 3TrED,5,7,Labbate G.,Filosofia e storia,,,
-1SB,1,5,Labbe S.,Disegno e storia dell'Arte,,,
-1SB,3,3,Labbe S.,Disegno e storia dell'Arte,,,
-1SC,2,1,Labbe S.,Disegno e storia dell'Arte,,,
+1SB,1,3,Labbe S.,Disegno e storia dell'Arte,,,
+1SB,3,4,Labbe S.,Disegno e storia dell'Arte,,,
+1SC,1,5,Labbe S.,Disegno e storia dell'Arte,,,
 1SC,5,5,Labbe S.,Disegno e storia dell'Arte,,,
-2SB,2,2,Labbe S.,Disegno e storia dell'Arte,,,
+2SB,3,1,Labbe S.,Disegno e storia dell'Arte,,,
 2SB,4,1,Labbe S.,Disegno e storia dell'Arte,,,
-2SC,1,4,Labbe S.,Disegno e storia dell'Arte,,,
+2SC,2,5,Labbe S.,Disegno e storia dell'Arte,,,
 2SC,3,2,Labbe S.,Disegno e storia dell'Arte,,,
 3SB,2,3,Labbe S.,Disegno e storia dell'Arte,,,
 3SB,5,6,Labbe S.,Disegno e storia dell'Arte,,,
 3SC,1,1,Labbe S.,Disegno e storia dell'Arte,,,
 3SC,2,4,Labbe S.,Disegno e storia dell'Arte,,,
-4SB,3,6,Labbe S.,Disegno e storia dell'Arte,,,
+4SB,2,6,Labbe S.,Disegno e storia dell'Arte,,,
 4SB,5,4,Labbe S.,Disegno e storia dell'Arte,,,
 5SB,1,2,Labbe S.,Disegno e storia dell'Arte,,,
 5SB,5,2,Labbe S.,Disegno e storia dell'Arte,,,
@@ -1101,13 +1101,13 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5SE,2,2,Parisi Maria C.,Matematica,,,
 5SE,3,5,Parisi Maria C.,Matematica,,,
 5SE,4,3,Parisi Maria C.,Matematica,,,
-1SB,1,3,Pellegrino M.,Matematica,,,
 1SB,1,4,Pellegrino M.,Matematica,,,
+1SB,1,5,Pellegrino M.,Matematica,,,
 1SB,2,1,Pellegrino M.,Matematica,,,
 1SB,3,2,Pellegrino M.,Matematica,,,
 1SB,4,6,Pellegrino M.,Matematica,,,
-1SC,1,5,Pellegrino M.,Matematica,,,
 1SC,1,6,Pellegrino M.,Matematica,,,
+1SC,2,2,Pellegrino M.,Matematica,,,
 1SC,2,3,Pellegrino M.,Matematica,,,
 1SC,3,1,Pellegrino M.,Matematica,,,
 1SC,5,3,Pellegrino M.,Matematica,,,
@@ -1115,9 +1115,9 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 2SB,4,5,Pellegrino M.,Matematica,,,
 2SB,5,4,Pellegrino M.,Matematica,,,
 2SB,5,5,Pellegrino M.,Matematica,,,
-2SC,2,2,Pellegrino M.,Matematica,,,
 2SC,3,3,Pellegrino M.,Matematica,,,
 2SC,3,4,Pellegrino M.,Matematica,,,
+2SC,4,4,Pellegrino M.,Matematica,,,
 2SC,5,1,Pellegrino M.,Matematica,,,
 1SB,4,1,Pesole E.,Inglese,,,
 1SB,5,1,Pesole E.,Inglese,,,
@@ -1291,8 +1291,8 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 3SF,2,1,Sallustio I.,Scienze naturali,,,
 3SF,3,2,Sallustio I.,Scienze naturali,,,
 3SF,4,3,Sallustio I.,Scienze naturali,,,
-4SE,2,2,Sallustio I.,Scienze naturali,Chimica_Liceo,Sallustio I.,Scienze naturali
-4SE,2,3,Sallustio I.,Scienze naturali,,,
+4SE,2,2,Sallustio I.,Scienze naturali,,,
+4SE,2,3,Sallustio I.,Scienze naturali,Chimica_Liceo,Sallustio I.,Scienze naturali
 4SE,4,4,Sallustio I.,Scienze naturali,,,
 5SE,3,4,Sallustio I.,Scienze naturali,,,
 5SE,5,5,Sallustio I.,Scienze naturali,,,
@@ -1425,22 +1425,22 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5SD,5,6,Vitale E.,Fisica,,,
 1SA,1,2,Vitale L.,Informatica,,,
 1SA,4,1,Vitale L.,Informatica,,,
-1SE,1,5,Vitale L.,Informatica,,,
 1SE,3,5,Vitale L.,Informatica,,,
-2SA,3,4,Vitale L.,Informatica,,,
-2SA,4,2,Vitale L.,Informatica,,,
+1SE,4,2,Vitale L.,Informatica,,,
+2SA,2,6,Vitale L.,Informatica,,,
+2SA,5,2,Vitale L.,Informatica,,,
 2SE,1,4,Vitale L.,Informatica,,,
-2SE,5,2,Vitale L.,Informatica,,,
+2SE,2,4,Vitale L.,Informatica,,,
 3SB,1,1,Vitale L.,Informatica,,,
 3SB,3,3,Vitale L.,Informatica,,,
-3SE,2,7,Vitale L.,Informatica,,,
+3SE,3,7,Vitale L.,Informatica,,,
 3SE,5,3,Vitale L.,Informatica,,,
 4SA,4,3,Vitale L.,Informatica,,,
 4SA,5,1,Vitale L.,Informatica,,,
-5SD,2,6,Vitale L.,Informatica,,,
+5SD,2,5,Vitale L.,Informatica,,,
 5SD,5,5,Vitale L.,Informatica,,,
+5SE,1,5,Vitale L.,Informatica,,,
 5SE,3,6,Vitale L.,Informatica,,,
-5SE,4,4,Vitale L.,Informatica,,,
 1SC,3,2,Vox A.,Inglese,,,
 1SC,4,2,Vox A.,Inglese,,,
 1SC,5,4,Vox A.,Inglese,,,
@@ -2227,34 +2227,34 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5MB,3,3,Anifantis A.,MME,,,
 5MB,4,1,Anifantis A.,MME,,,
 5MB,4,2,Anifantis A.,Sistemi e automazione,,,
-3TA,3,7,Annese D.,Telecomunicazioni,Telecomunicazioni,Annese D.,Telecomunicazioni
+3TA,2,4,Annese D.,Telecomunicazioni,Telecomunicazioni,Annese D.,Telecomunicazioni
 3TA,4,3,Annese D.,Telecomunicazioni,Telecomunicazioni,Annese D.,Telecomunicazioni
 3TA,4,4,Annese D.,Telecomunicazioni,Telecomunicazioni,Annese D.,Telecomunicazioni
+3TA,5,2,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
 3TA,5,3,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-3TA,5,4,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-3TB,1,5,Annese D.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
 3TB,3,5,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
 3TB,3,6,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+3TB,4,7,Annese D.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
+4TA,1,1,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+4TA,1,2,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+4TA,2,1,Annese D.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
 4TA,2,2,Annese D.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
-4TA,2,3,Annese D.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
-4TA,4,5,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-4TA,4,6,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-5TA,1,2,Annese D.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
-5TA,1,3,Annese D.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
-5TA,2,1,Annese D.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
-5TA,3,3,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-5TA,5,1,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-5TA,5,2,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+5TA,2,3,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+5TA,3,3,Annese D.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
+5TA,3,4,Annese D.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
+5TA,4,6,Annese D.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
+5TA,5,5,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+5TA,5,6,Annese D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+3TB,1,3,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+3TB,1,4,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
 3TB,3,1,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-3TB,3,2,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-3TB,5,7,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-4TA,1,1,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-4TA,1,2,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-4TA,5,4,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-5TA,3,4,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-5TA,3,5,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-5TA,5,5,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-5TA,5,6,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+4TA,1,6,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+4TA,1,7,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+4TA,3,2,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+5TA,1,1,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+5TA,1,2,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+5TA,5,1,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+5TA,5,2,Battista G.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
 3EA,2,3,Benagiano P.,Italiano e Storia,,,
 3EA,2,4,Benagiano P.,Italiano e Storia,,,
 3EA,4,3,Benagiano P.,Italiano e Storia,,,
@@ -2340,13 +2340,13 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5MC,3,2,Calabritto P.,Inglese,,,
 3MA,5,1,Campanale D.,Religione cattolica,,,
 3MB,3,3,Campanale D.,Religione cattolica,,,
-3TA,5,5,Campanale D.,Religione cattolica,,,
+3TA,3,5,Campanale D.,Religione cattolica,,,
 4MA,3,1,Campanale D.,Religione cattolica,,,
 4MB,5,6,Campanale D.,Religione cattolica,,,
-4TA,3,2,Campanale D.,Religione cattolica,,,
+4TA,5,4,Campanale D.,Religione cattolica,,,
 5MA,5,3,Campanale D.,Religione cattolica,,,
 5MB,5,2,Campanale D.,Religione cattolica,,,
-5TA,5,7,Campanale D.,Religione cattolica,,,
+5TA,3,2,Campanale D.,Religione cattolica,,,
 3EA,2,6,Carolillo Attilio G.,Sistemi e automazione,"Sistemi, automazioni e robotica (2° piano-aula 5)",Vatinno D.,Sistemi e automazione
 3EA,2,7,Carolillo Attilio G.,Sistemi e automazione,"Sistemi, automazioni e robotica (2° piano-aula 5)",Vatinno D.,Sistemi e automazione
 3EA,3,7,Carolillo Attilio G.,Sistemi e automazione,"Sistemi, automazioni e robotica (2° piano-aula 5)",Vatinno D.,Sistemi e automazione
@@ -2393,20 +2393,20 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 3TB,3,3,Coniglio L.,Matematica e CM,,,
 3TB,4,3,Coniglio L.,Matematica e CM,,,
 3TA,1,4,De Benedictis M.,TPSIT,Sistemi e Tecnologie elettroniche,Cataldi C.,TPSIT
-3TA,3,1,De Benedictis M.,TPSIT,,,
-3TA,5,1,De Benedictis M.,TPSIT,,,
-4TA,1,1,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-4TA,1,2,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-4TA,2,7,De Benedictis M.,Telecomunicazioni,,,
-4TA,3,6,De Benedictis M.,Telecomunicazioni,,,
-4TA,5,3,De Benedictis M.,Telecomunicazioni,,,
-4TA,5,4,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-5TA,2,6,De Benedictis M.,Telecomunicazioni,,,
-5TA,3,4,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-5TA,3,5,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-5TA,4,6,De Benedictis M.,Telecomunicazioni,,,
-5TA,5,5,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-5TA,5,6,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+3TA,5,4,De Benedictis M.,TPSIT,,,
+3TA,5,5,De Benedictis M.,TPSIT,,,
+4TA,1,6,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+4TA,1,7,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+4TA,2,6,De Benedictis M.,Telecomunicazioni,,,
+4TA,3,2,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+4TA,4,5,De Benedictis M.,Telecomunicazioni,,,
+4TA,5,6,De Benedictis M.,Telecomunicazioni,,,
+5TA,1,1,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+5TA,1,2,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+5TA,2,7,De Benedictis M.,Telecomunicazioni,,,
+5TA,3,1,De Benedictis M.,Telecomunicazioni,,,
+5TA,5,1,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+5TA,5,2,De Benedictis M.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
 3MC,1,7,De Fazio T.,Matematica e CM,,,
 3MC,2,3,De Fazio T.,Matematica e CM,,,
 3MC,4,7,De Fazio T.,Matematica e CM,,,
@@ -2436,22 +2436,22 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5MA,4,5,De Filippis A.,Italiano e Storia,,,
 5MA,5,1,De Filippis A.,Italiano e Storia,,,
 5MA,5,2,De Filippis A.,Italiano e Storia,,,
-3TA,2,4,De Pasquale G.,Telecomunicazioni,,,
-3TA,3,6,De Pasquale G.,Telecomunicazioni,,,
-3TA,3,7,De Pasquale G.,Telecomunicazioni,Telecomunicazioni,Annese D.,Telecomunicazioni
+3TA,1,7,De Pasquale G.,Telecomunicazioni,,,
+3TA,2,4,De Pasquale G.,Telecomunicazioni,Telecomunicazioni,Annese D.,Telecomunicazioni
+3TA,3,1,De Pasquale G.,Telecomunicazioni,,,
 3TA,4,3,De Pasquale G.,Telecomunicazioni,Telecomunicazioni,Annese D.,Telecomunicazioni
 3TA,4,4,De Pasquale G.,Telecomunicazioni,Telecomunicazioni,Annese D.,Telecomunicazioni
-3TA,5,2,De Pasquale G.,Telecomunicazioni,,,
-3TB,1,5,De Pasquale G.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
+3TA,5,1,De Pasquale G.,Telecomunicazioni,,,
+3TB,1,5,De Pasquale G.,TPSIT,,,
 3TB,1,6,De Pasquale G.,TPSIT,,,
-3TB,5,1,De Pasquale G.,TPSIT,,,
+3TB,4,7,De Pasquale G.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
+4TA,2,1,De Pasquale G.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
 4TA,2,2,De Pasquale G.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
-4TA,2,3,De Pasquale G.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
-4TA,4,2,De Pasquale G.,TPSIT,,,
-5TA,1,2,De Pasquale G.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
-5TA,1,3,De Pasquale G.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
-5TA,2,1,De Pasquale G.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
-5TA,4,1,De Pasquale G.,TPSIT,,,
+4TA,5,3,De Pasquale G.,TPSIT,,,
+5TA,2,6,De Pasquale G.,TPSIT,,,
+5TA,3,3,De Pasquale G.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
+5TA,3,4,De Pasquale G.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
+5TA,4,6,De Pasquale G.,TPSIT,Sistemi e Tecnologie elettroniche,Annese D.,TPSIT
 3MA,2,6,Di Lena E.,Scienze motorie e sportive,,,
 3MA,2,7,Di Lena E.,Scienze motorie e sportive,,,
 4MA,2,4,Di Lena E.,Scienze motorie e sportive,,,
@@ -2509,14 +2509,14 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 3MC,1,6,Lozupone G.,MME,,,
 3MC,5,1,Lozupone G.,MME,Macchine a fluido (2° piano-aula 4),Buonsante I.,MME
 3MC,5,2,Lozupone G.,MME,Macchine a fluido (2° piano-aula 4),Buonsante I.,MME
-4MC,1,3,Lozupone G.,MME,,,
-4MC,1,4,Lozupone G.,MME,,,
+4MC,1,3,Lozupone G.,DPOI,,,
+4MC,1,4,Lozupone G.,DPOI,,,
 4MC,3,1,Lozupone G.,MME,Macchine a fluido (2° piano-aula 4),Buonsante I.,MME
 4MC,3,2,Lozupone G.,MME,Macchine a fluido (2° piano-aula 4),Buonsante I.,MME
 4MC,4,5,Lozupone G.,DPOI,CAD 2,Simone G.,DPOI
 4MC,4,6,Lozupone G.,DPOI,CAD 2,Simone G.,DPOI
-4MC,5,6,Lozupone G.,DPOI,,,
-4MC,5,7,Lozupone G.,DPOI,,,
+4MC,5,6,Lozupone G.,MME,,,
+4MC,5,7,Lozupone G.,MME,,,
 5MC,1,1,Lozupone G.,MME,,,
 5MC,4,4,Lozupone G.,MME,,,
 5MC,5,4,Lozupone G.,MME,,,
@@ -2525,42 +2525,42 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 3MA,1,4,Lupis G.,MME,Macchine a fluido (2° piano-aula 4),Buonsante I.,MME
 3MA,3,6,Lupis G.,MME,,,
 3MA,5,2,Lupis G.,MME,,,
-4MA,1,5,Lupis G.,MME,,,
-4MA,1,6,Lupis G.,MME,,,
+4MA,1,5,Lupis G.,TMPP,,,
+4MA,1,6,Lupis G.,TMPP,,,
 4MA,2,1,Lupis G.,TMPP,Macchine utensili,Pellegrini T.,TMPP
 4MA,2,2,Lupis G.,TMPP,Macchine utensili,Pellegrini T.,TMPP
-4MA,3,4,Lupis G.,TMPP,,,
-4MA,3,5,Lupis G.,TMPP,,,
+4MA,3,4,Lupis G.,MME,,,
+4MA,3,5,Lupis G.,MME,,,
 4MA,4,3,Lupis G.,TMPP,Macchine utensili,Pellegrini T.,TMPP
 4MA,5,4,Lupis G.,MME,Macchine a fluido (2° piano-aula 4),Buonsante I.,MME
 4MA,5,5,Lupis G.,MME,Macchine a fluido (2° piano-aula 4),Buonsante I.,MME
-5MA,1,2,Lupis G.,MME,,,
+5MA,1,2,Lupis G.,TMPP,,,
 5MA,2,3,Lupis G.,MME,,,
 5MA,2,4,Lupis G.,MME,,,
 5MA,3,1,Lupis G.,TMPP,Macchine utensili,Pellegrini T.,TMPP
 5MA,3,2,Lupis G.,TMPP,Macchine utensili,Pellegrini T.,TMPP
 5MA,4,1,Lupis G.,MME,,,
-5MA,4,2,Lupis G.,TMPP,,,
+5MA,4,2,Lupis G.,MME,,,
 5MA,5,6,Lupis G.,TMPP,Macchine utensili,Pellegrini T.,TMPP
 5MA,5,7,Lupis G.,TMPP,Macchine utensili,Pellegrini T.,TMPP
-3TA,3,5,Mancazzo D.,Sistemi e Reti,,,
+3TA,3,6,Mancazzo D.,Sistemi e Reti,,,
 3TA,4,7,Mancazzo D.,Sistemi e Reti,,,
+3TA,5,2,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
 3TA,5,3,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-3TA,5,4,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-3TB,1,3,Mancazzo D.,Telecomunicazioni,,,
-3TB,1,4,Mancazzo D.,Telecomunicazioni,,,
+3TB,1,3,Mancazzo D.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
+3TB,1,4,Mancazzo D.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
 3TB,2,5,Mancazzo D.,Telecomunicazioni,,,
 3TB,3,1,Mancazzo D.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-3TB,3,2,Mancazzo D.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-3TB,5,7,Mancazzo D.,Telecomunicazioni,Telecomunicazioni,Battista G.,Telecomunicazioni
-4TA,2,6,Mancazzo D.,Sistemi e Reti,,,
-4TA,4,5,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-4TA,4,6,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-4TA,5,6,Mancazzo D.,Sistemi e Reti,,,
-5TA,1,1,Mancazzo D.,Sistemi e Reti,,,
-5TA,3,3,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-5TA,5,1,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
-5TA,5,2,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+3TB,3,2,Mancazzo D.,Telecomunicazioni,,,
+3TB,5,1,Mancazzo D.,Telecomunicazioni,,,
+4TA,1,1,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+4TA,1,2,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+4TA,3,4,Mancazzo D.,Sistemi e Reti,,,
+4TA,4,6,Mancazzo D.,Sistemi e Reti,,,
+5TA,2,3,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+5TA,3,5,Mancazzo D.,Sistemi e Reti,,,
+5TA,5,5,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
+5TA,5,6,Mancazzo D.,Sistemi e Reti,Sistemi e Tecnologie elettroniche,Annese D.,Sistemi e Reti
 5TA,2,4,Marino V.,Matematica,,,
 5TA,2,5,Marino V.,Matematica,,,
 5TA,5,4,Marino V.,Matematica,,,
@@ -2590,17 +2590,17 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 5MB,5,3,Mitolo R.,Italiano e Storia,,,
 5MB,5,4,Mitolo R.,Italiano e Storia,,,
 4TA,1,5,Montefinese P.,Italiano e Storia,,,
-4TA,1,6,Montefinese P.,Italiano e Storia,,,
-4TA,2,1,Montefinese P.,Italiano e Storia,,,
-4TA,3,4,Montefinese P.,Italiano e Storia,,,
+4TA,2,3,Montefinese P.,Italiano e Storia,,,
 4TA,3,5,Montefinese P.,Italiano e Storia,,,
+4TA,3,6,Montefinese P.,Italiano e Storia,,,
+4TA,4,2,Montefinese P.,Italiano e Storia,,,
 4TA,4,3,Montefinese P.,Italiano e Storia,,,
+5TA,1,3,Montefinese P.,Italiano e Storia,,,
 5TA,1,4,Montefinese P.,Italiano e Storia,,,
+5TA,2,1,Montefinese P.,Italiano e Storia,,,
 5TA,2,2,Montefinese P.,Italiano e Storia,,,
-5TA,2,3,Montefinese P.,Italiano e Storia,,,
-5TA,3,1,Montefinese P.,Italiano e Storia,,,
-5TA,3,2,Montefinese P.,Italiano e Storia,,,
-5TA,4,7,Montefinese P.,Italiano e Storia,,,
+5TA,3,7,Montefinese P.,Italiano e Storia,,,
+5TA,4,1,Montefinese P.,Italiano e Storia,,,
 3TB,2,4,Moro K.,Italiano e Storia,,,
 3TB,3,4,Moro K.,Italiano e Storia,,,
 3TB,4,1,Moro K.,Italiano e Storia,,,
