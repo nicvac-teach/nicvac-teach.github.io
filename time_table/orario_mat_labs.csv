@@ -2009,11 +2009,11 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 2ITC,1,5,Peppino N.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
 2ITD,4,4,Peppino N.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
 2ITE,1,6,Peppino N.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
-2ITF,2,6,Peppino N.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
+2ITF,1,2,Peppino N.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
 2MA,5,3,Peppino N.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
 2MB,3,3,Peppino N.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
 2MC,4,3,Peppino N.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
-2MD,4,6,Peppino N.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
+2MD,2,2,Peppino N.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
 1GA,5,5,Perrone M.,Scienze motorie e sportive,,,
 1GA,5,6,Perrone M.,Scienze motorie e sportive,,,
 1MB,1,5,Pesole E.,Inglese,,,
@@ -2056,12 +2056,12 @@ Classe,Giorno,Ora,Docente,Materia,Laboratorio,DocenteLab,DocenteLabMateria
 2ITD,3,3,Salvemini M.,Scienze Integrate Fisica,,,
 2ITD,4,4,Salvemini M.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
 2ITD,5,6,Salvemini M.,Scienze Integrate Fisica,,,
-2ITF,1,2,Salvemini M.,Scienze Integrate Fisica,,,
-2ITF,2,6,Salvemini M.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
+2ITF,1,2,Salvemini M.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
+2ITF,2,6,Salvemini M.,Scienze Integrate Fisica,,,
 2ITF,4,7,Salvemini M.,Scienze Integrate Fisica,,,
-2MD,2,2,Salvemini M.,Scienze Integrate Fisica,,,
+2MD,2,2,Salvemini M.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
 2MD,3,2,Salvemini M.,Scienze Integrate Fisica,,,
-2MD,4,6,Salvemini M.,Scienze Integrate Fisica,Fisica,Peppino N.,Scienze Integrate Fisica
+2MD,4,6,Salvemini M.,Scienze Integrate Fisica,,,
 1GA,2,6,Saracino Maria R.,Scienze Integrate Chimica,,,
 1GA,3,2,Saracino Maria R.,Scienze Integrate Chimica,,,
 1GA,5,4,Saracino Maria R.,Scienze Integrate Chimica,Chimica,Bellino Maria G.,Scienze Integrate Chimica
