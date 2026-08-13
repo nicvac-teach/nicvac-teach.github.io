@@ -144,6 +144,34 @@
             border-color: transparent;
         }
 
+        .local-csv-btn {
+            padding: 12px 20px;
+            background: white;
+            color: #764ba2;
+            border: 2px dashed #764ba2;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.05em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 150px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+        }
+
+        .local-csv-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.2);
+        }
+
+        .local-csv-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
         .search-container {
             display: flex;
             gap: 15px;
@@ -708,7 +736,12 @@
                     <button class="view-btn" data-view="laboratorio" onclick="switchView('laboratorio')">
                         🔬 Vista Laboratorio
                     </button>
+                    <input type="file" id="localCsvFile" accept=".csv,text/csv" style="display: none;">
+                    <label class="local-csv-btn" for="localCsvFile" title="Carica un file orario CSV dal tuo computer">
+                        📁 Carica CSV locale
+                    </label>
                 </div>
+                <div class="local-csv-info" id="localCsvInfo" style="display: none;"></div>
             </div>
             
             <div class="search-container">
@@ -888,6 +921,68 @@
             document.getElementById('scheduleSection').style.display = 'none';
         }
 
+        // Colonne minime richieste in un CSV orario
+        const REQUIRED_CSV_COLUMNS = ['Classe', 'Giorno', 'Ora', 'Docente', 'Materia'];
+
+        // Messaggio sotto i pulsanti di vista relativo al file locale
+        function showLocalCsvInfo(message, isError = false) {
+            const info = document.getElementById('localCsvInfo');
+            info.textContent = message;
+            info.style.color = isError ? '#e53e3e' : '#666';
+            info.style.display = 'block';
+        }
+
+        // Carica un file CSV scelto dall'utente sul disco locale
+        function loadCSVFromFile(file) {
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const text = event.target.result;
+                const header = (text.split(/\r?\n/)[0] || '').split(',').map(c => c.trim());
+                const missing = REQUIRED_CSV_COLUMNS.filter(c => !header.includes(c));
+
+                if (missing.length > 0) {
+                    showLocalCsvInfo(`❌ ${file.name}: file non valido, colonne mancanti (${missing.join(', ')})`, true);
+                    return;
+                }
+
+                parseCSV(text);
+
+                // Reset della selezione corrente e dell'orario visualizzato
+                document.getElementById('searchSelect').value = '';
+                document.getElementById('searchInput').value = '';
+                currentEntity = '';
+                document.getElementById('scheduleSection').style.display = 'none';
+                document.getElementById('searchSection').style.display = 'block';
+
+                const statusIndicator = document.getElementById('statusIndicator');
+                statusIndicator.className = 'status-indicator success';
+                statusIndicator.innerHTML = '✅ Dati caricati dal file locale!';
+                statusIndicator.style.display = 'inline-flex';
+                setTimeout(() => {
+                    statusIndicator.style.display = 'none';
+                }, 3000);
+
+                const messageArea = document.getElementById('messageArea');
+                if (messageArea) messageArea.style.display = 'none';
+
+                showLocalCsvInfo(`📁 File locale in uso: ${file.name} (${csvData.length} righe)`);
+            };
+
+            reader.onerror = function() {
+                showLocalCsvInfo(`❌ Impossibile leggere il file ${file.name}`, true);
+            };
+
+            reader.readAsText(file);
+        }
+
+        document.getElementById('localCsvFile').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) loadCSVFromFile(file);
+            // Permette di ricaricare lo stesso file una seconda volta
+            e.target.value = '';
+        });
+
         // Caricamento automatico del file CSV all'avvio
         window.addEventListener('DOMContentLoaded', function() {
             console.log('App inizializzata. URL CSV:', CSV_URL);
@@ -981,6 +1076,9 @@
             
             // Mostra sempre l'opzione di caricamento manuale
             showManualUpload();
+
+            // Rende comunque raggiungibile il pulsante "Carica CSV locale"
+            document.getElementById('searchSection').style.display = 'block';
             
             // Mostra dettagli errore
             const messageArea = document.getElementById('messageArea') || createMessageArea();
